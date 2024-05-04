@@ -1,0 +1,80 @@
+apiVersion: v1
+baseDomain: dbp.pnb
+compute:
+- hyperthreading: Enabled
+  name: worker
+  replicas: 0
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: prod
+networking:
+  clusterNetwork:
+  - cidr: 10.136.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 10.0.0.0/16
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.32.0.0/16
+platform:
+  none: {}
+fips: false
+pullSecret: '{"auths":{"registry.prod.dbp.pnb:8443": {"auth": "aW5pdDo3TnNtNHR2NUpHcFpYRjJLdzFrcmk5blQweDhQZjZkMw==","email": "dbtd.dbp@pnb.co.in"}}}'
+sshKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKuuwvsAnq8f3+XJSa2j9X1rzOXyH4X6cGnyrPt8FSt7 dbpuser@bastion.prod.dbp.pnb'
+additionalTrustBundle: |
+  -----BEGIN CERTIFICATE-----
+  MIIDxjCCAq6gAwIBAgIUJ05yh9dHWAvZ3Tf7Btw+DxbGPa0wDQYJKoZIhvcNAQEL
+  BQAwezELMAkGA1UEBhMCSU4xDjAMBgNVBAgMBURlbGhpMQ4wDAYDVQQHDAVEZWxo
+  aTEdMBsGA1UECgwUUHVuamFiIE5hdGlvbmFsIEJhbmsxDTALBgNVBAsMBERCVEQx
+  HjAcBgNVBAMMFXJlZ2lzdHJ5LnByb2QuZGJwLnBuYjAeFw0yNDA0MjMxNDA3NTNa
+  Fw0yNTA0MTQxNDA3NTNaMHsxCzAJBgNVBAYTAklOMQ4wDAYDVQQIDAVEZWxoaTEO
+  MAwGA1UEBwwFRGVsaGkxHTAbBgNVBAoMFFB1bmphYiBOYXRpb25hbCBCYW5rMQ0w
+  CwYDVQQLDAREQlREMR4wHAYDVQQDDBVyZWdpc3RyeS5wcm9kLmRicC5wbmIwggEi
+  MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC5pNY7hMQHZKvnpk/FqGwXeQfD
+  xZOb7GqqVcRTcraEtI8pKadbqrto0g3ERK0W8UstF3ypds+tGZrDTVqKndLehuye
+  fgDOFqaRpB+iOwSZVcdUS/3G4jPWr9DNe0osfvBwzeZfSBpxYs8RsSNjL7mulKss
+  9gTV7pV8o3ObGb7mNdYs9zEnW1AVF0bbWZVD9KuyO/ePGYZkyMMwZihd9GdNYDwJ
+  bX9EMXOfeuja233cgpYITmcKEjeS6u0CNvpAhYQOQWG3orvIS6d0l6s+KKiPsfWo
+  jNnw/FgNxz+j/k3Uq/hYBec2V+XcQ5anmUop+6nDInvtwqH6ozvg0r6RDZ+TAgMB
+  AAGjQjBAMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMCYGA1UdEQQfMB2CFXJlZ2lz
+  dHJ5LnByb2QuZGJwLnBuYocECsDoITANBgkqhkiG9w0BAQsFAAOCAQEAAV2zhEgS
+  +CMiVB9b3tR/acWO1gBduGFIoah0knMidG9aIRdqL2oeu2ZV46ViKRrO536hg5NM
+  8nrwC+Za1paHFGqLyLrQpclLn0FtphNI+jpijqE9vkuTO23SJb7TnQ2lmI/1Z0L2
+  2qo6W8qhaak9YGd6ZBPl9UWPKNWyDe8/cTprDWFeZaIjAvEX6rdeZVCAYiQhFvG3
+  oy+ZqVznEvXR67Q93yLtTFCABzaFWYjhOAVPZQjWr9VI5IfArlbztHiUx1SYNikO
+  iiGskuOGfr39KEh2k0+iBNmBrWZ6B1/xMf4NlQFfLfU95aabEOz+LyDgnBdiaOhU
+  jaH5YJfxKU7TOQ==
+  -----END CERTIFICATE-----
+  -----BEGIN CERTIFICATE-----
+  MIID1zCCAr+gAwIBAgIUJFhO+12zJdXEWUqr+7hjlO42ZvYwDQYJKoZIhvcNAQEL
+  BQAwezELMAkGA1UEBhMCSU4xDjAMBgNVBAgMBURlbGhpMQ4wDAYDVQQHDAVEZWxo
+  aTEdMBsGA1UECgwUUHVuamFiIE5hdGlvbmFsIEJhbmsxDTALBgNVBAsMBERCVEQx
+  HjAcBgNVBAMMFXJlZ2lzdHJ5LnByb2QuZGJwLnBuYjAeFw0yNDA0MjMxNDAzMzBa
+  Fw0yNzAyMTExNDAzMzBaMHsxCzAJBgNVBAYTAklOMQ4wDAYDVQQIDAVEZWxoaTEO
+  MAwGA1UEBwwFRGVsaGkxHTAbBgNVBAoMFFB1bmphYiBOYXRpb25hbCBCYW5rMQ0w
+  CwYDVQQLDAREQlREMR4wHAYDVQQDDBVyZWdpc3RyeS5wcm9kLmRicC5wbmIwggEi
+  MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDmahnva0Q61V7hNn/jDzYZj5pS
+  Nm5f3JyZYq//o84zWKkeAYJDlislFjOrOOJu5m4f4GkcVJWmqE3MY2VVS6JXLIIN
+  n7+HfazcjCrlwMwuZEvLC0P2RQ1e8yG+SQ7GljBMiY4PbDwJUJhTDpRnBfFyrG0+
+  Sli1SLAj3ScBy60eFHyeePkz2BhnryLaK07GX+4NHShFCrsA9OwLjHlqlIMabO9r
+  Tx2p2lsElJwjUtVvtNT1snHFY6w8OCipfsKLMOqIlZ2yE0h5JkD9PfrBKJedFKTR
+  wJ7ksLf3kIaTNmguTaoPAxjvImGYwXZxJWZuJ3xYtjfgAd3nOMmBbJaAJtSHAgMB
+  AAGjUzBRMB0GA1UdDgQWBBTKfQIzCMsi4cLJ0iZcACVD36FU5jAfBgNVHSMEGDAW
+  gBTKfQIzCMsi4cLJ0iZcACVD36FU5jAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3
+  DQEBCwUAA4IBAQAB4YppK4WDl3XdcF37kQlYrFEa51PsRG0G6CBdQIONizMuAJgn
+  hb7qzG4EitXL+3l2AM7Gz4ZwkDCGUQbTcCl8nLoh8kt2mRPXrGqWmziS44YIgfCN
+  AKD2IyQVh96Pv/G7SohT8jxlBkpZTdo6+v5rx0sEDO2rakgySH+GVyJCEVF5sRCw
+  DyTF3dKrr3qBeNi6g3jw6cphLs+unDwhesLFukTIbJVpsx4/tdDaAUQj8Ve83EIV
+  NDHYLuSlBrGwKBzE4zUZBM6I7fOz2hbJl2o6ftXhpvit9XjsUzs2V0xDcLNCDE29
+  APF1Lhaqg3ll10I13u1nGEnNWFyHpzDfXvra
+  -----END CERTIFICATE-----
+imageContentSources:
+- mirrors:
+  - registry.prod.dbp.pnb:8443/ocp4/openshift4
+  source: quay.io/openshift-release-dev/ocp-release
+- mirrors:
+  - registry.prod.dbp.pnb:8443/ocp4/openshift4
+  source: quay.io/openshift-release-dev/ocp-v4.0-art-dev

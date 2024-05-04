@@ -1,0 +1,19 @@
+
+
+
+ managementState: Managed
+    s3:
+      bucket: dbp-prod
+      encrypt: true
+      region: us-east-1
+      regionEndpoint: https://dbp.hcpdr.obc.co.in
+      trustedCA:
+        name: user-ca-bundle
+
+
+
+oc edit configs.imageregistry.operator.openshift.io/cluster
+
+
+
+oc create secret generic image-registry-private-configuration-user --from-literal=REGISTRY_STORAGE_S3_ACCESSKEY=ZGJw --from-literal=REGISTRY_STORAGE_S3_SECRETKEY=0ced491b72d42557a9e7ba71debfc866 --namespace openshift-image-registry

@@ -1,0 +1,94 @@
+[core@worker1 ~]$ sudo fdisk /dev/sda
+
+Welcome to fdisk (util-linux 2.32.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table.
+The size of this disk is 8.7 TiB (9598580817920 bytes). DOS partition table format cannot be used on drives for volumes larger than 2199023255040 bytes for 512-byte sectors. Use GUID partition table format (GPT).
+
+Created a new DOS disklabel with disk identifier 0x4242ed0d.
+
+Command (m for help): p
+Disk /dev/sda: 8.7 TiB, 9598580817920 bytes, 18747228160 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 262144 bytes / 1048576 bytes
+Disklabel type: dos
+Disk identifier: 0x4242ed0d
+
+Command (m for help): q
+
+[core@worker1 ~]$ logout
+Connection to worker1.prod.dbp.pnb closed.
+[dbpuser@bastion ~]$ ssh -i ~/.ssh/ocp4 core@worker2.prod.dbp.pnb
+Red Hat Enterprise Linux CoreOS 412.86.202308161343-0
+  Part of OpenShift 4.12, RHCOS is a Kubernetes native operating system
+  managed by the Machine Config Operator (`clusteroperator/machine-config`).
+
+WARNING: Direct SSH access to machines is not recommended; instead,
+make configuration changes via `machineconfig` objects:
+  https://docs.openshift.com/container-platform/4.12/architecture/architecture-rhcos.html
+
+---
+Last login: Thu May  2 16:59:33 2024 from 10.192.242.171
+[systemd]
+Failed Units: 1
+  NetworkManager-wait-online.service
+[core@worker2 ~]$ lsblk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sdb      8:16   0 893.8G  0 disk
+├─sdb1   8:17   0     1M  0 part
+├─sdb2   8:18   0   127M  0 part
+├─sdb3   8:19   0   384M  0 part /boot
+└─sdb4   8:20   0 893.3G  0 part /sysroot
+sdc      8:32   0   8.7T  0 disk
+[core@worker2 ~]$ sudo fdisk /dev/sdc
+
+Welcome to fdisk (util-linux 2.32.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table.
+The size of this disk is 8.7 TiB (9598580817920 bytes). DOS partition table format cannot be used on drives for volumes larger than 2199023255040 bytes for 512-byte sectors. Use GUID partition table format (GPT).
+
+Created a new DOS disklabel with disk identifier 0x173964e4.
+
+Command (m for help): q
+
+[core@worker2 ~]$ logout
+Connection to worker2.prod.dbp.pnb closed.
+[dbpuser@bastion ~]$ ssh -i ~/.ssh/ocp4 core@worker2.prod.dbp.pnb
+Red Hat Enterprise Linux CoreOS 412.86.202308161343-0
+  Part of OpenShift 4.12, RHCOS is a Kubernetes native operating system
+  managed by the Machine Config Operator (`clusteroperator/machine-config`).
+
+WARNING: Direct SSH access to machines is not recommended; instead,
+make configuration changes via `machineconfig` objects:
+  https://docs.openshift.com/container-platform/4.12/architecture/architecture-rhcos.html
+
+---
+Last login: Thu May  2 20:24:49 2024 from 10.192.242.171
+[systemd]
+Failed Units: 1
+  NetworkManager-wait-online.service
+[core@worker2 ~]$ sudo fdisk /dev/sdc
+
+Welcome to fdisk (util-linux 2.32.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table.
+The size of this disk is 8.7 TiB (9598580817920 bytes). DOS partition table format cannot be used on drives for volumes larger than 2199023255040 bytes for 512-byte sectors. Use GUID partition table format (GPT).
+
+Created a new DOS disklabel with disk identifier 0x47ca209e.
+
+Command (m for help): p
+Disk /dev/sdc: 8.7 TiB, 9598580817920 bytes, 18747228160 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 262144 bytes / 1048576 bytes
+Disklabel type: dos
+Disk identifier: 0x47ca209e
+
+Command (m for help):

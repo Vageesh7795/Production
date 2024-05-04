@@ -1,0 +1,19 @@
+Failed to pull image "registry.redhat.io/openshift-logging/logging-curator5-rhel9@sha256:cb9fb6a7c65a68034d587b1295d6b5ee8489a3f23a84f8ba9ae248ef3b590894": rpc error: code = Unknown desc = (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4-openshift-logging-logging-curator5-rhel9@sha256:cb9fb6a7c65a68034d587b1295d6b5ee8489a3f23a84f8ba9ae248ef3b590894: reading manifest sha256:cb9fb6a7c65a68034d587b1295d6b5ee8489a3f23a84f8ba9ae248ef3b590894 in registry.prod.dbp.pnb:8443/ocp4/openshift4-openshift-logging-logging-curator5-rhel9: name unknown: repository not found]): registry.redhat.io/openshift-logging/logging-curator5-rhel9@sha256:cb9fb6a7c65a68034d587b1295d6b5ee8489a3f23a84f8ba9ae248ef3b590894: pinging container registry registry.redhat.io: Get "https://registry.redhat.io/v2/": dial tcp: lookup registry.redhat.io on 10.209.27.104:53: server misbehaving
+
+
+skopeo copy --all docker://registry.redhat.io/openshift-logging/logging-curator5-rhel9@sha256:cb9fb6a7c65a68034d587b1295d6b5ee8489a3f23a84f8ba9ae248ef3b590894 docker://registry.prod.dbp.pnb:8443/ocp4/openshift4-openshift-logging-logging-curator5-rhel9
+
+
+unpack job not completed: Unpack pod(openshift-marketplace/c829763f48a9d0a78bc8592565a98b848c17a2636f7fc9d156a89d5057z4b5b) container(util) is pending. Reason: PodInitializing, Message: | Unpack pod(openshift-marketplace/c829763f48a9d0a78bc8592565a98b848c17a2636f7fc9d156a89d5057z4b5b) container(pull) is pending. Reason: PodInitializing, Message: .
+
+
+ Failed to pull image "registry.connect.redhat.com/hitachi/hspc-operator-bundle@sha256:024c995b9221f61f937959cfb8edc3c5d49127f23e0060f8d02b174ab352c187": rpc error: code = Unknown desc = (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4-hitachi-hspc-operator-bundle@sha256:024c995b9221f61f937959cfb8edc3c5d49127f23e0060f8d02b174ab352c187: reading manifest sha256:024c995b9221f61f937959cfb8edc3c5d49127f23e0060f8d02b174ab352c187 in registry.prod.dbp.pnb:8443/ocp4/openshift4-hitachi-hspc-operator-bundle: name unknown: repository not found]): registry.connect.redhat.com/hitachi/hspc-operator-bundle@sha256:024c995b9221f61f937959cfb8edc3c5d49127f23e0060f8d02b174ab352c187: pinging container registry registry.connect.redhat.com: Get "https://registry.connect.redhat.com/v2/": dial tcp: lookup registry.connect.redhat.com on 10.192.18.103:53: no such host
+  Warning  Failed          1s    kubelet            Error: ErrImagePull
+
+
+
+skopeo copy --all docker://hitachiedge1.jfrog.io/hitachicsi-oci-oss/hspc-operator@sha256:68cb297c038da55992c38305f42683b635f9fc621a7c0b92720d4b4f3ca383a9 docker://registry.prod.dbp.pnb:8443/ocp4/openshift4-hitachicsi-oci-oss-hspc-operator
+
+
+
+Failed to pull image "hitachiedge1.jfrog.io/hitachicsi-oci-oss/hspc-operator@sha256:68cb297c038da55992c38305f42683b635f9fc621a7c0b92720d4b4f3ca383a9": rpc error: code = Unknown desc = (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4-hitachicsi-oci-oss-hspc-operator@sha256:68cb297c038da55992c38305f42683b635f9fc621a7c0b92720d4b4f3ca383a9: reading manifest sha256:68cb297c038da55992c38305f42683b635f9fc621a7c0b92720d4b4f3ca383a9 in registry.prod.dbp.pnb:8443/ocp4/openshift4-hitachicsi-oci-oss-hspc-operator: name unknown: repository not found]): hitachiedge1.jfrog.io/hitachicsi-oci-oss/hspc-operator@sha256:68cb297c038da55992c38305f42683b635f9fc621a7c0b92720d4b4f3ca383a9: pinging container registry hitachiedge1.jfrog.io: Get "https://hitachiedge1.jfrog.io/v2/": dial tcp: lookup hitachiedge1.jfrog.io on 10.209.27.104:53: server misbehaving

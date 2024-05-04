@@ -1,0 +1,22 @@
+[dbpuser@bastion ~]$ oc get no
+NAME                   STATUS   ROLES                               AGE    VERSION
+master1.prod.dbp.pnb   Ready    control-plane,infra,master,worker   4d1h   v1.25.11+1485cc9
+master2.prod.dbp.pnb   Ready    control-plane,infra,master,worker   4d1h   v1.25.11+1485cc9
+master3.prod.dbp.pnb   Ready    control-plane,infra,master,worker   4d1h   v1.25.11+1485cc9
+worker1.prod.dbp.pnb   Ready    worker                              36h    v1.25.11+1485cc9
+worker2.prod.dbp.pnb   Ready    worker                              36h    v1.25.11+1485cc9
+[dbpuser@bastion ~]$ oc get no --show-labels
+NAME                   STATUS   ROLES                               AGE    VERSION            LABELS
+master1.prod.dbp.pnb   Ready    control-plane,infra,master,worker   4d1h   v1.25.11+1485cc9   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=master1.prod.dbp.pnb,kubernetes.io/os=linux,node-role.kubernetes.io/control-plane=,node-role.kubernetes.io/infra=,node-role.kubernetes.io/master=,node-role.kubernetes.io/worker=,node.openshift.io/os_id=rhcos
+master2.prod.dbp.pnb   Ready    control-plane,infra,master,worker   4d1h   v1.25.11+1485cc9   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=master2.prod.dbp.pnb,kubernetes.io/os=linux,node-role.kubernetes.io/control-plane=,node-role.kubernetes.io/infra=,node-role.kubernetes.io/master=,node-role.kubernetes.io/worker=,node.openshift.io/os_id=rhcos
+master3.prod.dbp.pnb   Ready    control-plane,infra,master,worker   4d1h   v1.25.11+1485cc9   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=master3.prod.dbp.pnb,kubernetes.io/os=linux,node-role.kubernetes.io/control-plane=,node-role.kubernetes.io/infra=,node-role.kubernetes.io/master=,node-role.kubernetes.io/worker=,node.openshift.io/os_id=rhcos
+worker1.prod.dbp.pnb   Ready    worker                              36h    v1.25.11+1485cc9   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=worker1.prod.dbp.pnb,kubernetes.io/os=linux,node-role.kubernetes.io/worker=,node.openshift.io/os_id=rhcos
+worker2.prod.dbp.pnb   Ready    worker                              36h    v1.25.11+1485cc9   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=worker2.prod.dbp.pnb,kubernetes.io/os=linux,node-role.kubernetes.io/worker=,node.openshift.io/os_id=rhcos
+[dbpuser@bastion ~]$ oc label node worker1.prod.dbp.pnb zone=delhi
+node/worker1.prod.dbp.pnb labeled
+[dbpuser@bastion ~]$ oc label node worker2.prod.dbp.pnb zone=delhi
+node/worker2.prod.dbp.pnb labeled
+[dbpuser@bastion ~]$ oc get no --show-labels | grep zone
+worker1.prod.dbp.pnb   Ready    worker                              36h    v1.25.11+1485cc9   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=worker1.prod.dbp.pnb,kubernetes.io/os=linux,node-role.kubernetes.io/worker=,node.openshift.io/os_id=rhcos,zone=delhi
+worker2.prod.dbp.pnb   Ready    worker                              36h    v1.25.11+1485cc9   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=worker2.prod.dbp.pnb,kubernetes.io/os=linux,node-role.kubernetes.io/worker=,node.openshift.io/os_id=rhcos,zone=delhi
+[dbpuser@bastion ~]$

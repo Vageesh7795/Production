@@ -1,0 +1,302 @@
+[dbpuser@bastion ~]$ oc edit configs.imageregistry.operator.openshift.io/cluster
+config.imageregistry.operator.openshift.io/cluster edited
+[dbpuser@bastion ~]$ oc get co
+NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
+authentication                             4.12.30   True        False         False      19m
+baremetal                                  4.12.30   True        False         False      5d16h
+cloud-controller-manager                   4.12.30   True        False         False      5d16h
+cloud-credential                           4.12.30   True        False         False      5d22h
+cluster-autoscaler                         4.12.30   True        False         False      5d16h
+config-operator                            4.12.30   True        False         False      5d16h
+console                                    4.12.30   True        False         False      5m26s
+control-plane-machine-set                  4.12.30   True        False         False      5d16h
+csi-snapshot-controller                    4.12.30   True        False         False      3d13h
+dns                                        4.12.30   True        True          False      5d16h   DNS "default" reports Progressing=True: "Have 4 available node-resolver pods, want 5."
+etcd                                       4.12.30   True        False         False      5d9h
+image-registry                             4.12.30   False       True          False      2s      NodeCADaemonAvailable: The daemon set node-ca has available replicas...
+ingress                                    4.12.30   True        False         False      5d9h
+insights                                   4.12.30   True        False         False      5d16h
+kube-apiserver                             4.12.30   True        False         False      5d10h
+kube-controller-manager                    4.12.30   True        False         False      5d10h
+kube-scheduler                             4.12.30   True        False         False      5d16h
+kube-storage-version-migrator              4.12.30   True        False         False      51s
+machine-api                                4.12.30   True        False         False      5d16h
+machine-approver                           4.12.30   True        False         False      5d16h
+machine-config                             4.12.30   True        False         False      5d16h
+marketplace                                4.12.30   True        False         False      5d16h
+monitoring                                 4.12.30   True        False         False      2d12h
+network                                    4.12.30   True        True          False      5d16h   DaemonSet "/openshift-network-diagnostics/network-check-target" is not available (awaiting 1 nodes)...
+node-tuning                                4.12.30   True        False         False      5d16h
+openshift-apiserver                        4.12.30   True        False         False      2d12h
+openshift-controller-manager               4.12.30   True        False         False      5d16h
+openshift-samples                          4.12.30   True        False         False      5d
+operator-lifecycle-manager                 4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-catalog         4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-packageserver   4.12.30   True        False         False      5d2h
+service-ca                                 4.12.30   True        False         False      5d16h
+storage                                    4.12.30   True        False         False      5d16h
+[dbpuser@bastion ~]$ oc get co
+NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
+authentication                             4.12.30   True        False         False      19m
+baremetal                                  4.12.30   True        False         False      5d16h
+cloud-controller-manager                   4.12.30   True        False         False      5d16h
+cloud-credential                           4.12.30   True        False         False      5d22h
+cluster-autoscaler                         4.12.30   True        False         False      5d16h
+config-operator                            4.12.30   True        False         False      5d16h
+console                                    4.12.30   True        False         False      5m40s
+control-plane-machine-set                  4.12.30   True        False         False      5d16h
+csi-snapshot-controller                    4.12.30   True        False         False      3d13h
+dns                                        4.12.30   True        True          False      5d16h   DNS "default" reports Progressing=True: "Have 4 available node-resolver pods, want 5."
+etcd                                       4.12.30   True        False         False      5d9h
+image-registry                             4.12.30   False       True          False      16s     NodeCADaemonAvailable: The daemon set node-ca has available replicas...
+ingress                                    4.12.30   True        False         False      5d9h
+insights                                   4.12.30   True        False         False      5d16h
+kube-apiserver                             4.12.30   True        False         False      5d10h
+kube-controller-manager                    4.12.30   True        False         False      5d10h
+kube-scheduler                             4.12.30   True        False         False      5d16h
+kube-storage-version-migrator              4.12.30   True        False         False      65s
+machine-api                                4.12.30   True        False         False      5d16h
+machine-approver                           4.12.30   True        False         False      5d16h
+machine-config                             4.12.30   True        False         False      5d16h
+marketplace                                4.12.30   True        False         False      5d16h
+monitoring                                 4.12.30   True        False         False      2d12h
+network                                    4.12.30   True        True          False      5d16h   DaemonSet "/openshift-network-diagnostics/network-check-target" is not available (awaiting 1 nodes)...
+node-tuning                                4.12.30   True        False         False      5d16h
+openshift-apiserver                        4.12.30   True        False         False      2d12h
+openshift-controller-manager               4.12.30   True        False         False      5d16h
+openshift-samples                          4.12.30   True        False         False      5d
+operator-lifecycle-manager                 4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-catalog         4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-packageserver   4.12.30   True        False         False      5d2h
+service-ca                                 4.12.30   True        False         False      5d16h
+storage                                    4.12.30   True        False         False      5d16h
+[dbpuser@bastion ~]$ oc project openshift-config
+Now using project "openshift-config" on server "https://api.prod.dbp.pnb:6443".
+[dbpuser@bastion ~]$ oc project openshift-image-registry
+Now using project "openshift-image-registry" on server "https://api.prod.dbp.pnb:6443".
+[dbpuser@bastion ~]$ oc get pods
+NAME                                               READY   STATUS      RESTARTS        AGE
+cluster-image-registry-operator-677f6df97b-2pcf2   1/1     Running     1 (2d17h ago)   3d1h
+image-pruner-28575360-4vlxz                        0/1     Completed   0               2d8h
+image-pruner-28576800-blrbd                        0/1     Completed   0               32h
+image-pruner-28578240-m9vqm                        0/1     Completed   0               8h
+node-ca-ckv44                                      1/1     Running     0               5d10h
+node-ca-fv668                                      1/1     Running     0               3d9h
+node-ca-gdch6                                      1/1     Running     0               3d9h
+node-ca-gthxh                                      1/1     Running     0               5d10h
+node-ca-wbxcc                                      1/1     Running     0               5d10h
+[dbpuser@bastion ~]$ oc get pods
+NAME                                               READY   STATUS      RESTARTS        AGE
+cluster-image-registry-operator-677f6df97b-2pcf2   1/1     Running     1 (2d17h ago)   3d1h
+image-pruner-28575360-4vlxz                        0/1     Completed   0               2d8h
+image-pruner-28576800-blrbd                        0/1     Completed   0               32h
+image-pruner-28578240-m9vqm                        0/1     Completed   0               8h
+node-ca-ckv44                                      1/1     Running     0               5d10h
+node-ca-fv668                                      1/1     Running     0               3d9h
+node-ca-gdch6                                      1/1     Running     0               3d9h
+node-ca-gthxh                                      1/1     Running     0               5d10h
+node-ca-wbxcc                                      1/1     Running     0               5d10h
+[dbpuser@bastion ~]$ oc get co
+NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
+authentication                             4.12.30   True        False         False      20m
+baremetal                                  4.12.30   True        False         False      5d16h
+cloud-controller-manager                   4.12.30   True        False         False      5d16h
+cloud-credential                           4.12.30   True        False         False      5d22h
+cluster-autoscaler                         4.12.30   True        False         False      5d16h
+config-operator                            4.12.30   True        False         False      5d16h
+console                                    4.12.30   True        False         False      6m19s
+control-plane-machine-set                  4.12.30   True        False         False      5d16h
+csi-snapshot-controller                    4.12.30   True        False         False      3d13h
+dns                                        4.12.30   True        True          False      5d16h   DNS "default" reports Progressing=True: "Have 3 available node-resolver pods, want 5."
+etcd                                       4.12.30   True        False         False      5d9h
+image-registry                             4.12.30   False       True          False      55s     NodeCADaemonAvailable: The daemon set node-ca has available replicas...
+ingress                                    4.12.30   True        False         False      5d9h
+insights                                   4.12.30   True        False         False      5d16h
+kube-apiserver                             4.12.30   True        False         False      5d10h
+kube-controller-manager                    4.12.30   True        False         False      5d10h
+kube-scheduler                             4.12.30   True        False         False      5d16h
+kube-storage-version-migrator              4.12.30   True        False         False      104s
+machine-api                                4.12.30   True        False         False      5d16h
+machine-approver                           4.12.30   True        False         False      5d16h
+machine-config                             4.12.30   True        False         False      5d16h
+marketplace                                4.12.30   True        False         False      5d16h
+monitoring                                 4.12.30   True        False         False      2d12h
+network                                    4.12.30   True        True          False      5d16h   DaemonSet "/openshift-multus/network-metrics-daemon" is not available (awaiting 2 nodes)...
+node-tuning                                4.12.30   True        False         False      5d16h
+openshift-apiserver                        4.12.30   True        True          False      2d12h   APIServerDeploymentProgressing: deployment/apiserver.openshift-apiserver: 1/3 pods have been updated to the latest generation
+openshift-controller-manager               4.12.30   True        False         False      5d16h
+openshift-samples                          4.12.30   True        False         False      5d
+operator-lifecycle-manager                 4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-catalog         4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-packageserver   4.12.30   True        False         False      5d2h
+service-ca                                 4.12.30   True        False         False      5d16h
+storage                                    4.12.30   True        False         False      5d16h
+[dbpuser@bastion ~]$ oc get co
+The connection to the server api.prod.dbp.pnb:6443 was refused - did you specify the right host or port?
+[dbpuser@bastion ~]$ oc get co
+The connection to the server api.prod.dbp.pnb:6443 was refused - did you specify the right host or port?
+[dbpuser@bastion ~]$ oc get co
+The connection to the server api.prod.dbp.pnb:6443 was refused - did you specify the right host or port?
+[dbpuser@bastion ~]$ oc get pods
+NAME                                               READY   STATUS      RESTARTS        AGE
+cluster-image-registry-operator-677f6df97b-2pcf2   1/1     Running     1 (2d17h ago)   3d1h
+image-pruner-28575360-4vlxz                        0/1     Completed   0               2d8h
+image-pruner-28576800-blrbd                        0/1     Completed   0               32h
+image-pruner-28578240-m9vqm                        0/1     Completed   0               8h
+node-ca-ckv44                                      1/1     Running     0               5d10h
+node-ca-fv668                                      1/1     Running     0               3d9h
+node-ca-gdch6                                      1/1     Running     0               3d9h
+node-ca-gthxh                                      1/1     Running     0               5d10h
+node-ca-wbxcc                                      1/1     Running     0               5d10h
+[dbpuser@bastion ~]$ oc get co
+NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
+authentication                             4.12.30   True        False         False      15s
+baremetal                                  4.12.30   True        False         False      5d16h
+cloud-controller-manager                   4.12.30   True        False         False      5d16h
+cloud-credential                           4.12.30   True        False         False      5d22h
+cluster-autoscaler                         4.12.30   True        False         False      5d16h
+config-operator                            4.12.30   True        False         False      5d16h
+console                                    4.12.30   True        False         False      6m54s
+control-plane-machine-set                  4.12.30   True        False         False      5d16h
+csi-snapshot-controller                    4.12.30   True        False         False      3d13h
+dns                                        4.12.30   True        True          False      5d16h   DNS "default" reports Progressing=True: "Have 3 available node-resolver pods, want 5."
+etcd                                       4.12.30   True        False         False      5d9h
+image-registry                             4.12.30   False       True          True       90s     NodeCADaemonAvailable: The daemon set node-ca has available replicas...
+ingress                                    4.12.30   True        False         False      5d9h
+insights                                   4.12.30   True        False         False      5d16h
+kube-apiserver                             4.12.30   True        False         False      5d10h
+kube-controller-manager                    4.12.30   True        False         False      5d10h
+kube-scheduler                             4.12.30   True        False         False      5d16h
+kube-storage-version-migrator              4.12.30   True        False         False      2m19s
+machine-api                                4.12.30   True        False         False      5d16h
+machine-approver                           4.12.30   True        False         False      5d16h
+machine-config                             4.12.30   True        False         False      5d16h
+marketplace                                4.12.30   True        False         False      5d16h
+monitoring                                 4.12.30   True        False         False      2d12h
+network                                    4.12.30   True        True          False      5d16h   DaemonSet "/openshift-multus/network-metrics-daemon" is not available (awaiting 2 nodes)...
+node-tuning                                4.12.30   True        False         False      5d16h
+openshift-apiserver                        4.12.30   True        True          False      2d12h   APIServerDeploymentProgressing: deployment/apiserver.openshift-apiserver: 1/3 pods have been updated to the latest generation
+openshift-controller-manager               4.12.30   True        False         False      5d16h
+openshift-samples                          4.12.30   True        False         False      5d
+operator-lifecycle-manager                 4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-catalog         4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-packageserver   4.12.30   True        False         False      5d2h
+service-ca                                 4.12.30   True        False         False      5d16h
+storage                                    4.12.30   True        False         False      5d16h
+[dbpuser@bastion ~]$ oc get co
+NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
+authentication                             4.12.30   True        False         False      51s
+baremetal                                  4.12.30   True        False         False      5d16h
+cloud-controller-manager                   4.12.30   True        False         False      5d16h
+cloud-credential                           4.12.30   True        False         False      5d22h
+cluster-autoscaler                         4.12.30   True        False         False      5d16h
+config-operator                            4.12.30   True        False         False      5d16h
+console                                    4.12.30   True        False         False      7m30s
+control-plane-machine-set                  4.12.30   True        False         False      5d16h
+csi-snapshot-controller                    4.12.30   True        False         False      3d13h
+dns                                        4.12.30   True        True          False      5d16h   DNS "default" reports Progressing=True: "Have 3 available node-resolver pods, want 5."
+etcd                                       4.12.30   True        False         False      5d9h
+image-registry                             4.12.30   False       True          True       2m6s    NodeCADaemonAvailable: The daemon set node-ca has available replicas...
+ingress                                    4.12.30   True        False         False      5d9h
+insights                                   4.12.30   True        False         False      5d16h
+kube-apiserver                             4.12.30   True        False         False      5d10h
+kube-controller-manager                    4.12.30   True        False         False      5d10h
+kube-scheduler                             4.12.30   True        False         False      5d16h
+kube-storage-version-migrator              4.12.30   True        False         False      2m55s
+machine-api                                4.12.30   True        False         False      5d16h
+machine-approver                           4.12.30   True        False         False      5d16h
+machine-config                             4.12.30   True        False         False      5d16h
+marketplace                                4.12.30   True        False         False      5d16h
+monitoring                                 4.12.30   True        False         False      2d12h
+network                                    4.12.30   True        True          False      5d16h   DaemonSet "/openshift-multus/network-metrics-daemon" is not available (awaiting 2 nodes)...
+node-tuning                                4.12.30   True        False         False      5d16h
+openshift-apiserver                        4.12.30   True        True          False      2d12h   APIServerDeploymentProgressing: deployment/apiserver.openshift-apiserver: 1/3 pods have been updated to the latest generation
+openshift-controller-manager               4.12.30   True        False         False      5d16h
+openshift-samples                          4.12.30   True        False         False      5d
+operator-lifecycle-manager                 4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-catalog         4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-packageserver   4.12.30   True        False         False      5d2h
+service-ca                                 4.12.30   True        False         False      5d16h
+storage                                    4.12.30   True        False         False      5d16h
+[dbpuser@bastion ~]$ oc get co
+NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
+authentication                             4.12.30   True        False         False      73s
+baremetal                                  4.12.30   True        False         False      5d16h
+cloud-controller-manager                   4.12.30   True        False         False      5d16h
+cloud-credential                           4.12.30   True        False         False      5d22h
+cluster-autoscaler                         4.12.30   True        False         False      5d16h
+config-operator                            4.12.30   True        False         False      5d16h
+console                                    4.12.30   True        False         False      7m52s
+control-plane-machine-set                  4.12.30   True        False         False      5d16h
+csi-snapshot-controller                    4.12.30   True        False         False      3d13h
+dns                                        4.12.30   True        True          False      5d16h   DNS "default" reports Progressing=True: "Have 3 available DNS pods, want 4.\nHave 4 available node-resolver pods, want 5."
+etcd                                       4.12.30   True        False         True       5d9h    ClusterMemberControllerDegraded: unhealthy members found during reconciling members...
+image-registry                             4.12.30   False       True          True       2m28s   NodeCADaemonAvailable: The daemon set node-ca has available replicas...
+ingress                                    4.12.30   True        False         False      5d9h
+insights                                   4.12.30   True        False         False      5d16h
+kube-apiserver                             4.12.30   True        False         True       5d10h   NodeControllerDegraded: The master nodes not ready: node "master3.prod.dbp.pnb" not ready since 2024-05-03 08:08:59 +0000 UTC because NodeStatusUnknown (Kubelet stopped posting node status.)
+kube-controller-manager                    4.12.30   True        False         True       5d10h   NodeControllerDegraded: The master nodes not ready: node "master3.prod.dbp.pnb" not ready since 2024-05-03 08:08:59 +0000 UTC because NodeStatusUnknown (Kubelet stopped posting node status.)
+kube-scheduler                             4.12.30   True        False         True       5d16h   NodeControllerDegraded: The master nodes not ready: node "master3.prod.dbp.pnb" not ready since 2024-05-03 08:08:59 +0000 UTC because NodeStatusUnknown (Kubelet stopped posting node status.)
+kube-storage-version-migrator              4.12.30   True        False         False      3m17s
+machine-api                                4.12.30   True        False         False      5d16h
+machine-approver                           4.12.30   True        False         False      5d16h
+machine-config                             4.12.30   True        False         False      5d16h
+marketplace                                4.12.30   True        False         False      5d16h
+monitoring                                 4.12.30   True        False         False      2d12h
+network                                    4.12.30   True        True          False      5d16h   DaemonSet "/openshift-multus/network-metrics-daemon" is not available (awaiting 1 nodes)...
+node-tuning                                4.12.30   True        False         False      5d16h
+openshift-apiserver                        4.12.30   True        True          False      2d12h   APIServerDeploymentProgressing: deployment/apiserver.openshift-apiserver: 1/3 pods have been updated to the latest generation
+openshift-controller-manager               4.12.30   True        False         False      5d16h
+openshift-samples                          4.12.30   True        False         False      5d
+operator-lifecycle-manager                 4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-catalog         4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-packageserver   4.12.30   True        False         False      5d2h
+service-ca                                 4.12.30   True        False         False      5d16h
+storage                                    4.12.30   True        False         False      5d16h
+[dbpuser@bastion ~]$ oc get nodes
+NAME                   STATUS                        ROLES                               AGE     VERSION
+master1.prod.dbp.pnb   Ready                         control-plane,infra,master,worker   5d21h   v1.25.11+1485cc9
+master2.prod.dbp.pnb   Ready                         control-plane,infra,master,worker   5d21h   v1.25.11+1485cc9
+master3.prod.dbp.pnb   NotReady,SchedulingDisabled   control-plane,infra,master,worker   5d21h   v1.25.11+1485cc9
+worker1.prod.dbp.pnb   Ready                         worker                              3d9h    v1.25.11+1485cc9
+worker2.prod.dbp.pnb   Ready                         worker                              3d9h    v1.25.11+1485cc9
+[dbpuser@bastion ~]$ watch -n 4 oc get nodes
+[dbpuser@bastion ~]$ oc get nodesoc create secret generic image-registry-private-configuration-user --from-literal=REGISTRY_STORAGE_S3_ACCESSKEY=ZGJw --from-literal=REGISTRY_STORAGE_S3_SECRETKEY=0ced491b72d42557a9e7ba71debfc866 --namespace openshift-image-registry^C
+[dbpuser@bastion ~]$ oc create secret generic image-registry-private-configuration-user --from-literal=REGISTRY_STORAGE_S3_ACCESSKEY=ZGJw --from-literal=REGISTRY_STORAGE_S3_SECRETKEY=0ced491b72d42557a9e7ba71debfc866 --namespace openshift-image-registry
+secret/image-registry-private-configuration-user created
+[dbpuser@bastion ~]$ oc get co
+NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
+authentication                             4.12.30   True        False         False      7m50s
+baremetal                                  4.12.30   True        False         False      5d16h
+cloud-controller-manager                   4.12.30   True        False         False      5d16h
+cloud-credential                           4.12.30   True        False         False      5d22h
+cluster-autoscaler                         4.12.30   True        False         False      5d16h
+config-operator                            4.12.30   True        False         False      5d16h
+console                                    4.12.30   True        False         False      3m13s
+control-plane-machine-set                  4.12.30   True        False         False      5d16h
+csi-snapshot-controller                    4.12.30   True        False         False      3d13h
+dns                                        4.12.30   True        True          False      5d16h   DNS "default" reports Progressing=True: "Have 4 available node-resolver pods, want 5."
+etcd                                       4.12.30   True        False         True       5d9h    ClusterMemberControllerDegraded: unhealthy members found during reconciling members...
+image-registry                             4.12.30   False       True          True       12m     NodeCADaemonAvailable: The daemon set node-ca has available replicas...
+ingress                                    4.12.30   True        False         False      5d9h
+insights                                   4.12.30   True        False         False      5d16h
+kube-apiserver                             4.12.30   True        False         True       5d10h   NodeControllerDegraded: The master nodes not ready: node "master2.prod.dbp.pnb" not ready since 2024-05-03 08:18:28 +0000 UTC because NodeStatusUnknown (Kubelet stopped posting node status.)
+kube-controller-manager                    4.12.30   True        False         True       5d10h   NodeControllerDegraded: The master nodes not ready: node "master2.prod.dbp.pnb" not ready since 2024-05-03 08:18:28 +0000 UTC because NodeStatusUnknown (Kubelet stopped posting node status.)
+kube-scheduler                             4.12.30   True        False         True       5d16h   NodeControllerDegraded: The master nodes not ready: node "master2.prod.dbp.pnb" not ready since 2024-05-03 08:18:28 +0000 UTC because NodeStatusUnknown (Kubelet stopped posting node status.)
+kube-storage-version-migrator              4.12.30   True        False         False      10m
+machine-api                                4.12.30   True        False         False      5d16h
+machine-approver                           4.12.30   True        False         False      5d16h
+machine-config                             4.12.30   True        False         False      5d16h
+marketplace                                4.12.30   True        False         False      5d16h
+monitoring                                 4.12.30   True        False         False      2d12h
+network                                    4.12.30   True        True          False      5d16h   DaemonSet "/openshift-multus/multus-additional-cni-plugins" is not available (awaiting 1 nodes)...
+node-tuning                                4.12.30   True        True          False      5d16h   Waiting for 1/5 Profiles to be applied
+openshift-apiserver                        4.12.30   True        True          False      2d12h   APIServerDeploymentProgressing: deployment/apiserver.openshift-apiserver: observed generation is 7, desired generation is 8.
+openshift-controller-manager               4.12.30   True        False         False      5d16h
+openshift-samples                          4.12.30   True        False         False      5d
+operator-lifecycle-manager                 4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-catalog         4.12.30   True        False         False      5d16h
+operator-lifecycle-manager-packageserver   4.12.30   True        False         False      5d2h
+service-ca                                 4.12.30   True        False         False      5d16h
+storage                                    4.12.30   True        False         False      5d16h
+[dbpuser@bastion ~]$

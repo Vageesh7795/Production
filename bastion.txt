@@ -1,0 +1,587 @@
+[dbpuser@bastion ~]$ vim install-config.yaml
+[dbpuser@bastion ~]$ ll
+total 4
+-rw-rw-r--. 1 dbpuser dbpuser 3654 Apr 24 13:24 install-config.yaml
+[dbpuser@bastion ~]$ vim install-config.yaml
+[dbpuser@bastion ~]$ cat install-config.yaml
+apiVersion: v1
+baseDomain: dbp.pnb
+compute:
+- hyperthreading: Enabled
+  name: worker
+  replicas: 0
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: prod
+networking:
+  clusterNetwork:
+  - cidr: 10.140.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 10.0.0.0/16
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.33.0.0/16
+platform:
+  none: {}
+fips: false
+pullSecret: '{"auths":{"registry.prod.dbp.pnb:8443": {"auth": "aW5pdDp3S0ZRang3RWlyMDRjM1pJMk9wVkMxeTZrYTlnZTU4bQ==","email": "dbtd.dbp@pnb.co.in"}}}'
+sshKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQsJvVPSWHYb5Dl+DjGEU7QWFGomGxJ9wlJMwwB4jtN dbpuser@bastion.nonprod.dbp.pnb'
+additionalTrustBundle: |
+  -----BEGIN CERTIFICATE-----
+  MIIDxjCCAq6gAwIBAgIUJ05yh9dHWAvZ3Tf7Btw+DxbGPa0wDQYJKoZIhvcNAQEL
+  BQAwezELMAkGA1UEBhMCSU4xDjAMBgNVBAgMBURlbGhpMQ4wDAYDVQQHDAVEZWxo
+  aTEdMBsGA1UECgwUUHVuamFiIE5hdGlvbmFsIEJhbmsxDTALBgNVBAsMBERCVEQx
+  HjAcBgNVBAMMFXJlZ2lzdHJ5LnByb2QuZGJwLnBuYjAeFw0yNDA0MjMxNDA3NTNa
+  Fw0yNTA0MTQxNDA3NTNaMHsxCzAJBgNVBAYTAklOMQ4wDAYDVQQIDAVEZWxoaTEO
+  MAwGA1UEBwwFRGVsaGkxHTAbBgNVBAoMFFB1bmphYiBOYXRpb25hbCBCYW5rMQ0w
+  CwYDVQQLDAREQlREMR4wHAYDVQQDDBVyZWdpc3RyeS5wcm9kLmRicC5wbmIwggEi
+  MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC5pNY7hMQHZKvnpk/FqGwXeQfD
+  xZOb7GqqVcRTcraEtI8pKadbqrto0g3ERK0W8UstF3ypds+tGZrDTVqKndLehuye
+  fgDOFqaRpB+iOwSZVcdUS/3G4jPWr9DNe0osfvBwzeZfSBpxYs8RsSNjL7mulKss
+  9gTV7pV8o3ObGb7mNdYs9zEnW1AVF0bbWZVD9KuyO/ePGYZkyMMwZihd9GdNYDwJ
+  bX9EMXOfeuja233cgpYITmcKEjeS6u0CNvpAhYQOQWG3orvIS6d0l6s+KKiPsfWo
+  jNnw/FgNxz+j/k3Uq/hYBec2V+XcQ5anmUop+6nDInvtwqH6ozvg0r6RDZ+TAgMB
+  AAGjQjBAMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMCYGA1UdEQQfMB2CFXJlZ2lz
+  dHJ5LnByb2QuZGJwLnBuYocECsDoITANBgkqhkiG9w0BAQsFAAOCAQEAAV2zhEgS
+  +CMiVB9b3tR/acWO1gBduGFIoah0knMidG9aIRdqL2oeu2ZV46ViKRrO536hg5NM
+  8nrwC+Za1paHFGqLyLrQpclLn0FtphNI+jpijqE9vkuTO23SJb7TnQ2lmI/1Z0L2
+  2qo6W8qhaak9YGd6ZBPl9UWPKNWyDe8/cTprDWFeZaIjAvEX6rdeZVCAYiQhFvG3
+  oy+ZqVznEvXR67Q93yLtTFCABzaFWYjhOAVPZQjWr9VI5IfArlbztHiUx1SYNikO
+  iiGskuOGfr39KEh2k0+iBNmBrWZ6B1/xMf4NlQFfLfU95aabEOz+LyDgnBdiaOhU
+  jaH5YJfxKU7TOQ==
+  -----END CERTIFICATE-----
+  -----BEGIN CERTIFICATE-----
+  MIID1zCCAr+gAwIBAgIUJFhO+12zJdXEWUqr+7hjlO42ZvYwDQYJKoZIhvcNAQEL
+  BQAwezELMAkGA1UEBhMCSU4xDjAMBgNVBAgMBURlbGhpMQ4wDAYDVQQHDAVEZWxo
+  aTEdMBsGA1UECgwUUHVuamFiIE5hdGlvbmFsIEJhbmsxDTALBgNVBAsMBERCVEQx
+  HjAcBgNVBAMMFXJlZ2lzdHJ5LnByb2QuZGJwLnBuYjAeFw0yNDA0MjMxNDAzMzBa
+  Fw0yNzAyMTExNDAzMzBaMHsxCzAJBgNVBAYTAklOMQ4wDAYDVQQIDAVEZWxoaTEO
+  MAwGA1UEBwwFRGVsaGkxHTAbBgNVBAoMFFB1bmphYiBOYXRpb25hbCBCYW5rMQ0w
+  CwYDVQQLDAREQlREMR4wHAYDVQQDDBVyZWdpc3RyeS5wcm9kLmRicC5wbmIwggEi
+  MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDmahnva0Q61V7hNn/jDzYZj5pS
+  Nm5f3JyZYq//o84zWKkeAYJDlislFjOrOOJu5m4f4GkcVJWmqE3MY2VVS6JXLIIN
+  n7+HfazcjCrlwMwuZEvLC0P2RQ1e8yG+SQ7GljBMiY4PbDwJUJhTDpRnBfFyrG0+
+  Sli1SLAj3ScBy60eFHyeePkz2BhnryLaK07GX+4NHShFCrsA9OwLjHlqlIMabO9r
+  Tx2p2lsElJwjUtVvtNT1snHFY6w8OCipfsKLMOqIlZ2yE0h5JkD9PfrBKJedFKTR
+  wJ7ksLf3kIaTNmguTaoPAxjvImGYwXZxJWZuJ3xYtjfgAd3nOMmBbJaAJtSHAgMB
+  AAGjUzBRMB0GA1UdDgQWBBTKfQIzCMsi4cLJ0iZcACVD36FU5jAfBgNVHSMEGDAW
+  gBTKfQIzCMsi4cLJ0iZcACVD36FU5jAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3
+  DQEBCwUAA4IBAQAB4YppK4WDl3XdcF37kQlYrFEa51PsRG0G6CBdQIONizMuAJgn
+  hb7qzG4EitXL+3l2AM7Gz4ZwkDCGUQbTcCl8nLoh8kt2mRPXrGqWmziS44YIgfCN
+  AKD2IyQVh96Pv/G7SohT8jxlBkpZTdo6+v5rx0sEDO2rakgySH+GVyJCEVF5sRCw
+  DyTF3dKrr3qBeNi6g3jw6cphLs+unDwhesLFukTIbJVpsx4/tdDaAUQj8Ve83EIV
+  NDHYLuSlBrGwKBzE4zUZBM6I7fOz2hbJl2o6ftXhpvit9XjsUzs2V0xDcLNCDE29
+  APF1Lhaqg3ll10I13u1nGEnNWFyHpzDfXvra
+  -----END CERTIFICATE-----
+imageContentSources:
+- mirrors:
+  - registry.prod.dbp.pnb:8443/ocp4/openshift4
+  source: quay.io/openshift-release-dev/ocp-release
+- mirrors:
+  - registry.prod.dbp.pnb:8443/ocp4/openshift4
+  source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
+[dbpuser@bastion ~]$ vim install-config.yaml
+[dbpuser@bastion ~]$ vim install-config.yaml
+[dbpuser@bastion ~]$ ssh-keygen -t ed25519 -N " -f ~/ssh/ocp4
+> ^C
+[dbpuser@bastion ~]$ ssh-keygen -t ed25519 -N '' -f ~/ssh/ocp4
+Generating public/private ed25519 key pair.
+Saving key "/home/dbpuser/ssh/ocp4" failed: No such file or directory
+[dbpuser@bastion ~]$ ssh-keygen -t ed25519 -N '' -f ~/.ssh/ocp4
+Generating public/private ed25519 key pair.
+Created directory '/home/dbpuser/.ssh'.
+Your identification has been saved in /home/dbpuser/.ssh/ocp4.
+Your public key has been saved in /home/dbpuser/.ssh/ocp4.pub.
+The key fingerprint is:
+SHA256:M1xAF78iKcQsTypLK+2tgd97uJK8edTR2Zj5/0MiOs8 dbpuser@bastion.prod.dbp.pnb
+The key's randomart image is:
++--[ED25519 256]--+
+|       .o o.     |
+|     o   o .     |
+|    . =. *. .    |
+|     *..*o.  .   |
+|  o ..o.S.. .    |
+| + +. .. +o.. .  |
+|o.=o .   . o o   |
+| ++=o . o.  . .  |
+|  *==+   oE  ... |
++----[SHA256]-----+
+[dbpuser@bastion ~]$ ll ~/.ssh/
+total 8
+-rw-------. 1 dbpuser dbpuser 419 Apr 24 13:34 ocp4
+-rw-r--r--. 1 dbpuser dbpuser 110 Apr 24 13:34 ocp4.pub
+[dbpuser@bastion ~]$ cat ~/.ssh/ocp4.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKuuwvsAnq8f3+XJSa2j9X1rzOXyH4X6cGnyrPt8FSt7 dbpuser@bastion.prod.dbp.pnb
+[dbpuser@bastion ~]$ vim install-config.yaml
+[dbpuser@bastion ~]$ vim install-config.yaml
+[dbpuser@bastion ~]$
+[dbpuser@bastion ~]$
+[dbpuser@bastion ~]$
+[dbpuser@bastion ~]$
+[dbpuser@bastion ~]$
+[dbpuser@bastion ~]$
+[dbpuser@bastion ~]$ eval "$(ssh-agent -s)"
+Agent pid 522341
+[dbpuser@bastion ~]$ ssh-add ~/.ssh/ocp4
+Identity added: /home/dbpuser/.ssh/ocp4 (dbpuser@bastion.prod.dbp.pnb)
+[dbpuser@bastion ~]$
+[dbpuser@bastion ~]$ mkdir ~/clusterconfig
+[dbpuser@bastion ~]$ cp install-config.yaml ~/clusterconfig/
+[dbpuser@bastion ~]$ ll clusterconfig/
+total 4
+-rw-rw-r--. 1 dbpuser dbpuser 3797 Apr 24 13:39 install-config.yaml
+[dbpuser@bastion ~]$ ll
+total 400944
+drwxrwxr-x. 2 dbpuser dbpuser        33 Apr 24 13:39 clusterconfig
+-rw-rw-r--. 1 dbpuser dbpuser      3797 Apr 24 13:36 install-config.yaml
+-rw-rw-r--. 1 dbpuser dbpuser  58006257 Jan  3 15:27 openshift-client-linux-4.12.30.tar.gz
+-rw-rw-r--. 1 dbpuser dbpuser 352548316 Jan  3 15:27 openshift-install-linux-4.12.30.tar.gz
+-rw-rw-r--. 1 dbpuser dbpuser      2771 Jan  3 15:27 pull-secret.txt
+[dbpuser@bastion ~]$ mkdir DBP
+[dbpuser@bastion ~]$ mv openshift-client-linux-4.12.30.tar.gz openshift-install-linux-4.12.30.tar.gz pull-secret.txt DBP/
+[dbpuser@bastion ~]$ ll
+total 4
+drwxrwxr-x. 2 dbpuser dbpuser   33 Apr 24 13:39 clusterconfig
+drwxrwxr-x. 2 dbpuser dbpuser  120 Apr 24 13:41 DBP
+-rw-rw-r--. 1 dbpuser dbpuser 3797 Apr 24 13:36 install-config.yaml
+[dbpuser@bastion ~]$ cd DBP/
+[dbpuser@bastion DBP]$ ll
+total 400940
+-rw-rw-r--. 1 dbpuser dbpuser  58006257 Jan  3 15:27 openshift-client-linux-4.12.30.tar.gz
+-rw-rw-r--. 1 dbpuser dbpuser 352548316 Jan  3 15:27 openshift-install-linux-4.12.30.tar.gz
+-rw-rw-r--. 1 dbpuser dbpuser      2771 Jan  3 15:27 pull-secret.txt
+[dbpuser@bastion DBP]$ tar xvfz openshift-client-linux-4.12.30.tar.gz
+README.md
+oc
+kubectl
+[dbpuser@bastion DBP]$ mv oc kubectl /usr/local/bin/
+mv: cannot create regular file '/usr/local/bin/oc': Permission denied
+mv: cannot create regular file '/usr/local/bin/kubectl': Permission denied
+[dbpuser@bastion DBP]$ sudo mv oc kubectl /usr/local/bin/
+[sudo] password for dbpuser:
+[dbpuser@bastion DBP]$ tar xvfz openshift-install-linux-4.12.30.tar.gz
+README.md
+openshift-install
+[dbpuser@bastion DBP]$ sudo mv openshift-install /usr/local/bin/
+[dbpuser@bastion DBP]$
+[dbpuser@bastion DBP]$
+[dbpuser@bastion DBP]$
+[dbpuser@bastion DBP]$
+[dbpuser@bastion DBP]$ ll /usr/local/bin/
+total 755172
+-rwxr-xr-x. 2 dbpuser dbpuser 137618368 Apr 24 13:42 kubectl
+-rwxr-xr-x. 2 dbpuser dbpuser 137618368 Apr 24 13:42 oc
+-rwxr-xr-x. 1 dbpuser dbpuser 498051224 Apr 24 13:42 openshift-install
+[dbpuser@bastion DBP]$ cd ..
+[dbpuser@bastion ~]$ ll
+total 4
+drwxrwxr-x. 2 dbpuser dbpuser   33 Apr 24 13:39 clusterconfig
+drwxrwxr-x. 2 dbpuser dbpuser  137 Apr 24 13:42 DBP
+-rw-rw-r--. 1 dbpuser dbpuser 3797 Apr 24 13:36 install-config.yaml
+[dbpuser@bastion ~]$
+[dbpuser@bastion ~]$ vim clusterconfig/install-config.yaml 
+openshift-install create manifests --dir ~/clusterconfig/
+ERROR failed to fetch Master Machines: failed to load asset "Install Config": failed to create install config: invalid "install-config.yaml" file: networking.clusterNetwork[0].cidr: Invalid value: "10.135.0.0/14": invalid network address. got 10.135.0.0/14, expecting 10.132.0.0/14 
+[dbpuser@bastion ~]$ openshift-install create manifests --dir ~/clusterconfig/
+vim clusterconfig/install-config.yaml 
+"clusterconfig/install-config.yaml" 80L, 3797C  apiVersion: v1
+baseDomain: dbp.pnb
+compute:
+- hyperthreading: Enabled
+  name: worker
+  replicas: 0
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: prod
+networking:
+  clusterNetwork:
+  - cidr: 10.135.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 10.0.0.0/16
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.32.0.0/16
+platform:
+  none: {}
+fips: false
+pullSecret: '{"auths":{"registry.prod.dbp.pnb:8443": {"auth": "aW5pdDo3TnNtNHR2NUpHcFpYRjJLdzFrcmk5blQweDhQZjZkMw==","email": "dbtd.dbp@pnb.co.in"}}}'
+sshKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKuuwvsAnq8f3+XJSa2j9X1rzOXyH4X6cGnyrPt8FSt7 dbpuser@bastion.prod.dbp.pnb'
+additionalTrustBundle: |
+  -----BEGIN CERTIFICATE-----
+  MIIDxjCCAq6gAwIBAgIUJ05yh9dHWAvZ3Tf7Btw+DxbGPa0wDQYJKoZIhvcNAQEL
+  BQAwezELMAkGA1UEBhMCSU4xDjAMBgNVBAgMBURlbGhpMQ4wDAYDVQQHDAVEZWxo
+  aTEdMBsGA1UECgwUUHVuamFiIE5hdGlvbmFsIEJhbmsxDTALBgNVBAsMBERCVEQx
+  HjAcBgNVBAMMFXJlZ2lzdHJ5LnByb2QuZGJwLnBuYjAeFw0yNDA0MjMxNDA3NTNa
+  Fw0yNTA0MTQxNDA3NTNaMHsxCzAJBgNVBAYTAklOMQ4wDAYDVQQIDAVEZWxoaTEO
+  MAwGA1UEBwwFRGVsaGkxHTAbBgNVBAoMFFB1bmphYiBOYXRpb25hbCBCYW5rMQ0w
+  CwYDVQQLDAREQlREMR4wHAYDVQQDDBVyZWdpc3RyeS5wcm9kLmRicC5wbmIwggEi
+  MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC5pNY7hMQHZKvnpk/FqGwXeQfD
+  xZOb7GqqVcRTcraEtI8pKadbqrto0g3ERK0W8UstF3ypds+tGZrDTVqKndLehuye
+  fgDOFqaRpB+iOwSZVcdUS/3G4jPWr9DNe0osfvBwzeZfSBpxYs8RsSNjL7mulKss
+  9gTV7pV8o3ObGb7mNdYs9zEnW1AVF0bbWZVD9KuyO/ePGYZkyMMwZihd9GdNYDwJ
+  bX9EMXOfeuja233cgpYITmcKEjeS6u0CNvpAhYQOQWG3orvIS6d0l6s+KKiPsfWo
+  jNnw/FgNxz+j/k3Uq/hYBec2V+XcQ5anmUop+6nDInvtwqH6ozvg0r6RDZ+TAgMB
+  AAGjQjBAMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMCYGA1UdEQQfMB2CFXJlZ2lz
+  dHJ5LnByb2QuZGJwLnBuYocECsDoITANBgkqhkiG9w0BAQsFAAOCAQEAAV2zhEgS
+  +CMiVB9b3tR/acWO1gBduGFIoah0knMidG9aIRdqL2oeu2ZV46ViKRrO536hg5NM
+  8nrwC+Za1paHFGqLyLrQpclLn0FtphNI+jpijqE9vkuTO23SJb7TnQ2lmI/1Z0L2
+  2qo6W8qhaak9YGd6ZBPl9UWPKNWyDe8/cTprDWFeZaIjAvEX6rdeZVCAYiQhFvG3
+  oy+ZqVznEvXR67Q93yLtTFCABzaFWYjhOAVPZQjWr9VI5IfArlbztHiUx1SYNikO
+  iiGskuOGfr39KEh2k0+iBNmBrWZ6B1/xMf4NlQFfLfU95aabEOz+LyDgnBdiaOhU
+  jaH5YJfxKU7TOQ==
+  -----END CERTIFICATE-----
+  -----BEGIN CERTIFICATE-----
+  MIID1zCCAr+gAwIBAgIUJFhO+12zJdXEWUqr+7hjlO42ZvYwDQYJKoZIhvcNAQEL
+  BQAwezELMAkGA1UEBhMCSU4xDjAMBgNVBAgMBURlbGhpMQ4wDAYDVQQHDAVEZWxo
+  aTEdMBsGA1UECgwUUHVuamFiIE5hdGlvbmFsIEJhbmsxDTALBgNVBAsMBERCVEQx
+  HjAcBgNVBAMMFXJlZ2lzdHJ5LnByb2QuZGJwLnBuYjAeFw0yNDA0MjMxNDAzMzBa
+  Fw0yNzAyMTExNDAzMzBaMHsxCzAJBgNVBAYTAklOMQ4wDAYDVQQIDAVEZWxoaTEO
+  MAwGA1UEBwwFRGVsaGkxHTAbBgNVBAoMFFB1bmphYiBOYXRpb25hbCBCYW5rMQ0w
+  CwYDVQQLDAREQlREMR4wHAYDVQQDDBVyZWdpc3RyeS5wcm9kLmRicC5wbmIwggEi
+  MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDmahnva0Q61V7hNn/jDzYZj5pS
+  Nm5f3JyZYq//o84zWKkeAYJDlislFjOrOOJu5m4f4GkcVJWmqE3MY2VVS6JXLIIN
+  n7+HfazcjCrlwMwuZEvLC0P2RQ1e8yG+SQ7GljBMiY4PbDwJUJhTDpRnBfFyrG0+
+  Sli1SLAj3ScBy60eFHyeePkz2BhnryLaK07GX+4NHShFCrsA9OwLjHlqlIMabO9r15,16Topi -- INSERT --15,16Top7.0.0/1466.0.0/147^[  15,16Top::wq!
+"clusterconfig/install-config.yaml" 80L, 3797C written
+
+
+[dbpuser@bastion ~]$ vim clusterconfig/install-config.yaml 
+openshift-install create manifests --dir ~/clusterconfig/
+INFO Consuming Install Config from target directory 
+WARNING Certificate 274E7287D747580BD9DD37FB06DC3E0F16C63DAD from additionalTrustBundle is x509 v3 but not a certificate authority 
+WARNING Making control-plane schedulable by setting MastersSchedulable to true for Scheduler cluster settings 
+INFO Manifests created in: /home/dbpuser/clusterconfig/manifests and /home/dbpuser/clusterconfig/openshift 
+[dbpuser@bastion ~]$ llll clusterconfig/
+total 8
+drwxr-x---. 2 dbpuser dbpuser 4096 Apr 26 11:58 manifests
+drwxr-x---. 2 dbpuser dbpuser 4096 Apr 26 11:58 openshift
+[dbpuser@bastion ~]$ ll dclusterconfig/manifests/
+total 76
+-rw-r-----. 1 dbpuser dbpuser  4557 Apr 26 11:58 cluster-config.yaml
+-rw-r-----. 1 dbpuser dbpuser   141 Apr 26 11:58 cluster-dns-02-config.yml
+-rw-r-----. 1 dbpuser dbpuser   476 Apr 26 11:58 cluster-infrastructure-02-config.yml
+-rw-r-----. 1 dbpuser dbpuser   216 Apr 26 11:58 cluster-ingress-02-config.yml
+-rw-r-----. 1 dbpuser dbpuser 10135 Apr 26 11:58 cluster-network-01-crd.yml
+-rw-r-----. 1 dbpuser dbpuser   272 Apr 26 11:58 cluster-network-02-config.yml
+-rw-r-----. 1 dbpuser dbpuser   142 Apr 26 11:58 cluster-proxy-01-config.yaml
+-rw-r-----. 1 dbpuser dbpuser   170 Apr 26 11:58 cluster-scheduler-02-config.yml
+-rw-r-----. 1 dbpuser dbpuser   200 Apr 26 11:58 cvo-overrides.yaml
+-rw-r-----. 1 dbpuser dbpuser   282 Apr 26 11:58 image-content-source-policy-0.yaml
+-rw-r-----. 1 dbpuser dbpuser   287 Apr 26 11:58 image-content-source-policy-1.yaml
+-rw-r-----. 1 dbpuser dbpuser   118 Apr 26 11:58 kube-cloud-config.yaml
+-rw-r-----. 1 dbpuser dbpuser  1304 Apr 26 11:58 kube-system-configmap-root-ca.yaml
+-rw-r-----. 1 dbpuser dbpuser  4026 Apr 26 11:58 machine-config-server-tls-secret.yaml
+-rw-r-----. 1 dbpuser dbpuser   337 Apr 26 11:58 openshift-config-secret-pull-secret.yaml
+-rw-r-----. 1 dbpuser dbpuser  3091 Apr 26 11:58 user-ca-bundle-config.yaml
+[dbpuser@bastion ~]$ ll clusterconfig/manifests/openshift/
+total 24
+-rw-r-----. 1 dbpuser dbpuser  181 Apr 26 11:58 99_kubeadmin-password-secret.yaml
+-rw-r-----. 1 dbpuser dbpuser 2450 Apr 26 11:58 99_openshift-cluster-api_master-user-data-secret.yaml
+-rw-r-----. 1 dbpuser dbpuser 2450 Apr 26 11:58 99_openshift-cluster-api_worker-user-data-secret.yaml
+-rw-r-----. 1 dbpuser dbpuser  531 Apr 26 11:58 99_openshift-machineconfig_99-master-ssh.yaml
+-rw-r-----. 1 dbpuser dbpuser  531 Apr 26 11:58 99_openshift-machineconfig_99-worker-ssh.yaml
+-rw-r-----. 1 dbpuser dbpuser  174 Apr 26 11:58 openshift-install-manifests.yaml
+[dbpuser@bastion ~]$ erm -0rrf openshiftpcd clusterconfig/
+[dbpuser@bastion clusterconfig]$ ll
+total 8
+drwxr-x---. 2 dbpuser dbpuser 4096 Apr 26 11:58 manifests
+drwxr-x---. 2 dbpuser dbpuser 4096 Apr 26 11:58 openshift
+[dbpuser@bastion clusterconfig]$ 
+[dbpuser@bastion clusterconfig]$ rm -rg f f openshift/99_openshift-cluster-api__macasmaster-user-data-secret.yaml nanmacworkworker-user-data-secret.yaml mach^C
+[dbpuser@bastion clusterconfig]$ cd ..
+[dbpuser@bastion ~]$ openshift-install create mifgnition -config-configs --dir ~/clusterconfig/
+INFO Consuming OpenShift Install (Manifests) from target directory 
+INFO Consuming Openshift Manifests from target directory 
+INFO Consuming Worker Machines from target directory 
+INFO Consuming Master Machines from target directory 
+INFO Consuming Common Manifests from target directory 
+INFO Ignition-Configs created in: /home/dbpuser/clusterconfig and /home/dbpuser/clusterconfig/auth 
+[dbpuser@bastion ~]$ ll clusterconfig/
+total 292
+drwxr-x---. 2 dbpuser dbpuser     50 Apr 26 12:04 auth
+-rw-r-----. 1 dbpuser dbpuser 286165 Apr 26 12:04 bootstrap.ign
+-rw-r-----. 1 dbpuser dbpuser   1714 Apr 26 12:04 master.ign
+-rw-r-----. 1 dbpuser dbpuser     96 Apr 26 12:04 metadata.json
+-rw-r-----. 1 dbpuser dbpuser   1714 Apr 26 12:04 worker.ign
+[dbpuser@bastion ~]$ llcat clusterconfig/auth/kubeadmin-password 
+sMtb7-aN9F5-xtu44-Yun9K[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ mkdir /var/www/html/ocp4
+mkdir: cannot create directory /var/www/html/ocp4: Permission denied
+[dbpuser@bastion ~]$ mkdir /var/www/html/ocp4
+sudo -/var/www/html/ocp4p/var/www/html/ocp4 /var/www/html/ocp4
+[sudo] password for dbpuser: 
+[dbpuser@bastion ~]$ ll /var/www/html/ocp4
+total 0
+[dbpuser@bastion ~]$ ll /var/www/html/ocp4
+total 0
+drwxr-xr-x. 2 root root 6 Apr 26 12:05 ocp4
+[dbpuser@bastion ~]$ cp -rR ~clu/cl`usterconfig/* /var/www/html/ocp4/
+cp: cannot create directory '/var/www/html/ocp4/auth': Permission denied
+cp: cannot create regular file '/var/www/html/ocp4/bootstrap.ign': Permission denied
+cp: cannot create regular file '/var/www/html/ocp4/master.ign': Permission denied
+cp: cannot create regular file '/var/www/html/ocp4/metadata.json': Permission denied
+cp: cannot create regular file '/var/www/html/ocp4/worker.ign': Permission denied
+[dbpuser@bastion ~]$ cp -R ~/clusterconfig/* /var/www/html/ocp4/
+sudo 
+[dbpuser@bastion ~]$ sudo cp -R ~/clusterconfig/* /var/www/html/ocp4/
+
+ll /var/www/html/ocp4
+total 292
+drwxr-x---. 2 root root     50 Apr 26 12:06 auth
+-rw-r-----. 1 root root 286165 Apr 26 12:06 bootstrap.ign
+-rw-r-----. 1 root root   1714 Apr 26 12:06 master.ign
+-rw-r-----. 1 root root     96 Apr 26 12:06 metadata.json
+-rw-r-----. 1 root root   1714 Apr 26 12:06 worker.ign
+[dbpuser@bastion ~]$ ll /var/www/html/ocp4chown  -R apache: /va`r/www/html/ocp4/
+chown: cannot read directory '/var/www/html/ocp4/auth': Permission denied
+chown: changing ownership of '/var/www/html/ocp4/bootstrap.ign': Operation not permitted
+chown: changing ownership of '/var/www/html/ocp4/master.ign': Operation not permitted
+chown: changing ownership of '/var/www/html/ocp4/metadata.json': Operation not permitted
+chown: changing ownership of '/var/www/html/ocp4/worker.ign': Operation not permitted
+chown: changing ownership of '/var/www/html/ocp4/': Operation not permitted
+[dbpuser@bastion ~]$ chown -R apache: /var/www/html/ocp4/
+sudo 
+[dbpuser@bastion ~]$ chmod 77sudo chmod 755 /var/www/html/ocp4/
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ curl httsudo systemctl sed -i 's/lListensudo vim /etc/httpd/httpd.conf
+conf/           conf.d/         conf.modules.d/ 
+[dbpuser@bastion ~]$ sudo vim /etc/httpd/conf/httpd.conf 
+"/etc/httpd/conf/httpd.conf" 356L, 11899C  #
+# This is the main Apache HTTP server configuration file.  It contains the
+# configuration directives that give the server its instructions.
+# See <URL:http://httpd.apache.org/docs/2.4/> for detailed information.
+# In particular, see 
+# <URL:http://httpd.apache.org/docs/2.4/mod/directives.html>
+# for a discussion of each configuration directive.
+#
+# See the httpd.conf(5) man page for more information on this configuration,
+# and httpd.service(8) on using and configuring the httpd service.
+#
+# Do NOT simply read the instructions in here without understanding
+# what they do.  They're here only as hints or reminders.  If you are unsure
+# consult the online docs. You have been warned.  
+#
+# Configuration and logfile names: If the filenames you specify for many
+# of the server's control files begin with "/" (or "drive:/" for Win32), the
+# server will use that explicit path.  If the filenames do *not* begin
+# with "/", the value of ServerRoot is prepended -- so 'log/access_log'
+# with ServerRoot set to '/www' will be interpreted by the
+# server as '/www/log/access_log', where as '/log/access_log' will be
+# interpreted as '/log/access_log'.
+
+#
+# ServerRoot: The top of the directory tree under which the server's
+# configuration, error, and log files are kept.
+#
+# Do not add a slash at the end of the directory path.  If you point
+# ServerRoot at a non-local disk, be sure to specify a local disk on the
+# Mutex directive, if file-based mutexes are used.  If you wish to share the
+# same ServerRoot for multiple httpd daemons, you will need to change at
+# least PidFile.
+#
+ServerRoot "/etc/httpd"
+
+#
+# Listen: Allows you to bind Apache to specific IP addresses and/or
+# ports, instead of the default. See also the <VirtualHost>
+# directive.
+#
+# Change this to Listen on specific IP addresses as shown below to 
+# prevent Apache from glomming onto all bound IP addresses.
+#
+#Listen 12.34.56.78:80
+Listen 80
+
+#
+# Dynamic Shared Object (DSO) Support
+#
+# To be able to use the functionality of a module which was built as a DSO you
+# have to place corresponding `LoadModule' lines at this location so the
+# directives contained in it are actually available _before_ they are used.
+# Statically compiled modules (those listed by `httpd -l') do not need
+# to be loaded here.
+#
+# Example:
+# LoadModule foo_module modules/mod_foo.so
+#
+Include conf.modules.d/*.conf
+
+#
+# If you wish httpd to run as a different user or group, you must run1,1Topi -- INSERT --1,1Top2345678910,1123456789201234567893012345678940123456523456789108102^[  45,11Top::wq!
+"/etc/httpd/conf/httpd.conf" 356L, 11901C written
+
+
+[dbpuser@bastion ~]$ cusudo systemctl restart httpd.service 
+[dbpuser@bastion ~]$ sudo systemctl restart httpd.service 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[dbpuser@bastion ~]$ openshift-install --dir ~/clusterconfig/ wait-for bootstrap-complete --log-level=debug
+DEBUG OpenShift Installer 4.12.30
+DEBUG Built from commit caf16da287d56f9df8ad61481964a377fe30784b
+INFO Waiting up to 20m0s (until 9:20PM) for the Kubernetes API at https://api.prod.dbp.pnb:6443...
+DEBUG Loading Agent Config...
+INFO API v1.25.11+1485cc9 up
+DEBUG Loading Install Config...
+DEBUG   Loading SSH Key...
+DEBUG   Loading Base Domain...
+DEBUG     Loading Platform...
+DEBUG   Loading Cluster Name...
+DEBUG     Loading Base Domain...
+DEBUG     Loading Platform...
+DEBUG   Loading Networking...
+DEBUG     Loading Platform...
+DEBUG   Loading Pull Secret...
+DEBUG   Loading Platform...
+DEBUG Using Install Config loaded from state file
+INFO Waiting up to 30m0s (until 9:30PM) for bootstrapping to complete...
+
+
+
+
+
+
+
+[dbpuser@bastion ~]$ oc get co
+NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
+authentication                             4.12.30   True        False         False      71m
+baremetal                                  4.12.30   True        False         False      2d3h
+cloud-controller-manager                   4.12.30   True        False         False      2d3h
+cloud-credential                           4.12.30   True        False         False      2d10h
+cluster-autoscaler                         4.12.30   True        False         False      2d3h
+config-operator                            4.12.30   True        False         False      2d3h
+console                                    4.12.30   True        False         False      101m
+control-plane-machine-set                  4.12.30   True        False         False      2d3h
+csi-snapshot-controller                    4.12.30   True        False         False      68m
+dns                                        4.12.30   True        False         False      2d3h
+etcd                                       4.12.30   True        False         False      45h
+image-registry                             4.12.30   True        False         False      45h
+ingress                                    4.12.30   True        False         False      45h
+insights                                   4.12.30   True        False         False      2d3h
+kube-apiserver                             4.12.30   True        False         False      46h
+kube-controller-manager                    4.12.30   True        False         False      46h
+kube-scheduler                             4.12.30   True        False         False      2d3h
+kube-storage-version-migrator              4.12.30   True        False         False      141m
+machine-api                                4.12.30   True        False         False      2d3h
+machine-approver                           4.12.30   True        False         False      2d3h
+machine-config                             4.12.30   True        False         False      2d3h
+marketplace                                4.12.30   True        False         False      2d3h
+monitoring                                 4.12.30   True        False         False      4h8m
+network                                    4.12.30   True        False         False      2d3h
+node-tuning                                4.12.30   True        False         False      2d3h
+openshift-apiserver                        4.12.30   True        False         False      3h13m
+openshift-controller-manager               4.12.30   True        False         False      2d3h
+openshift-samples                          4.12.30   True        False         False      35h
+operator-lifecycle-manager                 4.12.30   True        False         False      2d3h
+operator-lifecycle-manager-catalog         4.12.30   True        False         False      2d3h
+operator-lifecycle-manager-packageserver   4.12.30   True        False         False      37h
+service-ca                                 4.12.30   True        False         False      2d3h
+storage                                    4.12.30   True        False         False      2d3h
+[dbpuser@bastion ~]$ openshift-install --dir ~/clusterconfig/ wait-for install-complete
+INFO Waiting up to 40m0s (until 8:14PM) for the cluster at https://api.prod.dbp.pnb:6443 to initialize...
+INFO Checking to see if there is a route at openshift-console/console...
+INFO Install complete!
+INFO To access the cluster as the system:admin user when using 'oc', run 'export KUBECONFIG=/home/dbpuser/clusterconfig/auth/kubeconfig'
+INFO Access the OpenShift web-console here: https://console-openshift-console.apps.prod.dbp.pnb
+INFO Login to the console with user: "kubeadmin", and password: "PDHpx-kNRrK-JrdRg-DKJoi"
+INFO Time elapsed: 0s
+[dbpuser@bastion ~]$

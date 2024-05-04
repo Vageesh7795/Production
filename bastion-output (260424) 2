@@ -1,0 +1,1151 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2024.04.26 12:10:51 =~=~=~=~=~=~=~=~=~=~=~=
+
+ httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
+   Active: active (running) since Fri 2024-04-26 12:08:55 IST; 2min 2s ago
+     Docs: man:httpd.service(8)
+ Main PID: 561943 (httpd)
+   Status: "Running, listening on: port 8080"
+    Tasks: 213 (limit: 22568)
+   Memory: 21.9M
+   CGroup: /system.slice/httpd.service
+           561943 /usr/sbin/httpd -DFOREGROUND
+           561945 /usr/sbin/httpd -DFOREGROUND
+           561946 /usr/sbin/httpd -DFOREGROUND
+           561947 /usr/sbin/httpd -DFOREGROUND
+           561948 /usr/sbin/httpd -DFOREGROUND
+
+Apr 26 12:08:55 bastion.prod.dbp.pnb systemd[1]: Starting The Apache HTTP Server...
+Apr 26 12:08:55 bastion.prod.dbp.pnb systemd[1]: Started The Apache HTTP Server.
+Apr 26 12:08:55 bastion.prod.dbp.pnb httpd[561943]: Server configured, listening on: port 8080
+[dbpuser@bastion ~]$ curl -k https:://\//lo://localhost:8080
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Test Page for the HTTP Server on Red Hat Enterprise Linux</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+/*<![CDATA[*/
+body {
+background-color: #fff;
+color: #000;
+font-size: 0.9em;
+font-family: sans-serif,helvetica;
+margin: 0;
+padding: 0;
+}
+:link {
+color: #c00;
+}
+:visited {
+color: #c00;
+}
+a:hover {
+color: #f50;
+}
+h1 {
+text-align: center;
+margin: 0;
+padding: 0.6em 2em 0.4em;
+background-color: #900;
+color: #fff;
+font-weight: normal;
+font-size: 1.75em;
+border-bottom: 2px solid #000;
+}
+h1 strong {
+font-weight: bold;
+}
+h2 {
+font-size: 1.1em;
+font-weight: bold;
+}
+hr {
+display: none;
+}
+.content {
+padding: 1em 5em;
+}
+.content-columns {
+/* Setting relative positioning allows for 
+absolute positioning for sub-classes */
+position: relative;
+padding-top: 1em;
+}
+.content-column-left {
+/* Value for IE/Win; will be overwritten for other browsers */
+width: 47%;
+padding-right: 3%;
+float: left;
+padding-bottom: 2em;
+}
+.content-column-left hr {
+display: none;
+}
+.content-column-right {
+/* Values for IE/Win; will be overwritten for other browsers */
+width: 47%;
+padding-left: 3%;
+float: left;
+padding-bottom: 2em;
+}
+.content-columns>.content-column-left, .content-columns>.content-column-right {
+/* Non-IE/Win */
+}
+.logos {
+text-align: center;
+margin-top: 2em;
+}
+img {
+border: 2px solid #fff;
+padding: 2px;
+margin: 2px;
+}
+a:hover img {
+border: 2px solid #f50;
+}
+.footer {
+clear: both;
+text-align: center;
+font-size: xx-small;
+}
+/*]]>*/
+</style>
+</head>
+
+<body>
+<h1>Red Hat Enterprise Linux <strong>Test Page</strong></h1>
+
+<div class="content">
+<div class="content-middle">
+<p>This page is used to test the proper operation of the HTTP server after it has been installed. If you can read this page, it means that the HTTP server installed at this site is working properly.</p>
+</div>
+<hr />
+
+<div class="content-columns">
+<div class="content-column-left">
+<h2>If you are a member of the general public:</h2>
+
+<p>The fact that you are seeing this page indicates that the website you just visited is either experiencing problems, or is undergoing routine maintenance.</p>
+
+<p>If you would like to let the administrators of this website know that you've seen this page instead of the page you expected, you should send them e-mail. In general, mail sent to the name "webmaster" and directed to the website's domain should reach the appropriate person.</p>
+
+<p>For example, if you experienced problems while visiting www.example.com, you should send e-mail to "webmaster@example.com".</p>
+
+<p>For information on Red Hat Enterprise Linux, please visit the <a href="http://www.redhat.com/">Red Hat, Inc. website</a>. The documentation for Red Hat Enterprise Linux is <a href="http://www.redhat.com/docs/manuals/enterprise/">available on the Red Hat, Inc. website</a>.</p>
+<hr />
+</div>
+
+<div class="content-column-right">
+<h2>If you are the website administrator:</h2>
+
+<p>You may now add content to the webroot directory. Note
+that until you do so, people visiting your website will see
+this page, and not your content.</p>
+
+<p>For systems using the Apache HTTP Server:
+You may now add content to the directory <tt>/var/www/html/</tt>. Note that until you do so, people visiting your website will see this page, and not your content. To prevent this page from ever being used, follow the instructions in the file <tt>/etc/httpd/conf.d/welcome.conf</tt>.</p>
+
+<p>For systems using NGINX:
+You should now put your content in a location of your
+choice and edit the <code>root</code> configuration directive
+in the <strong>nginx</strong> configuration file
+<code>/etc/nginx/nginx.conf</code>.</p>
+
+<div class="logos">
+<a href="https://access.redhat.com/products/red-hat-enterprise-linux"><img src= "/icons/poweredby.png" alt="[ Powered by Red Hat Enterprise Linux ]" /></a>
+<img src= "poweredby.png" alt="[ Powered by Red Hat Enterprise Linux ]" />
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<a href="https://apache.org">Apache&trade;</a> is a registered trademark of <a href="https://apache.org">the Apache Software Foundation</a> in the United States and/or other countries.<br />
+<a href="https://nginx.com">NGINX&trade;</a> is a registered trademark of <a href="https://www.f5.com">F5 Networks, Inc.</a>.
+        </div>
+</body>
+</html>
+[dbpuser@bastion ~]$ curl -k http://localhost:8080localhost:8080localhost:8080localhost:8080localhost:8080localhost:8080localhost:8080localhost:8080localhost:8080localhost:8080localhost:8080
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Test Page for the HTTP Server on Red Hat Enterprise Linux</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+/*<![CDATA[*/
+body {
+background-color: #fff;
+color: #000;
+font-size: 0.9em;
+font-family: sans-serif,helvetica;
+margin: 0;
+padding: 0;
+}
+:link {
+color: #c00;
+}
+:visited {
+color: #c00;
+}
+a:hover {
+color: #f50;
+}
+h1 {
+text-align: center;
+margin: 0;
+padding: 0.6em 2em 0.4em;
+background-color: #900;
+color: #fff;
+font-weight: normal;
+font-size: 1.75em;
+border-bottom: 2px solid #000;
+}
+h1 strong {
+font-weight: bold;
+}
+h2 {
+font-size: 1.1em;
+font-weight: bold;
+}
+hr {
+display: none;
+}
+.content {
+padding: 1em 5em;
+}
+.content-columns {
+/* Setting relative positioning allows for 
+absolute positioning for sub-classes */
+position: relative;
+padding-top: 1em;
+}
+.content-column-left {
+/* Value for IE/Win; will be overwritten for other browsers */
+width: 47%;
+padding-right: 3%;
+float: left;
+padding-bottom: 2em;
+}
+.content-column-left hr {
+display: none;
+}
+.content-column-right {
+/* Values for IE/Win; will be overwritten for other browsers */
+width: 47%;
+padding-left: 3%;
+float: left;
+padding-bottom: 2em;
+}
+.content-columns>.content-column-left, .content-columns>.content-column-right {
+/* Non-IE/Win */
+}
+.logos {
+text-align: center;
+margin-top: 2em;
+}
+img {
+border: 2px solid #fff;
+padding: 2px;
+margin: 2px;
+}
+a:hover img {
+border: 2px solid #f50;
+}
+.footer {
+clear: both;
+text-align: center;
+font-size: xx-small;
+}
+/*]]>*/
+</style>
+</head>
+
+<body>
+<h1>Red Hat Enterprise Linux <strong>Test Page</strong></h1>
+
+<div class="content">
+<div class="content-middle">
+<p>This page is used to test the proper operation of the HTTP server after it has been installed. If you can read this page, it means that the HTTP server installed at this site is working properly.</p>
+</div>
+<hr />
+
+<div class="content-columns">
+<div class="content-column-left">
+<h2>If you are a member of the general public:</h2>
+
+<p>The fact that you are seeing this page indicates that the website you just visited is either experiencing problems, or is undergoing routine maintenance.</p>
+
+<p>If you would like to let the administrators of this website know that you've seen this page instead of the page you expected, you should send them e-mail. In general, mail sent to the name "webmaster" and directed to the website's domain should reach the appropriate person.</p>
+
+<p>For example, if you experienced problems while visiting www.example.com, you should send e-mail to "webmaster@example.com".</p>
+
+<p>For information on Red Hat Enterprise Linux, please visit the <a href="http://www.redhat.com/">Red Hat, Inc. website</a>. The documentation for Red Hat Enterprise Linux is <a href="http://www.redhat.com/docs/manuals/enterprise/">available on the Red Hat, Inc. website</a>.</p>
+<hr />
+</div>
+
+<div class="content-column-right">
+<h2>If you are the website administrator:</h2>
+
+<p>You may now add content to the webroot directory. Note
+that until you do so, people visiting your website will see
+this page, and not your content.</p>
+
+<p>For systems using the Apache HTTP Server:
+You may now add content to the directory <tt>/var/www/html/</tt>. Note that until you do so, people visiting your website will see this page, and not your content. To prevent this page from ever being used, follow the instructions in the file <tt>/etc/httpd/conf.d/welcome.conf</tt>.</p>
+
+<p>For systems using NGINX:
+You should now put your content in a location of your
+choice and edit the <code>root</code> configuration directive
+in the <strong>nginx</strong> configuration file
+<code>/etc/nginx/nginx.conf</code>.</p>
+
+<div class="logos">
+<a href="https://access.redhat.com/products/red-hat-enterprise-linux"><img src= "/icons/poweredby.png" alt="[ Powered by Red Hat Enterprise Linux ]" /></a>
+<img src= "poweredby.png" alt="[ Powered by Red Hat Enterprise Linux ]" />
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<a href="https://apache.org">Apache&trade;</a> is a registered trademark of <a href="https://apache.org">the Apache Software Foundation</a> in the United States and/or other countries.<br />
+<a href="https://nginx.com">NGINX&trade;</a> is a registered trademark of <a href="https://www.f5.com">F5 Networks, Inc.</a>.
+        </div>
+</body>
+</html>
+[dbpuser@bastion ~]$ curl localhost:8080
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Test Page for the HTTP Server on Red Hat Enterprise Linux</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+/*<![CDATA[*/
+body {
+background-color: #fff;
+color: #000;
+font-size: 0.9em;
+font-family: sans-serif,helvetica;
+margin: 0;
+padding: 0;
+}
+:link {
+color: #c00;
+}
+:visited {
+color: #c00;
+}
+a:hover {
+color: #f50;
+}
+h1 {
+text-align: center;
+margin: 0;
+padding: 0.6em 2em 0.4em;
+background-color: #900;
+color: #fff;
+font-weight: normal;
+font-size: 1.75em;
+border-bottom: 2px solid #000;
+}
+h1 strong {
+font-weight: bold;
+}
+h2 {
+font-size: 1.1em;
+font-weight: bold;
+}
+hr {
+display: none;
+}
+.content {
+padding: 1em 5em;
+}
+.content-columns {
+/* Setting relative positioning allows for 
+absolute positioning for sub-classes */
+position: relative;
+padding-top: 1em;
+}
+.content-column-left {
+/* Value for IE/Win; will be overwritten for other browsers */
+width: 47%;
+padding-right: 3%;
+float: left;
+padding-bottom: 2em;
+}
+.content-column-left hr {
+display: none;
+}
+.content-column-right {
+/* Values for IE/Win; will be overwritten for other browsers */
+width: 47%;
+padding-left: 3%;
+float: left;
+padding-bottom: 2em;
+}
+.content-columns>.content-column-left, .content-columns>.content-column-right {
+/* Non-IE/Win */
+}
+.logos {
+text-align: center;
+margin-top: 2em;
+}
+img {
+border: 2px solid #fff;
+padding: 2px;
+margin: 2px;
+}
+a:hover img {
+border: 2px solid #f50;
+}
+.footer {
+clear: both;
+text-align: center;
+font-size: xx-small;
+}
+/*]]>*/
+</style>
+</head>
+
+<body>
+<h1>Red Hat Enterprise Linux <strong>Test Page</strong></h1>
+
+<div class="content">
+<div class="content-middle">
+<p>This page is used to test the proper operation of the HTTP server after it has been installed. If you can read this page, it means that the HTTP server installed at this site is working properly.</p>
+</div>
+<hr />
+
+<div class="content-columns">
+<div class="content-column-left">
+<h2>If you are a member of the general public:</h2>
+
+<p>The fact that you are seeing this page indicates that the website you just visited is either experiencing problems, or is undergoing routine maintenance.</p>
+
+<p>If you would like to let the administrators of this website know that you've seen this page instead of the page you expected, you should send them e-mail. In general, mail sent to the name "webmaster" and directed to the website's domain should reach the appropriate person.</p>
+
+<p>For example, if you experienced problems while visiting www.example.com, you should send e-mail to "webmaster@example.com".</p>
+
+<p>For information on Red Hat Enterprise Linux, please visit the <a href="http://www.redhat.com/">Red Hat, Inc. website</a>. The documentation for Red Hat Enterprise Linux is <a href="http://www.redhat.com/docs/manuals/enterprise/">available on the Red Hat, Inc. website</a>.</p>
+<hr />
+</div>
+
+<div class="content-column-right">
+<h2>If you are the website administrator:</h2>
+
+<p>You may now add content to the webroot directory. Note
+that until you do so, people visiting your website will see
+this page, and not your content.</p>
+
+<p>For systems using the Apache HTTP Server:
+You may now add content to the directory <tt>/var/www/html/</tt>. Note that until you do so, people visiting your website will see this page, and not your content. To prevent this page from ever being used, follow the instructions in the file <tt>/etc/httpd/conf.d/welcome.conf</tt>.</p>
+
+<p>For systems using NGINX:
+You should now put your content in a location of your
+choice and edit the <code>root</code> configuration directive
+in the <strong>nginx</strong> configuration file
+<code>/etc/nginx/nginx.conf</code>.</p>
+
+<div class="logos">
+<a href="https://access.redhat.com/products/red-hat-enterprise-linux"><img src= "/icons/poweredby.png" alt="[ Powered by Red Hat Enterprise Linux ]" /></a>
+<img src= "poweredby.png" alt="[ Powered by Red Hat Enterprise Linux ]" />
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<a href="https://apache.org">Apache&trade;</a> is a registered trademark of <a href="https://apache.org">the Apache Software Foundation</a> in the United States and/or other countries.<br />
+<a href="https://nginx.com">NGINX&trade;</a> is a registered trademark of <a href="https://www.f5.com">F5 Networks, Inc.</a>.
+        </div>
+</body>
+</html>
+[dbpuser@bastion ~]$ ll /var/www/html/ocp4/
+total 292
+drwxr-x---. 2 apache apache     50 Apr 26 12:06 auth
+-rw-r-----. 1 apache apache 286165 Apr 26 12:06 bootstrap.ign
+-rw-r-----. 1 apache apache   1714 Apr 26 12:06 master.ign
+-rw-r-----. 1 apache apache     96 Apr 26 12:06 metadata.json
+-rw-r-----. 1 apache apache   1714 Apr 26 12:06 worker.ign
+[dbpuser@bastion ~]$ sudo chomod mod 755 /var/www/html/ocp4/
+[dbpuser@bastion ~]$ sudo chmod 755 /var/www/html/ocp4/ll
+total 292
+drwxr-x---. 2 apache apache     50 Apr 26 12:06 auth
+-rw-r-----. 1 apache apache 286165 Apr 26 12:06 bootstrap.ign
+-rw-r-----. 1 apache apache   1714 Apr 26 12:06 master.ign
+-rw-r-----. 1 apache apache     96 Apr 26 12:06 metadata.json
+-rw-r-----. 1 apache apache   1714 Apr 26 12:06 worker.ign
+[dbpuser@bastion ~]$ ll /var/www/html/ocp4/
+total 292
+drwxr-x---. 2 apache apache     50 Apr 26 12:06 auth
+-rw-r-----. 1 apache apache 286165 Apr 26 12:06 bootstrap.ign
+-rw-r-----. 1 apache apache   1714 Apr 26 12:06 master.ign
+-rw-r-----. 1 apache apache     96 Apr 26 12:06 metadata.json
+-rw-r-----. 1 apache apache   1714 Apr 26 12:06 worker.ign
+[dbpuser@bastion ~]$ ll /var/www/html/ocp4/
+total 0
+drwxr-xr-x. 3 apache apache 96 Apr 26 12:06 ocp4
+[dbpuser@bastion ~]$ ll /var/www/html/ocp4/sudo chmod 755llcurl localhost:8080
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Test Page for the HTTP Server on Red Hat Enterprise Linux</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+/*<![CDATA[*/
+body {
+background-color: #fff;
+color: #000;
+font-size: 0.9em;
+font-family: sans-serif,helvetica;
+margin: 0;
+padding: 0;
+}
+:link {
+color: #c00;
+}
+:visited {
+color: #c00;
+}
+a:hover {
+color: #f50;
+}
+h1 {
+text-align: center;
+margin: 0;
+padding: 0.6em 2em 0.4em;
+background-color: #900;
+color: #fff;
+font-weight: normal;
+font-size: 1.75em;
+border-bottom: 2px solid #000;
+}
+h1 strong {
+font-weight: bold;
+}
+h2 {
+font-size: 1.1em;
+font-weight: bold;
+}
+hr {
+display: none;
+}
+.content {
+padding: 1em 5em;
+}
+.content-columns {
+/* Setting relative positioning allows for 
+absolute positioning for sub-classes */
+position: relative;
+padding-top: 1em;
+}
+.content-column-left {
+/* Value for IE/Win; will be overwritten for other browsers */
+width: 47%;
+padding-right: 3%;
+float: left;
+padding-bottom: 2em;
+}
+.content-column-left hr {
+display: none;
+}
+.content-column-right {
+/* Values for IE/Win; will be overwritten for other browsers */
+width: 47%;
+padding-left: 3%;
+float: left;
+padding-bottom: 2em;
+}
+.content-columns>.content-column-left, .content-columns>.content-column-right {
+/* Non-IE/Win */
+}
+.logos {
+text-align: center;
+margin-top: 2em;
+}
+img {
+border: 2px solid #fff;
+padding: 2px;
+margin: 2px;
+}
+a:hover img {
+border: 2px solid #f50;
+}
+.footer {
+clear: both;
+text-align: center;
+font-size: xx-small;
+}
+/*]]>*/
+</style>
+</head>
+
+<body>
+<h1>Red Hat Enterprise Linux <strong>Test Page</strong></h1>
+
+<div class="content">
+<div class="content-middle">
+<p>This page is used to test the proper operation of the HTTP server after it has been installed. If you can read this page, it means that the HTTP server installed at this site is working properly.</p>
+</div>
+<hr />
+
+<div class="content-columns">
+<div class="content-column-left">
+<h2>If you are a member of the general public:</h2>
+
+<p>The fact that you are seeing this page indicates that the website you just visited is either experiencing problems, or is undergoing routine maintenance.</p>
+
+<p>If you would like to let the administrators of this website know that you've seen this page instead of the page you expected, you should send them e-mail. In general, mail sent to the name "webmaster" and directed to the website's domain should reach the appropriate person.</p>
+
+<p>For example, if you experienced problems while visiting www.example.com, you should send e-mail to "webmaster@example.com".</p>
+
+<p>For information on Red Hat Enterprise Linux, please visit the <a href="http://www.redhat.com/">Red Hat, Inc. website</a>. The documentation for Red Hat Enterprise Linux is <a href="http://www.redhat.com/docs/manuals/enterprise/">available on the Red Hat, Inc. website</a>.</p>
+<hr />
+</div>
+
+<div class="content-column-right">
+<h2>If you are the website administrator:</h2>
+
+<p>You may now add content to the webroot directory. Note
+that until you do so, people visiting your website will see
+this page, and not your content.</p>
+
+<p>For systems using the Apache HTTP Server:
+You may now add content to the directory <tt>/var/www/html/</tt>. Note that until you do so, people visiting your website will see this page, and not your content. To prevent this page from ever being used, follow the instructions in the file <tt>/etc/httpd/conf.d/welcome.conf</tt>.</p>
+
+<p>For systems using NGINX:
+You should now put your content in a location of your
+choice and edit the <code>root</code> configuration directive
+in the <strong>nginx</strong> configuration file
+<code>/etc/nginx/nginx.conf</code>.</p>
+
+<div class="logos">
+<a href="https://access.redhat.com/products/red-hat-enterprise-linux"><img src= "/icons/poweredby.png" alt="[ Powered by Red Hat Enterprise Linux ]" /></a>
+<img src= "poweredby.png" alt="[ Powered by Red Hat Enterprise Linux ]" />
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<a href="https://apache.org">Apache&trade;</a> is a registered trademark of <a href="https://apache.org">the Apache Software Foundation</a> in the United States and/or other countries.<br />
+<a href="https://nginx.com">NGINX&trade;</a> is a registered trademark of <a href="https://www.f5.com">F5 Networks, Inc.</a>.
+        </div>
+</body>
+</html>
+[dbpuser@bastion ~]$ vimsudo vim /vetc/httpd/conf/httpd.conf 
+"/etc/httpd/conf/httpd.conf" 356L, 11901C  #
+# This is the main Apache HTTP server configuration file.  It contains the
+# configuration directives that give the server its instructions.
+# See <URL:http://httpd.apache.org/docs/2.4/> for detailed information.
+# In particular, see 
+# <URL:http://httpd.apache.org/docs/2.4/mod/directives.html>
+# for a discussion of each configuration directive.
+#
+# See the httpd.conf(5) man page for more information on this configuration,
+# and httpd.service(8) on using and configuring the httpd service.
+#
+# Do NOT simply read the instructions in here without understanding
+# what they do.  They're here only as hints or reminders.  If you are unsure
+# consult the online docs. You have been warned.  
+#
+# Configuration and logfile names: If the filenames you specify for many
+# of the server's control files begin with "/" (or "drive:/" for Win32), the
+# server will use that explicit path.  If the filenames do *not* begin
+# with "/", the value of ServerRoot is prepended -- so 'log/access_log'
+# with ServerRoot set to '/www' will be interpreted by the
+# server as '/www/log/access_log', where as '/log/access_log' will be
+# interpreted as '/log/access_log'.
+
+#
+# ServerRoot: The top of the directory tree under which the server's
+# configuration, error, and log files are kept.
+#
+# Do not add a slash at the end of the directory path.  If you point
+# ServerRoot at a non-local disk, be sure to specify a local disk on the
+# Mutex directive, if file-based mutexes are used.  If you wish to share the
+# same ServerRoot for multiple httpd daemons, you will need to change at
+# least PidFile.
+#
+ServerRoot "/etc/httpd"
+
+#
+# Listen: Allows you to bind Apache to specific IP addresses and/or
+# ports, instead of the default. See also the <VirtualHost>
+# directive.
+#
+# Change this to Listen on specific IP addresses as shown below to 
+# prevent Apache from glomming onto all bound IP addresses.
+#
+#Listen 12.34.56.78:80
+Listen 8080
+
+#
+# Dynamic Shared Object (DSO) Support
+#
+# To be able to use the functionality of a module which was built as a DSO you
+# have to place corresponding `LoadModule' lines at this location so the
+# directives contained in it are actually available _before_ they are used.
+# Statically compiled modules (those listed by `httpd -l') do not need
+# to be loaded here.
+#
+# Example:
+# LoadModule foo_module modules/mod_foo.so
+#
+Include conf.modules.d/*.conf
+
+#
+# If you wish httpd to run as a different user or group, you must run45,11Top~@k   6,0-1~@k   7,1  ~@k   8,11~@k   9,1 ~@k   50,11~@k   1~@k   2~@k   3~@k   4~@k   5,1 ~@k   6,10~@k   7,11~@k   
+# httpd as root initially and it will switch.  58,10%~@k   
+#59,110%~@k   
+# User/Group: The name (or #number) of the user/group to run httpd as.60,0-11%~@k   
+# It is usually good practice to create a dedicated user and group for61,11%~@k   
+# running httpd, as with most system services.62,111%~@k   
+#63,112%~@k   
+User apache64,12%~@k   
+Group apache65,112%~@k   
+66,113%~@k   
+# 'Main' server configuration67,113%~@k   
+#68,13%~@k   
+# The directives in this section set up the values used by the 'main'69,114%~@k   
+# server, which responds to any requests that aren't handled by a70,114%~@k   
+# <VirtualHost> definition.  These values also provide defaults for71,0-14%~@k   
+# any <VirtualHost> containers you may define later in the file.72,115%
+#73,15%~@k   
+# All of these directives may appear inside <VirtualHost> containers,74,115%~@k   
+# in which case these default settings will be overridden for the75,116%~@k   
+# virtual host being defined.76,116%~@k   
+#77,116%~@k   
+78,17%~@k   
+#79,117%~@k   
+# ServerAdmin: Your address, where problems with the server should be80,117%~@k   
+# e-mailed.  This address appears on some server-generated pages, such81,118%~@k   
+# as error documents.  e.g. admin@your-domain.com82,18%~@k   
+#83,0-18%~@k   
+ServerAdmin root@localhost84,19%~@k   
+85,119%~@k   
+#86,119%~@k   
+# ServerName gives the name and port that the server uses to identify itself.87,1110%~@k   
+# This can often be determined automatically, but we recommend you specify88,110%~@k   
+# it explicitly to prevent problems during startup.89,1110%~@k   
+#90,0-111%
+# If your host doesn't have a registered DNS name, enter its IP address here.91,111%~@k   
+#92,1111%~@k   
+#ServerName www.example.com:8093,1112%
+94,1112%~@k   
+#95,112%
+# Deny access to the entirety of your server's filesystem. You must96,1113%~@k   
+# explicitly permit access to web content directories in other 97,113%~@k   
+# <Directory> blocks below.98,1113%~@k   
+#99,0-114%~@k   
+<Directory />100,114%
+AllowOverride none101,1114%~@k   
+Require all denied102,1115%~@k   
+</Directory>103,1115%~@k   
+104,115%~@k   
+#105,1116%~@k   
+# Note that from this point forward you must specifically allow106,1116%~@k   
+# particular features to be enabled - so if something's not working as107,1117%~@k   
+# you might expect, make sure that you have specifically enabled it108,1117%~@k   
+# below.109,0-117%~@k   
+#110,118%~@k   
+111,1118%~@k   
+#112,1118%~@k   
+# DocumentRoot: The directory out of which you will serve your113,1119%~@k   
+# documents. By default, all requests are taken from this directory, but114,819%~@k   
+# symbolic links and aliases may be used to point to other locations.115,119%
+#116,0-120%~@k   
+DocumentRoot "/var/www/html"117,120%~@k   
+118,1120%~@k   
+#119,1121%~@k   
+# Relax access to content within /var/www.120,1121%~@k   
+#121,121%~@k   
+<Directory "/var/www">122,1122%~@k   
+AllowOverride None123,0-122%~@k   
+    # Allow open access:124,122%~@k   
+Require all granted125,1123%~@k   
+</Directory>126,123%~@k   
+127,1123%~@k   
+# Further relax access to the default document root:128,1124%~@k   
+<Directory "/var/www/html">129,1124%~@k   
+    #130,1124%~@k   
+    # Possible values for the Options directive are "None", "All",131,1125%~@k   
+    # or any combination of:132,0-125%~@k   
+    #   Indexes Includes FollowSymLinks SymLinksifOwnerMatch ExecCGI MultiViews133,1125%~@k   
+    #134,1126%~@k   
+    # Note that "MultiViews" must be named *explicitly* --- "Options All"135,526%~@k   
+    # doesn't give it to you.136,1126%~@k   
+    #137,1127%~@k   
+    # The Options directive is both complicated and important.  Please see138,1127%~@k   
+    # http://httpd.apache.org/docs/2.4/mod/core.html#options139,527%~@k   
+    # for more information.140,1128%
+    #141,1128%~@k   
+Options Indexes FollowSymLinks142,528%~@k   
+143,1129%~@k   
+    #144,1129%~@k   
+    # AllowOverride controls what directives may be placed in .htaccess files.145,1129%~@k   
+    # It can be "All", "None", or any combination of the keywords:146,530%~@k   
+    #   Options FileInfo AuthConfig Limit147,1130%~@k   
+    #148,0-130%~@k   
+AllowOverride None149,531%~@k   
+150,1131%
+    #151,1131%~@k   
+    # Controls who can get stuff from this server.152,1132%~@k   
+    #153,532%~@k   
+Require all granted154,1132%~@k   
+</Directory>155,0-133%~@k   
+156,533%~@k   
+#157,1134%~@k   
+# DirectoryIndex: sets the file that Apache will serve if a directory158,534%~@k   
+# is requested.159,1134%~@k   
+#160,1135%~@k   
+<IfModule dir_module>161,0-135%~@k   
+DirectoryIndex index.html162,135%~@k   
+</IfModule>163,1136%~@k   
+164,1136%~@k   
+#165,136%~@k   
+# The following lines prevent .htaccess and .htpasswd files from being 166,1137%~@k   
+# viewed by Web clients. 167,1137%~@k   
+#168,1137%~@k   
+<Files ".ht*">169,0-138%~@k   
+Require all denied170,138%~@k   
+</Files>171,1138%^[  ^[  ::q![dbpuser@bastion ~]$ sudo vim /etc/httpd/conf/httpd.conf curl localhost:8080/ocp4
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://localhost:8080/ocp4/">here</a>.</p>
+</body></html>
+[dbpuser@bastion ~]$ curl localhost:8080/ocp4/
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /ocp4</title>
+ </head>
+ <body>
+<h1>Index of /ocp4</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=D">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/">Parent Directory</a>       </td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="auth/">auth/</a>                  </td><td align="right">2024-04-26 12:06  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="bootstrap.ign">bootstrap.ign</a>          </td><td align="right">2024-04-26 12:06  </td><td align="right">279K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="master.ign">master.ign</a>             </td><td align="right">2024-04-26 12:06  </td><td align="right">1.7K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="metadata.json">metadata.json</a>          </td><td align="right">2024-04-26 12:06  </td><td align="right"> 96 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="worker.ign">worker.ign</a>             </td><td align="right">2024-04-26 12:06  </td><td align="right">1.7K</td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+</body></html>
+[dbpuser@bastion ~]$ [dbpuser@bastion ~]$ curl localhost:8080/ocp4/
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /ocp4</title>
+ </head>
+ <body>
+<h1>Index of /ocp4</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=D">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/">Parent Directory</a>       </td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="auth/">auth/</a>                  </td><td align="right">2024-04-26 12:06  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="bootstrap.ign">bootstrap.ign</a>          </td><td align="right">2024-04-26 12:06  </td><td align="right">279K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="master.ign">master.ign</a>             </td><td align="right">2024-04-26 12:06  </td><td align="right">1.7K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="metadata.json">metadata.json</a>          </td><td align="right">2024-04-26 12:06  </td><td align="right"> 96 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="worker.ign">worker.ign</a>             </td><td align="right">2024-04-26 12:06  </td><td align="right">1.7K</td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+</body></html>
+[dbpuser@bastion ~]$ lssh dcore@1bototstrap,.prod.dbp.pnb 
+The authenticity of host 'bootstrap.prod.dbp.pnb (10.192.242.202)' can't be established.
+ECDSA key fingerprint is SHA256:oTQ7gwNhwsNTqjOu+lCsAl37oteSXqjm2Z7O9Ehf4Mw.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'bootstrap.prod.dbp.pnb,10.192.242.202' (ECDSA) to the list of known hosts.
+core@bootstrap.prod.dbp.pnb: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+[dbpuser@bastion ~]$ ssh core@bootstrap.prod.dbp.pnb s-i ~/.shsh/op4c 
+Red Hat Enterprise Linux CoreOS 412.86.202308081039-0
+  Part of OpenShift 4.12, RHCOS is a Kubernetes native operating system
+  managed by the Machine Config Operator (`clusteroperator/machine-config`).
+
+WARNING: Direct SSH access to machines is not recommended; instead,
+make configuration changes via `machineconfig` objects:
+  https://docs.openshift.com/container-platform/4.12/architecture/architecture-rhcos.html
+
+---
+This is the bootstrap node; it will be destroyed when the master is fully up.
+
+The primary services are release-image.service followed by bootkube.service. To watch their status, run e.g.
+
+  journalctl -b -f -u release-image.service -u bootkube.service
+[core@bootstrap ~]$ usodsudo crictl images
+FATA[0000] unable to determine image API version: rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial unix /var/run/crio/crio.sock: connect: no such file or directory" 
+[core@bootstrap ~]$ sudo crictl imagessystemctl sytatus criod.service 
+ crio.service - Container Runtime Interface for OCI (CRI-O)
+   Loaded: loaded (/usr/lib/systemd/system/crio.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+     Docs: https://github.com/cri-o/cri-o
+[core@bootstrap ~]$ timedatectl
+               Local time: Fri 2024-04-26 06:56:20 UTC
+           Universal time: Fri 2024-04-26 06:56:20 UTC
+                 RTC time: Thu 2024-04-25 23:56:04
+                Time zone: UTC (UTC, +0000)
+System clock synchronized: no
+              NTP service: active
+          RTC in local TZ: no
+[core@bootstrap ~]$ journalctl -b -f -u release-image.service -u bootkube.service
+-- Logs begin at Thu 2024-04-25 23:53:39 UTC. --
+Apr 26 06:56:44 bootstrap.prod.dbp.pnb release-image-download.sh[12334]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:44 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:45 bootstrap.prod.dbp.pnb release-image-download.sh[12363]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:45 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:45 bootstrap.prod.dbp.pnb release-image-download.sh[12392]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:45 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:45 bootstrap.prod.dbp.pnb release-image-download.sh[12423]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:46 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:46 bootstrap.prod.dbp.pnb release-image-download.sh[12453]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:46 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:46 bootstrap.prod.dbp.pnb release-image-download.sh[12484]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:47 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:47 bootstrap.prod.dbp.pnb release-image-download.sh[12514]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:47 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:47 bootstrap.prod.dbp.pnb release-image-download.sh[12545]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:47 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:48 bootstrap.prod.dbp.pnb release-image-download.sh[12575]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:48 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:48 bootstrap.prod.dbp.pnb release-image-download.sh[12607]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:48 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:49 bootstrap.prod.dbp.pnb release-image-download.sh[12637]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:49 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:49 bootstrap.prod.dbp.pnb release-image-download.sh[12667]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:49 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:49 bootstrap.prod.dbp.pnb release-image-download.sh[12698]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:49 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:50 bootstrap.prod.dbp.pnb release-image-download.sh[12727]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:50 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:50 bootstrap.prod.dbp.pnb release-image-download.sh[12757]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:50 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:51 bootstrap.prod.dbp.pnb release-image-download.sh[12787]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:51 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:51 bootstrap.prod.dbp.pnb release-image-download.sh[12819]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:51 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:52 bootstrap.prod.dbp.pnb release-image-download.sh[12848]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:52 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:52 bootstrap.prod.dbp.pnb release-image-download.sh[12878]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:52 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:52 bootstrap.prod.dbp.pnb release-image-download.sh[12909]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:52 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:53 bootstrap.prod.dbp.pnb release-image-download.sh[12939]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:53 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:54 bootstrap.prod.dbp.pnb release-image-download.sh[12968]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:54 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:54 bootstrap.prod.dbp.pnb release-image-download.sh[13000]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:54 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:54 bootstrap.prod.dbp.pnb release-image-download.sh[13031]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:54 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:55 bootstrap.prod.dbp.pnb release-image-download.sh[13061]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:55 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:55 bootstrap.prod.dbp.pnb release-image-download.sh[13090]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:55 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:56 bootstrap.prod.dbp.pnb release-image-download.sh[13121]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:56 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:56 bootstrap.prod.dbp.pnb release-image-download.sh[13150]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:56 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:56 bootstrap.prod.dbp.pnb release-image-download.sh[13179]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:56 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:57 bootstrap.prod.dbp.pnb release-image-download.sh[13208]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:57 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:57 bootstrap.prod.dbp.pnb release-image-download.sh[13239]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:57 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:58 bootstrap.prod.dbp.pnb release-image-download.sh[13270]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:58 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:58 bootstrap.prod.dbp.pnb release-image-download.sh[13299]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:59 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 06:56:59 bootstrap.prod.dbp.pnb release-image-download.sh[13330]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 06:56:59 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+^C
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ telnet registry.oprod.dbp.pnb 80443
+-bash: telnet: command not found
+[core@bootstrap ~]$ curl -k https://registry.prod.dbp.pnb:8443
+curl: (6) Could not resolve host: registry.prod.dbp.pnb
+[core@bootstrap ~]$ nslookup registry.prod.dbp.pnb
+Server:10.209.27.103
+Address:10.209.27.103#53
+
+** server can't find registry.prod.dbp.pnb: NXDOMAIN
+
+[core@bootstrap ~]$ logout
+Connection to bootstrap.prod.dbp.pnb closed.
+[dbpuser@bastion ~]$ ssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnb curl localhost:8080/ocp4/ssh core@bootstrap.prod.dbp.pnb -i ~/.ssh/ocp4 nslokokup regsitryistry.prod.dbp.pnb
+;; Got recursion not available from 10.209.27.103, trying next server
+;; Got recursion not available from 10.209.27.104, trying next server
+Server:10.209.27.105
+Address:10.209.27.105#53
+
+** server can't find registry.prod.dbp.pnb: NXDOMAIN
+
+[dbpuser@bastion ~]$ nslookup registry.prod.dbp.pnbssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnb curl localhost:8080/ocp4/ssh core@bootstrap.prod.dbp.pnb -i ~/.ssh/ocp4 
+Red Hat Enterprise Linux CoreOS 412.86.202308081039-0
+  Part of OpenShift 4.12, RHCOS is a Kubernetes native operating system
+  managed by the Machine Config Operator (`clusteroperator/machine-config`).
+
+WARNING: Direct SSH access to machines is not recommended; instead,
+make configuration changes via `machineconfig` objects:
+  https://docs.openshift.com/container-platform/4.12/architecture/architecture-rhcos.html
+
+---
+This is the bootstrap node; it will be destroyed when the master is fully up.
+
+The primary services are release-image.service followed by bootkube.service. To watch their status, run e.g.
+
+  journalctl -b -f -u release-image.service -u bootkube.service
+Last login: Fri Apr 26 06:55:41 2024 from 10.192.242.171
+^[[A[core@bootstrap ~]$ nslookup registry.prod.dbp.pnbcurl -k https://registry.prod.dbp.pnb:8443telnet registry.prod.dbp.pnb 8443curl -k https://registry.prod.dbp.pnb:8443nslookup registry.prod.dbp.pnbnslookup registry.prod.dbp.pnbcurl -k https://registry.prod.dbp.pnb:8443telnet registry.prod.dbp.pnb 8443journalctl -b -f -u release-image.service -u bootkube.service
+-- Logs begin at Thu 2024-04-25 23:53:39 UTC. --
+Apr 26 07:06:18 bootstrap.prod.dbp.pnb release-image-download.sh[45648]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:18 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:18 bootstrap.prod.dbp.pnb release-image-download.sh[45678]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:18 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:19 bootstrap.prod.dbp.pnb release-image-download.sh[45708]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:19 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:19 bootstrap.prod.dbp.pnb release-image-download.sh[45738]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:19 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:20 bootstrap.prod.dbp.pnb release-image-download.sh[45769]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:20 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:21 bootstrap.prod.dbp.pnb release-image-download.sh[45800]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:21 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:21 bootstrap.prod.dbp.pnb release-image-download.sh[45832]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:21 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:22 bootstrap.prod.dbp.pnb release-image-download.sh[45862]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:22 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:22 bootstrap.prod.dbp.pnb release-image-download.sh[45892]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:22 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:23 bootstrap.prod.dbp.pnb release-image-download.sh[45923]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:23 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:23 bootstrap.prod.dbp.pnb release-image-download.sh[45953]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:23 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:24 bootstrap.prod.dbp.pnb release-image-download.sh[45984]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:24 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:24 bootstrap.prod.dbp.pnb release-image-download.sh[46014]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:24 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:25 bootstrap.prod.dbp.pnb release-image-download.sh[46044]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:25 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:25 bootstrap.prod.dbp.pnb release-image-download.sh[46074]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:26 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:26 bootstrap.prod.dbp.pnb release-image-download.sh[46103]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:26 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:27 bootstrap.prod.dbp.pnb release-image-download.sh[46135]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:27 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:27 bootstrap.prod.dbp.pnb release-image-download.sh[46167]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:27 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:28 bootstrap.prod.dbp.pnb release-image-download.sh[46196]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:28 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:28 bootstrap.prod.dbp.pnb release-image-download.sh[46225]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:28 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:29 bootstrap.prod.dbp.pnb release-image-download.sh[46256]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:29 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:29 bootstrap.prod.dbp.pnb release-image-download.sh[46287]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:29 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:30 bootstrap.prod.dbp.pnb release-image-download.sh[46318]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:30 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:30 bootstrap.prod.dbp.pnb release-image-download.sh[46349]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:30 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:31 bootstrap.prod.dbp.pnb release-image-download.sh[46379]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:31 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:31 bootstrap.prod.dbp.pnb release-image-download.sh[46409]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:31 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:32 bootstrap.prod.dbp.pnb release-image-download.sh[46439]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:32 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:32 bootstrap.prod.dbp.pnb release-image-download.sh[46469]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:32 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:33 bootstrap.prod.dbp.pnb release-image-download.sh[46499]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:33 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:33 bootstrap.prod.dbp.pnb release-image-download.sh[46530]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:33 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:34 bootstrap.prod.dbp.pnb release-image-download.sh[46561]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:34 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:34 bootstrap.prod.dbp.pnb release-image-download.sh[46591]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:34 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:35 bootstrap.prod.dbp.pnb release-image-download.sh[46622]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:35 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:35 bootstrap.prod.dbp.pnb release-image-download.sh[46653]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:35 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:36 bootstrap.prod.dbp.pnb release-image-download.sh[46682]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:36 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:36 bootstrap.prod.dbp.pnb release-image-download.sh[46711]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:37 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:37 bootstrap.prod.dbp.pnb release-image-download.sh[46742]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:37 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:38 bootstrap.prod.dbp.pnb release-image-download.sh[46773]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:38 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:38 bootstrap.prod.dbp.pnb release-image-download.sh[46803]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:38 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:39 bootstrap.prod.dbp.pnb release-image-download.sh[46833]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:39 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:39 bootstrap.prod.dbp.pnb release-image-download.sh[46863]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:39 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:40 bootstrap.prod.dbp.pnb release-image-download.sh[46893]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:40 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:40 bootstrap.prod.dbp.pnb release-image-download.sh[46923]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:40 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:41 bootstrap.prod.dbp.pnb release-image-download.sh[46954]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:41 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:41 bootstrap.prod.dbp.pnb release-image-download.sh[46985]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:41 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:42 bootstrap.prod.dbp.pnb release-image-download.sh[47015]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:42 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:42 bootstrap.prod.dbp.pnb release-image-download.sh[47045]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:42 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:42 bootstrap.prod.dbp.pnb release-image-download.sh[47075]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:43 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:43 bootstrap.prod.dbp.pnb release-image-download.sh[47105]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:43 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:44 bootstrap.prod.dbp.pnb release-image-download.sh[47136]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:44 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:44 bootstrap.prod.dbp.pnb release-image-download.sh[47166]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:44 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:45 bootstrap.prod.dbp.pnb release-image-download.sh[47195]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:45 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:45 bootstrap.prod.dbp.pnb release-image-download.sh[47224]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:45 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:46 bootstrap.prod.dbp.pnb release-image-download.sh[47254]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:46 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:46 bootstrap.prod.dbp.pnb release-image-download.sh[47284]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:46 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:47 bootstrap.prod.dbp.pnb release-image-download.sh[47313]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:47 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:47 bootstrap.prod.dbp.pnb release-image-download.sh[47343]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:47 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:48 bootstrap.prod.dbp.pnb release-image-download.sh[47372]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:48 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:48 bootstrap.prod.dbp.pnb release-image-download.sh[47402]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:48 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:49 bootstrap.prod.dbp.pnb release-image-download.sh[47433]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:49 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:49 bootstrap.prod.dbp.pnb release-image-download.sh[47462]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:49 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:50 bootstrap.prod.dbp.pnb release-image-download.sh[47493]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:50 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:50 bootstrap.prod.dbp.pnb release-image-download.sh[47524]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:50 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:51 bootstrap.prod.dbp.pnb release-image-download.sh[47554]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:51 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:51 bootstrap.prod.dbp.pnb release-image-download.sh[47585]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:51 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:52 bootstrap.prod.dbp.pnb release-image-download.sh[47614]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:52 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:52 bootstrap.prod.dbp.pnb release-image-download.sh[47643]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:52 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:53 bootstrap.prod.dbp.pnb release-image-download.sh[47674]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:53 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:53 bootstrap.prod.dbp.pnb release-image-download.sh[47704]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:53 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+Apr 26 07:06:54 bootstrap.prod.dbp.pnb release-image-download.sh[47734]: Error: initializing source docker://quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry registry.prod.dbp.pnb:8443: Get "https://registry.prod.dbp.pnb:8443/v2/": dial tcp: lookup registry.prod.dbp.pnb on 10.209.27.103:53: no such host]): quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64: pinging container registry quay.io: Get "https://quay.io/v2/": dial tcp: lookup quay.io on 10.209.27.103:53: server misbehaving
+Apr 26 07:06:54 bootstrap.prod.dbp.pnb release-image-download.sh[1902]: Pull failed. Retrying quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64...
+^C
+[core@bootstrap ~]$ 

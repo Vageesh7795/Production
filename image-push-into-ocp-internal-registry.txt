@@ -1,0 +1,19 @@
+Failed to pull image "registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:8bffe5b4588ba03e77a0d16e82d6eef1f9c2e9991e5dc849924f43f3c269e4df": rpc error: code = Unknown desc = (Mirrors also failed: [registry.prod.dbp.pnb:8443/ocp4/openshift4-openshift4-ose-kube-rbac-proxy@sha256:8bffe5b4588ba03e77a0d16e82d6eef1f9c2e9991e5dc849924f43f3c269e4df: reading manifest sha256:8bffe5b4588ba03e77a0d16e82d6eef1f9c2e9991e5dc849924f43f3c269e4df in registry.prod.dbp.pnb:8443/ocp4/openshift4-openshift4-ose-kube-rbac-proxy: manifest unknown: manifest unknown]): registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:8bffe5b4588ba03e77a0d16e82d6eef1f9c2e9991e5dc849924f43f3c269e4df: pinging container registry registry.redhat.io: Get "https://registry.redhat.io/v2/": dial tcp: lookup registry.redhat.io on 10.209.27.103:53: server misbehaving
+
+In Mirror Registry:-
+*********************
+skopeo copy --all docker://registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:8bffe5b4588ba03e77a0d16e82d6eef1f9c2e9991e5dc849924f43f3c269e4df docker://registry.prod.dbp.pnb:8443/ocp4/openshift4-openshift4-ose-kube-rbac-proxy
+
+
+skoepo copy --all docker://registry.redhat.io/rhel8/httpd-24@sha256:3f24041d239f48dee4a50eaf429a16ef226008b6148265c547a4588f230487c7 docker://registry.prod.dbp.pnb:8443/ocp4/httpd-24
+
+
+In Bastion node :-
+*****************
+podman login -u init -p 7Nsm4tv5JGpZXF2Kw1kri9nT0x8Pf6d3 registry.prod.dbp.pnb:8443
+
+podman login -u ocpadmin -p $(oc whoami -t) default-route-openshift-image-registry.apps.prod.dbp.pnb
+
+podman pull registry.prod.dbp.pnb:8443/ocp4/httpd-24
+
+ podman push registry.prod.dbp.pnb:8443/ocp4/httpd-24:latest default-route-openshift-image-registry.apps.prod.dbp.pnb/test/httpd-24 --remove-signatures

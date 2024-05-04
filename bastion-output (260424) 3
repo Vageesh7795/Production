@@ -1,0 +1,985 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2024.04.26 14:36:25 =~=~=~=~=~=~=~=~=~=~=~=
+
+
+
+
+^C
+[core@bootstrap ~]$ journalctl -b -f -u release-image.service -u bootkube.servicesudo crictl imagesps
+CONTAINER           IMAGE                                                                                                                    CREATED             STATE               NAME                    ATTEMPT             POD ID              POD
+76cb86fe89566       16f07985b28d8d3c0e711e447b460ee00ec4b701863798fe29d856a75097bd38                                                         3 minutes ago       Running             machine-config-server   0                   cfc4d008f4d41       bootstrap-machine-config-operator-bootstrap.prod.dbp.pnb
+efcaf0d572487       475c1f17c2021c16b75358010906d541f03ff169efcf47ecf6672864f828f890                                                         3 minutes ago       Running             etcd                    0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+4adfc93b79188       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:afe9dcf922b60d87cd33904654f387d2eb4bcafb2681917094c0bb72c1af41da   3 minutes ago       Running             etcdctl                 0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+[core@bootstrap ~]$ sudo crictl psjournalctl -b -f -u release-image.service -u bootkube.service
+-- Logs begin at Thu 2024-04-25 23:53:39 UTC. --
+Apr 26 09:03:56 bootstrap.prod.dbp.pnb bootkube.sh[284670]: I0426 09:03:56.909646       1 bootstrap.go:188] manifests/machineconfigserver/kube-apiserver-serving-ca-configmap.yaml
+Apr 26 09:03:57 bootstrap.prod.dbp.pnb bootkube.sh[282268]: Check if API and API-Int URLs are resolvable during bootstrap
+Apr 26 09:03:57 bootstrap.prod.dbp.pnb bootkube.sh[282268]: Checking validity of api.prod.dbp.pnb of type API_URL
+Apr 26 09:03:57 bootstrap.prod.dbp.pnb bootkube.sh[282268]: Starting stage check-api-url
+Apr 26 09:03:57 bootstrap.prod.dbp.pnb bootkube.sh[282268]: Successfully resolved API_URL api.prod.dbp.pnb
+Apr 26 09:06:05 bootstrap.prod.dbp.pnb bootkube.sh[282268]: Unable to reach API_URL's https endpoint at https://10.192.242.203:6443/version
+Apr 26 09:06:05 bootstrap.prod.dbp.pnb bootkube.sh[282268]: It might be too early for the https://10.192.242.203:6443/version to be available.
+Apr 26 09:06:05 bootstrap.prod.dbp.pnb bootkube.sh[282268]: Checking validity of api-int.prod.dbp.pnb of type API_INT_URL
+Apr 26 09:06:05 bootstrap.prod.dbp.pnb bootkube.sh[282268]: Starting stage check-api-int-url
+Apr 26 09:06:05 bootstrap.prod.dbp.pnb bootkube.sh[282268]: Successfully resolved API_INT_URL api-int.prod.dbp.pnb
+
+
+
+
+Apr 26 09:08:16 bootstrap.prod.dbp.pnb bootkube.sh[282268]: Unable to reach API_INT_URL's https endpoint at https://10.192.242.204:6443/version
+Apr 26 09:08:16 bootstrap.prod.dbp.pnb bootkube.sh[282268]: It might be too early for the https://10.192.242.204:6443/version to be available.
+Apr 26 09:08:16 bootstrap.prod.dbp.pnb bootkube.sh[282268]: Rendering CCO manifests...
+Apr 26 09:08:20 bootstrap.prod.dbp.pnb bootkube.sh[285264]: time="2024-04-26T09:08:20Z" level=info msg="Rendering files to /assets/cco-bootstrap"
+Apr 26 09:08:20 bootstrap.prod.dbp.pnb bootkube.sh[285264]: time="2024-04-26T09:08:20Z" level=info msg="Writing file: /assets/cco-bootstrap/manifests/cco-cloudcredential_v1_operator_config_custresdef.yaml"
+Apr 26 09:08:20 bootstrap.prod.dbp.pnb bootkube.sh[285264]: time="2024-04-26T09:08:20Z" level=info msg="Writing file: /assets/cco-bootstrap/manifests/cco-cloudcredential_v1_credentialsrequest_crd.yaml"
+Apr 26 09:08:20 bootstrap.prod.dbp.pnb bootkube.sh[285264]: time="2024-04-26T09:08:20Z" level=info msg="Writing file: /assets/cco-bootstrap/manifests/cco-namespace.yaml"
+Apr 26 09:08:20 bootstrap.prod.dbp.pnb bootkube.sh[285264]: time="2024-04-26T09:08:20Z" level=info msg="Writing file: /assets/cco-bootstrap/manifests/cco-operator-config.yaml"
+Apr 26 09:08:20 bootstrap.prod.dbp.pnb bootkube.sh[285264]: time="2024-04-26T09:08:20Z" level=info msg="Rendering static pod"
+Apr 26 09:08:20 bootstrap.prod.dbp.pnb bootkube.sh[285264]: time="2024-04-26T09:08:20Z" level=info msg="writing file: /assets/cco-bootstrap/bootstrap-manifests/cloud-credential-operator-pod.yaml"
+Apr 26 09:08:21 bootstrap.prod.dbp.pnb bootkube.sh[285368]: https://localhost:2379 is healthy: successfully committed proposal: took = 6.6119ms
+Apr 26 09:08:21 bootstrap.prod.dbp.pnb bootkube.sh[282268]: Starting cluster-bootstrap...
+Apr 26 09:08:22 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Starting temporary bootstrap control plane...
+Apr 26 09:08:22 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Waiting up to 20m0s for the Kubernetes API
+Apr 26 09:08:23 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Still waiting for the Kubernetes API: Get "https://localhost:6443/readyz": dial tcp [::1]:6443: connect: connection refused
+
+
+
+
+Apr 26 09:08:37 bootstrap.prod.dbp.pnb bootkube.sh[285455]: API is up
+Apr 26 09:08:37 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_00_cluster-version-operator_00_namespace.yaml" namespaces.v1./openshift-cluster-version -n
+Apr 26 09:08:37 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "0000_00_cluster-version-operator_01_adminack_configmap.yaml" configmaps.v1./admin-acks -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:08:37 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "0000_00_cluster-version-operator_01_admingate_configmap.yaml" configmaps.v1./admin-gates -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:08:37 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_00_cluster-version-operator_01_clusteroperator.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/clusteroperators.config.openshift.io -n
+Apr 26 09:08:37 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_00_cluster-version-operator_01_clusterversion.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/clusterversions.config.openshift.io -n
+Apr 26 09:08:38 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_00_cluster-version-operator_02_roles.yaml" clusterrolebindings.v1.rbac.authorization.k8s.io/cluster-version-operator -n
+Apr 26 09:08:48 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "0000_00_cluster-version-operator_03_deployment.yaml" deployments.v1.apps/cluster-version-operator -n openshift-cluster-version: deployments.apps "cluster-version-operator" is forbidden: quota.openshift.io/ClusterResourceQuota: caches not synchronized
+Apr 26 09:08:48 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_00_namespace-openshift-infra.yaml" namespaces.v1./openshift-infra -n
+Apr 26 09:08:48 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_03_authorization-openshift_01_rolebindingrestriction.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/rolebindingrestrictions.authorization.openshift.io -n
+Apr 26 09:08:48 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_03_config-operator_01_proxy.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/proxies.config.openshift.io -n
+Apr 26 09:08:48 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_03_quota-openshift_01_clusterresourcequota.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/clusterresourcequotas.quota.openshift.io -n
+Apr 26 09:08:48 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_03_security-openshift_01_scc.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/securitycontextconstraints.security.openshift.io -n
+Apr 26 09:08:48 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_03_securityinternal-openshift_02_rangeallocation.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/rangeallocations.security.internal.openshift.io -n
+Apr 26 09:08:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_apiserver.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/apiservers.config.openshift.io -n
+Apr 26 09:08:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_authentication.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/authentications.config.openshift.io -n
+Apr 26 09:08:50 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_build.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/builds.config.openshift.io -n
+Apr 26 09:08:50 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_console.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/consoles.config.openshift.io -n
+Apr 26 09:08:50 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_dns.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/dnses.config.openshift.io -n
+Apr 26 09:08:51 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_featuregate.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/featuregates.config.openshift.io -n
+Apr 26 09:08:51 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_image.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/images.config.openshift.io -n
+Apr 26 09:08:52 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_imagecontentpolicy.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/imagecontentpolicies.config.openshift.io -n
+Apr 26 09:08:52 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_imagecontentsourcepolicy.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/imagecontentsourcepolicies.operator.openshift.io -n
+Apr 26 09:08:52 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_infrastructure.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/infrastructures.config.openshift.io -n
+Apr 26 09:08:53 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_ingress.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/ingresses.config.openshift.io -n
+Apr 26 09:08:53 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_network.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/networks.config.openshift.io -n
+Apr 26 09:08:54 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_node.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/nodes.config.openshift.io -n
+Apr 26 09:08:54 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_oauth.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/oauths.config.openshift.io -n
+Apr 26 09:08:54 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_project.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/projects.config.openshift.io -n
+Apr 26 09:08:55 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_10_config-operator_01_scheduler.crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/schedulers.config.openshift.io -n
+Apr 26 09:08:55 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_cr-scc-anyuid.yaml" clusterroles.v1.rbac.authorization.k8s.io/system:openshift:scc:anyuid -n
+Apr 26 09:08:56 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_cr-scc-hostaccess.yaml" clusterroles.v1.rbac.authorization.k8s.io/system:openshift:scc:hostaccess -n
+Apr 26 09:08:56 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_cr-scc-hostmount-anyuid.yaml" clusterroles.v1.rbac.authorization.k8s.io/system:openshift:scc:hostmount -n
+Apr 26 09:08:56 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_cr-scc-hostnetwork-v2.yaml" clusterroles.v1.rbac.authorization.k8s.io/system:openshift:scc:hostnetwork-v2 -n
+Apr 26 09:08:57 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_cr-scc-hostnetwork.yaml" clusterroles.v1.rbac.authorization.k8s.io/system:openshift:scc:hostnetwork -n
+Apr 26 09:08:57 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_cr-scc-nonroot-v2.yaml" clusterroles.v1.rbac.authorization.k8s.io/system:openshift:scc:nonroot-v2 -n
+Apr 26 09:08:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_cr-scc-nonroot.yaml" clusterroles.v1.rbac.authorization.k8s.io/system:openshift:scc:nonroot -n
+Apr 26 09:08:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_cr-scc-privileged.yaml" clusterroles.v1.rbac.authorization.k8s.io/system:openshift:scc:privileged -n
+Apr 26 09:08:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_cr-scc-restricted-v2.yaml" clusterroles.v1.rbac.authorization.k8s.io/system:openshift:scc:restricted-v2 -n
+Apr 26 09:08:59 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_cr-scc-restricted.yaml" clusterroles.v1.rbac.authorization.k8s.io/system:openshift:scc:restricted -n
+Apr 26 09:08:59 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_crb-systemauthenticated-scc-restricted-v2.yaml" clusterrolebindings.v1.rbac.authorization.k8s.io/system:openshift:scc:restricted-v2 -n
+Apr 26 09:09:00 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_scc-anyuid.yaml" securitycontextconstraints.v1.security.openshift.io/anyuid -n
+Apr 26 09:09:00 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_scc-hostaccess.yaml" securitycontextconstraints.v1.security.openshift.io/hostaccess -n
+Apr 26 09:09:01 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_scc-hostmount-anyuid.yaml" securitycontextconstraints.v1.security.openshift.io/hostmount-anyuid -n
+Apr 26 09:09:01 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_scc-hostnetwork-v2.yaml" securitycontextconstraints.v1.security.openshift.io/hostnetwork-v2 -n
+Apr 26 09:09:01 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_scc-hostnetwork.yaml" securitycontextconstraints.v1.security.openshift.io/hostnetwork -n
+Apr 26 09:09:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_scc-nonroot-v2.yaml" securitycontextconstraints.v1.security.openshift.io/nonroot-v2 -n
+Apr 26 09:09:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_scc-nonroot.yaml" securitycontextconstraints.v1.security.openshift.io/nonroot -n
+Apr 26 09:09:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_scc-privileged.yaml" securitycontextconstraints.v1.security.openshift.io/privileged -n
+Apr 26 09:09:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_scc-restricted-v2.yaml" securitycontextconstraints.v1.security.openshift.io/restricted-v2 -n
+Apr 26 09:09:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_20_kube-apiserver-operator_00_scc-restricted.yaml" securitycontextconstraints.v1.security.openshift.io/restricted -n
+Apr 26 09:09:04 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0001_00_cluster-version-operator_03_service.yaml" services.v1./cluster-version-operator -n openshift-cluster-version
+Apr 26 09:09:04 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "00_etcd-endpoints-cm.yaml" configmaps.v1./etcd-endpoints -n openshift-etcd: namespaces "openshift-etcd" not found
+Apr 26 09:09:04 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "00_namespace-security-allocation-controller-clusterrole.yaml" clusterroles.v1.rbac.authorization.k8s.io/system:openshift:controller:namespace-security-allocation-controller -n
+Apr 26 09:09:05 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "00_namespace-security-allocation-controller-clusterrolebinding.yaml" clusterrolebindings.v1.rbac.authorization.k8s.io/system:openshift:controller:namespace-security-allocation-controller -n
+Apr 26 09:09:05 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "00_openshift-etcd-ns.yaml" namespaces.v1./openshift-etcd -n
+Apr 26 09:09:06 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "00_openshift-kube-apiserver-ns.yaml" namespaces.v1./openshift-kube-apiserver -n
+Apr 26 09:09:06 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "00_openshift-kube-apiserver-operator-ns.yaml" namespaces.v1./openshift-kube-apiserver-operator -n
+Apr 26 09:09:06 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "00_openshift-kube-controller-manager-ns.yaml" namespaces.v1./openshift-kube-controller-manager -n
+Apr 26 09:09:07 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "00_openshift-kube-controller-manager-operator-ns.yaml" namespaces.v1./openshift-kube-controller-manager-operator -n
+Apr 26 09:09:07 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "00_openshift-kube-scheduler-ns.yaml" namespaces.v1./openshift-kube-scheduler -n
+Apr 26 09:09:08 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "00_podsecurity-admission-label-syncer-controller-clusterrole.yaml" clusterroles.v1.rbac.authorization.k8s.io/system:openshift:controller:podsecurity-admission-label-syncer-controller -n
+Apr 26 09:09:08 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "00_podsecurity-admission-label-syncer-controller-clusterrolebinding.yaml" clusterrolebindings.v1.rbac.authorization.k8s.io/system:openshift:controller:podsecurity-admission-label-syncer-controller -n
+Apr 26 09:09:08 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "99_kubeadmin-password-secret.yaml" secrets.v1./kubeadmin -n kube-system
+Apr 26 09:09:09 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-cluster-api_master-user-data-secret.yaml" secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:09 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-cluster-api_worker-user-data-secret.yaml" secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:10 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-machineconfig_99-master-ssh.yaml" machineconfigs.v1.machineconfiguration.openshift.io/99-master-ssh -n : the server could not find the requested resource
+Apr 26 09:09:10 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-machineconfig_99-worker-ssh.yaml" machineconfigs.v1.machineconfiguration.openshift.io/99-worker-ssh -n : the server could not find the requested resource
+Apr 26 09:09:10 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "apiserver.openshift.io_apirequestcount.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/apirequestcounts.apiserver.openshift.io -n
+Apr 26 09:09:11 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cco-cloudcredential_v1_credentialsrequest_crd.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/credentialsrequests.cloudcredential.openshift.io -n
+Apr 26 09:09:11 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cco-cloudcredential_v1_operator_config_custresdef.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/cloudcredentials.operator.openshift.io -n
+Apr 26 09:09:12 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cco-namespace.yaml" namespaces.v1./openshift-cloud-credential-operator -n
+Apr 26 09:09:14 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cco-operator-config.yaml" cloudcredentials.v1.operator.openshift.io/cluster -n
+Apr 26 09:09:14 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cluster-config.yaml" configmaps.v1./cluster-config-v1 -n kube-system
+Apr 26 09:09:14 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cluster-dns-02-config.yml" dnses.v1.config.openshift.io/cluster -n
+Apr 26 09:09:14 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Updated status for "cluster-dns-02-config.yml" dnses.v1.config.openshift.io/cluster -n
+Apr 26 09:09:14 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cluster-infrastructure-02-config.yml" infrastructures.v1.config.openshift.io/cluster -n
+Apr 26 09:09:14 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Updated status for "cluster-infrastructure-02-config.yml" infrastructures.v1.config.openshift.io/cluster -n
+Apr 26 09:09:14 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cluster-ingress-00-custom-resource-definition.yaml" customresourcedefinitions.v1.apiextensions.k8s.io/ingresscontrollers.operator.openshift.io -n
+Apr 26 09:09:14 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cluster-ingress-00-namespace.yaml" namespaces.v1./openshift-ingress-operator -n
+Apr 26 09:09:15 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cluster-ingress-02-config.yml" ingresses.v1.config.openshift.io/cluster -n
+Apr 26 09:09:15 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Updated status for "cluster-ingress-02-config.yml" ingresses.v1.config.openshift.io/cluster -n
+Apr 26 09:09:15 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Skipped "cluster-network-01-crd.yml" customresourcedefinitions.v1.apiextensions.k8s.io/networks.config.openshift.io -n  as it already exists
+Apr 26 09:09:16 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cluster-network-02-config.yml" networks.v1.config.openshift.io/cluster -n
+Apr 26 09:09:16 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cluster-proxy-01-config.yaml" proxies.v1.config.openshift.io/cluster -n
+Apr 26 09:09:16 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Updated status for "cluster-proxy-01-config.yaml" proxies.v1.config.openshift.io/cluster -n
+Apr 26 09:09:17 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cluster-role-binding-kube-apiserver.yaml" clusterrolebindings.v1.rbac.authorization.k8s.io/kube-apiserver -n
+Apr 26 09:09:17 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cluster-role-kube-apiserver.yaml" clusterroles.v1.rbac.authorization.k8s.io/kube-apiserver -n
+Apr 26 09:09:17 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cluster-scheduler-02-config.yml" schedulers.v1.config.openshift.io/cluster -n
+Apr 26 09:09:18 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Updated status for "cluster-scheduler-02-config.yml" schedulers.v1.config.openshift.io/cluster -n
+Apr 26 09:09:18 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-admin-kubeconfig-client-ca.yaml" configmaps.v1./admin-kubeconfig-client-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:19 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-csr-controller-ca.yaml" configmaps.v1./csr-controller-ca -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:19 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-kubelet-bootstrap-kubeconfig-ca.yaml" configmaps.v1./kubelet-bootstrap-kubeconfig -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:19 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-sa-token-signing-certs.yaml" configmaps.v1./sa-token-signing-certs -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:20 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "csr-bootstrap-role-binding.yaml" clusterrolebindings.v1.rbac.authorization.k8s.io/system-bootstrap-node-bootstrapper -n
+Apr 26 09:09:20 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "cvo-overrides.yaml" clusterversions.v1.config.openshift.io/version -n openshift-cluster-version
+Apr 26 09:09:21 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-ca-bundle-configmap.yaml" configmaps.v1./etcd-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:21 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-client-secret.yaml" secrets.v1./etcd-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:21 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-metric-client-secret.yaml" secrets.v1./etcd-metric-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:22 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-metric-serving-ca-configmap.yaml" configmaps.v1./etcd-metric-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:22 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-metric-signer-secret.yaml" secrets.v1./etcd-metric-signer -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:23 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-serving-ca-configmap.yaml" configmaps.v1./etcd-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:23 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-signer-secret.yaml" secrets.v1./etcd-signer -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:23 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "kube-apiserver-serving-ca-configmap.yaml" configmaps.v1./initial-kube-apiserver-server-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:24 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "kube-cloud-config.yaml" secrets.v1./kube-cloud-cfg -n kube-system
+Apr 26 09:09:24 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "kube-system-configmap-root-ca.yaml" configmaps.v1./root-ca -n kube-system
+Apr 26 09:09:25 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "machine-config-server-tls-secret.yaml" secrets.v1./machine-config-server-tls -n openshift-machine-config-operator: namespaces "openshift-machine-config-operator" not found
+Apr 26 09:09:25 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "openshift-config-secret-pull-secret.yaml" secrets.v1./pull-secret -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:25 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "openshift-etcd-svc.yaml" services.v1./etcd -n openshift-etcd
+Apr 26 09:09:26 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "openshift-install-manifests.yaml" configmaps.v1./openshift-install-manifests -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:26 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "secret-aggregator-client-signer.yaml" secrets.v1./aggregator-client-signer -n openshift-kube-apiserver-operator
+Apr 26 09:09:26 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "secret-bound-sa-token-signing-key.yaml" secrets.v1./next-bound-service-account-signing-key -n openshift-kube-apiserver-operator
+Apr 26 09:09:27 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "secret-control-plane-client-signer.yaml" secrets.v1./kube-control-plane-signer -n openshift-kube-apiserver-operator
+Apr 26 09:09:27 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "secret-csr-signer-signer.yaml" secrets.v1./csr-signer-signer -n openshift-kube-controller-manager-operator
+Apr 26 09:09:28 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "secret-initial-kube-controller-manager-service-account-private-key.yaml" secrets.v1./initial-service-account-private-key -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:28 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "secret-kube-apiserver-to-kubelet-signer.yaml" secrets.v1./kube-apiserver-to-kubelet-signer -n openshift-kube-apiserver-operator
+Apr 26 09:09:28 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "secret-loadbalancer-serving-signer.yaml" secrets.v1./loadbalancer-serving-signer -n openshift-kube-apiserver-operator
+Apr 26 09:09:29 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "secret-localhost-serving-signer.yaml" secrets.v1./localhost-serving-signer -n openshift-kube-apiserver-operator
+Apr 26 09:09:29 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "secret-service-network-serving-signer.yaml" secrets.v1./service-network-serving-signer -n openshift-kube-apiserver-operator
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "user-ca-bundle-config.yaml" configmaps.v1./user-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: [#1] failed to create some manifests:
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "0000_00_cluster-version-operator_01_adminack_configmap.yaml": failed to create configmaps.v1./admin-acks -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "0000_00_cluster-version-operator_01_admingate_configmap.yaml": failed to create configmaps.v1./admin-gates -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "0000_00_cluster-version-operator_03_deployment.yaml": failed to create deployments.v1.apps/cluster-version-operator -n openshift-cluster-version: deployments.apps "cluster-version-operator" is forbidden: quota.openshift.io/ClusterResourceQuota: caches not synchronized
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "00_etcd-endpoints-cm.yaml": failed to create configmaps.v1./etcd-endpoints -n openshift-etcd: namespaces "openshift-etcd" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_master-user-data-secret.yaml": failed to create secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_worker-user-data-secret.yaml": failed to create secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-machineconfig_99-master-ssh.yaml": failed to create machineconfigs.v1.machineconfiguration.openshift.io/99-master-ssh -n : the server could not find the requested resource
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-machineconfig_99-worker-ssh.yaml": failed to create machineconfigs.v1.machineconfiguration.openshift.io/99-worker-ssh -n : the server could not find the requested resource
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-admin-kubeconfig-client-ca.yaml": failed to create configmaps.v1./admin-kubeconfig-client-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-csr-controller-ca.yaml": failed to create configmaps.v1./csr-controller-ca -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-kubelet-bootstrap-kubeconfig-ca.yaml": failed to create configmaps.v1./kubelet-bootstrap-kubeconfig -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-sa-token-signing-certs.yaml": failed to create configmaps.v1./sa-token-signing-certs -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-ca-bundle-configmap.yaml": failed to create configmaps.v1./etcd-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-client-secret.yaml": failed to create secrets.v1./etcd-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-metric-client-secret.yaml": failed to create secrets.v1./etcd-metric-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-metric-serving-ca-configmap.yaml": failed to create configmaps.v1./etcd-metric-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-metric-signer-secret.yaml": failed to create secrets.v1./etcd-metric-signer -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-serving-ca-configmap.yaml": failed to create configmaps.v1./etcd-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-signer-secret.yaml": failed to create secrets.v1./etcd-signer -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "image-content-source-policy-0.yaml": unable to get REST mapping for "image-content-source-policy-0.yaml": no matches for kind "ImageContentSourcePolicy" in version "operator.openshift.io/v1alpha1"
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "image-content-source-policy-1.yaml": unable to get REST mapping for "image-content-source-policy-1.yaml": no matches for kind "ImageContentSourcePolicy" in version "operator.openshift.io/v1alpha1"
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "kube-apiserver-serving-ca-configmap.yaml": failed to create configmaps.v1./initial-kube-apiserver-server-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "machine-config-server-tls-secret.yaml": failed to create secrets.v1./machine-config-server-tls -n openshift-machine-config-operator: namespaces "openshift-machine-config-operator" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "openshift-config-secret-pull-secret.yaml": failed to create secrets.v1./pull-secret -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "openshift-install-manifests.yaml": failed to create configmaps.v1./openshift-install-manifests -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "secret-initial-kube-controller-manager-service-account-private-key.yaml": failed to create secrets.v1./initial-service-account-private-key -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "user-ca-bundle-config.yaml": failed to create configmaps.v1./user-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:30 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "0000_00_cluster-version-operator_01_adminack_configmap.yaml" configmaps.v1./admin-acks -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:31 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "0000_00_cluster-version-operator_01_admingate_configmap.yaml" configmaps.v1./admin-gates -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:31 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_00_cluster-version-operator_03_deployment.yaml" deployments.v1.apps/cluster-version-operator -n openshift-cluster-version
+Apr 26 09:09:31 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "00_etcd-endpoints-cm.yaml" configmaps.v1./etcd-endpoints -n openshift-etcd
+Apr 26 09:09:32 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-cluster-api_master-user-data-secret.yaml" secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:32 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-cluster-api_worker-user-data-secret.yaml" secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:32 bootstrap.prod.dbp.pnb bootkube.sh[285455]:         Pod Status:openshift-kube-controller-manager/kube-controller-manager        DoesNotExist
+Apr 26 09:09:32 bootstrap.prod.dbp.pnb bootkube.sh[285455]:         Pod Status:openshift-cluster-version/cluster-version-operator        Pending
+Apr 26 09:09:32 bootstrap.prod.dbp.pnb bootkube.sh[285455]:         Pod Status:openshift-kube-apiserver/kube-apiserver        DoesNotExist
+Apr 26 09:09:32 bootstrap.prod.dbp.pnb bootkube.sh[285455]:         Pod Status:openshift-kube-scheduler/openshift-kube-scheduler        DoesNotExist
+Apr 26 09:09:32 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-machineconfig_99-master-ssh.yaml" machineconfigs.v1.machineconfiguration.openshift.io/99-master-ssh -n : the server could not find the requested resource
+Apr 26 09:09:33 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-machineconfig_99-worker-ssh.yaml" machineconfigs.v1.machineconfiguration.openshift.io/99-worker-ssh -n : the server could not find the requested resource
+Apr 26 09:09:33 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-admin-kubeconfig-client-ca.yaml" configmaps.v1./admin-kubeconfig-client-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:34 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-csr-controller-ca.yaml" configmaps.v1./csr-controller-ca -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:34 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-kubelet-bootstrap-kubeconfig-ca.yaml" configmaps.v1./kubelet-bootstrap-kubeconfig -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:35 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-sa-token-signing-certs.yaml" configmaps.v1./sa-token-signing-certs -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:35 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-ca-bundle-configmap.yaml" configmaps.v1./etcd-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:35 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-client-secret.yaml" secrets.v1./etcd-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:36 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-metric-client-secret.yaml" secrets.v1./etcd-metric-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:36 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-metric-serving-ca-configmap.yaml" configmaps.v1./etcd-metric-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:37 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-metric-signer-secret.yaml" secrets.v1./etcd-metric-signer -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:37 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-serving-ca-configmap.yaml" configmaps.v1./etcd-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:37 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-signer-secret.yaml" secrets.v1./etcd-signer -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:38 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "image-content-source-policy-0.yaml" imagecontentsourcepolicies.v1alpha1.operator.openshift.io/image-policy-0 -n
+Apr 26 09:09:38 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "image-content-source-policy-1.yaml" imagecontentsourcepolicies.v1alpha1.operator.openshift.io/image-policy-1 -n
+Apr 26 09:09:39 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "kube-apiserver-serving-ca-configmap.yaml" configmaps.v1./initial-kube-apiserver-server-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:39 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "machine-config-server-tls-secret.yaml" secrets.v1./machine-config-server-tls -n openshift-machine-config-operator
+Apr 26 09:09:39 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "openshift-config-secret-pull-secret.yaml" secrets.v1./pull-secret -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:40 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "openshift-install-manifests.yaml" configmaps.v1./openshift-install-manifests -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:40 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "secret-initial-kube-controller-manager-service-account-private-key.yaml" secrets.v1./initial-service-account-private-key -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "user-ca-bundle-config.yaml" configmaps.v1./user-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: [#2] failed to create some manifests:
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "0000_00_cluster-version-operator_01_adminack_configmap.yaml": failed to create configmaps.v1./admin-acks -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "0000_00_cluster-version-operator_01_admingate_configmap.yaml": failed to create configmaps.v1./admin-gates -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_master-user-data-secret.yaml": failed to create secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_worker-user-data-secret.yaml": failed to create secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-machineconfig_99-master-ssh.yaml": failed to create machineconfigs.v1.machineconfiguration.openshift.io/99-master-ssh -n : the server could not find the requested resource
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-machineconfig_99-worker-ssh.yaml": failed to create machineconfigs.v1.machineconfiguration.openshift.io/99-worker-ssh -n : the server could not find the requested resource
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-admin-kubeconfig-client-ca.yaml": failed to create configmaps.v1./admin-kubeconfig-client-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-csr-controller-ca.yaml": failed to create configmaps.v1./csr-controller-ca -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-kubelet-bootstrap-kubeconfig-ca.yaml": failed to create configmaps.v1./kubelet-bootstrap-kubeconfig -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-sa-token-signing-certs.yaml": failed to create configmaps.v1./sa-token-signing-certs -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-ca-bundle-configmap.yaml": failed to create configmaps.v1./etcd-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-client-secret.yaml": failed to create secrets.v1./etcd-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-metric-client-secret.yaml": failed to create secrets.v1./etcd-metric-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-metric-serving-ca-configmap.yaml": failed to create configmaps.v1./etcd-metric-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-metric-signer-secret.yaml": failed to create secrets.v1./etcd-metric-signer -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-serving-ca-configmap.yaml": failed to create configmaps.v1./etcd-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-signer-secret.yaml": failed to create secrets.v1./etcd-signer -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "kube-apiserver-serving-ca-configmap.yaml": failed to create configmaps.v1./initial-kube-apiserver-server-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "openshift-config-secret-pull-secret.yaml": failed to create secrets.v1./pull-secret -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "openshift-install-manifests.yaml": failed to create configmaps.v1./openshift-install-manifests -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "secret-initial-kube-controller-manager-service-account-private-key.yaml": failed to create secrets.v1./initial-service-account-private-key -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "user-ca-bundle-config.yaml": failed to create configmaps.v1./user-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "0000_00_cluster-version-operator_01_adminack_configmap.yaml" configmaps.v1./admin-acks -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:41 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "0000_00_cluster-version-operator_01_admingate_configmap.yaml" configmaps.v1./admin-gates -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:42 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-cluster-api_master-user-data-secret.yaml" secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:42 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-cluster-api_worker-user-data-secret.yaml" secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:42 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-machineconfig_99-master-ssh.yaml" machineconfigs.v1.machineconfiguration.openshift.io/99-master-ssh -n : the server could not find the requested resource
+Apr 26 09:09:43 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-machineconfig_99-worker-ssh.yaml" machineconfigs.v1.machineconfiguration.openshift.io/99-worker-ssh -n : the server could not find the requested resource
+Apr 26 09:09:43 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-admin-kubeconfig-client-ca.yaml" configmaps.v1./admin-kubeconfig-client-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:44 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-csr-controller-ca.yaml" configmaps.v1./csr-controller-ca -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:44 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-kubelet-bootstrap-kubeconfig-ca.yaml" configmaps.v1./kubelet-bootstrap-kubeconfig -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:45 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-sa-token-signing-certs.yaml" configmaps.v1./sa-token-signing-certs -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:45 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-ca-bundle-configmap.yaml" configmaps.v1./etcd-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:45 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-client-secret.yaml" secrets.v1./etcd-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:46 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-metric-client-secret.yaml" secrets.v1./etcd-metric-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:46 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-metric-serving-ca-configmap.yaml" configmaps.v1./etcd-metric-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:47 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-metric-signer-secret.yaml" secrets.v1./etcd-metric-signer -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:47 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-serving-ca-configmap.yaml" configmaps.v1./etcd-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:47 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-signer-secret.yaml" secrets.v1./etcd-signer -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:48 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "kube-apiserver-serving-ca-configmap.yaml" configmaps.v1./initial-kube-apiserver-server-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:48 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "openshift-config-secret-pull-secret.yaml" secrets.v1./pull-secret -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "openshift-install-manifests.yaml" configmaps.v1./openshift-install-manifests -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "secret-initial-kube-controller-manager-service-account-private-key.yaml" secrets.v1./initial-service-account-private-key -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "user-ca-bundle-config.yaml" configmaps.v1./user-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: [#3] failed to create some manifests:
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "0000_00_cluster-version-operator_01_adminack_configmap.yaml": failed to create configmaps.v1./admin-acks -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "0000_00_cluster-version-operator_01_admingate_configmap.yaml": failed to create configmaps.v1./admin-gates -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_master-user-data-secret.yaml": failed to create secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_worker-user-data-secret.yaml": failed to create secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-machineconfig_99-master-ssh.yaml": failed to create machineconfigs.v1.machineconfiguration.openshift.io/99-master-ssh -n : the server could not find the requested resource
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-machineconfig_99-worker-ssh.yaml": failed to create machineconfigs.v1.machineconfiguration.openshift.io/99-worker-ssh -n : the server could not find the requested resource
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-admin-kubeconfig-client-ca.yaml": failed to create configmaps.v1./admin-kubeconfig-client-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-csr-controller-ca.yaml": failed to create configmaps.v1./csr-controller-ca -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-kubelet-bootstrap-kubeconfig-ca.yaml": failed to create configmaps.v1./kubelet-bootstrap-kubeconfig -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-sa-token-signing-certs.yaml": failed to create configmaps.v1./sa-token-signing-certs -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-ca-bundle-configmap.yaml": failed to create configmaps.v1./etcd-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-client-secret.yaml": failed to create secrets.v1./etcd-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-metric-client-secret.yaml": failed to create secrets.v1./etcd-metric-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-metric-serving-ca-configmap.yaml": failed to create configmaps.v1./etcd-metric-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-metric-signer-secret.yaml": failed to create secrets.v1./etcd-metric-signer -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-serving-ca-configmap.yaml": failed to create configmaps.v1./etcd-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-signer-secret.yaml": failed to create secrets.v1./etcd-signer -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "kube-apiserver-serving-ca-configmap.yaml": failed to create configmaps.v1./initial-kube-apiserver-server-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "openshift-config-secret-pull-secret.yaml": failed to create secrets.v1./pull-secret -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "openshift-install-manifests.yaml": failed to create configmaps.v1./openshift-install-manifests -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "secret-initial-kube-controller-manager-service-account-private-key.yaml": failed to create secrets.v1./initial-service-account-private-key -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:49 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "user-ca-bundle-config.yaml": failed to create configmaps.v1./user-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:50 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "0000_00_cluster-version-operator_01_adminack_configmap.yaml" configmaps.v1./admin-acks -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:50 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "0000_00_cluster-version-operator_01_admingate_configmap.yaml" configmaps.v1./admin-gates -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:51 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-cluster-api_master-user-data-secret.yaml" secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:51 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-cluster-api_worker-user-data-secret.yaml" secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:51 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "99_openshift-machineconfig_99-master-ssh.yaml" machineconfigs.v1.machineconfiguration.openshift.io/99-master-ssh -n
+Apr 26 09:09:52 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "99_openshift-machineconfig_99-worker-ssh.yaml" machineconfigs.v1.machineconfiguration.openshift.io/99-worker-ssh -n
+Apr 26 09:09:52 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-admin-kubeconfig-client-ca.yaml" configmaps.v1./admin-kubeconfig-client-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:53 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-csr-controller-ca.yaml" configmaps.v1./csr-controller-ca -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:53 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-kubelet-bootstrap-kubeconfig-ca.yaml" configmaps.v1./kubelet-bootstrap-kubeconfig -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:53 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "configmap-sa-token-signing-certs.yaml" configmaps.v1./sa-token-signing-certs -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:54 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-ca-bundle-configmap.yaml" configmaps.v1./etcd-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:54 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-client-secret.yaml" secrets.v1./etcd-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:55 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-metric-client-secret.yaml" secrets.v1./etcd-metric-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:55 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "etcd-metric-serving-ca-configmap.yaml" configmaps.v1./etcd-metric-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:55 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-metric-signer-secret.yaml" secrets.v1./etcd-metric-signer -n openshift-config
+Apr 26 09:09:56 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-serving-ca-configmap.yaml" configmaps.v1./etcd-serving-ca -n openshift-config
+Apr 26 09:09:56 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-signer-secret.yaml" secrets.v1./etcd-signer -n openshift-config
+Apr 26 09:09:56 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "kube-apiserver-serving-ca-configmap.yaml" configmaps.v1./initial-kube-apiserver-server-ca -n openshift-config
+Apr 26 09:09:57 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "openshift-config-secret-pull-secret.yaml" secrets.v1./pull-secret -n openshift-config
+Apr 26 09:09:57 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "openshift-install-manifests.yaml" configmaps.v1./openshift-install-manifests -n openshift-config
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "secret-initial-kube-controller-manager-service-account-private-key.yaml" secrets.v1./initial-service-account-private-key -n openshift-config
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "user-ca-bundle-config.yaml" configmaps.v1./user-ca-bundle -n openshift-config
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: [#4] failed to create some manifests:
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "0000_00_cluster-version-operator_01_adminack_configmap.yaml": failed to create configmaps.v1./admin-acks -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "0000_00_cluster-version-operator_01_admingate_configmap.yaml": failed to create configmaps.v1./admin-gates -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_master-user-data-secret.yaml": failed to create secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_worker-user-data-secret.yaml": failed to create secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-admin-kubeconfig-client-ca.yaml": failed to create configmaps.v1./admin-kubeconfig-client-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-csr-controller-ca.yaml": failed to create configmaps.v1./csr-controller-ca -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-kubelet-bootstrap-kubeconfig-ca.yaml": failed to create configmaps.v1./kubelet-bootstrap-kubeconfig -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "configmap-sa-token-signing-certs.yaml": failed to create configmaps.v1./sa-token-signing-certs -n openshift-config-managed: namespaces "openshift-config-managed" not found
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-ca-bundle-configmap.yaml": failed to create configmaps.v1./etcd-ca-bundle -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-client-secret.yaml": failed to create secrets.v1./etcd-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-metric-client-secret.yaml": failed to create secrets.v1./etcd-metric-client -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "etcd-metric-serving-ca-configmap.yaml": failed to create configmaps.v1./etcd-metric-serving-ca -n openshift-config: namespaces "openshift-config" not found
+Apr 26 09:09:58 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_00_cluster-version-operator_01_adminack_configmap.yaml" configmaps.v1./admin-acks -n openshift-config
+Apr 26 09:09:59 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "0000_00_cluster-version-operator_01_admingate_configmap.yaml" configmaps.v1./admin-gates -n openshift-config-managed
+Apr 26 09:09:59 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-cluster-api_master-user-data-secret.yaml" secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:10:00 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Failed to create "99_openshift-cluster-api_worker-user-data-secret.yaml" secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:10:00 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "configmap-admin-kubeconfig-client-ca.yaml" configmaps.v1./admin-kubeconfig-client-ca -n openshift-config
+Apr 26 09:10:00 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "configmap-csr-controller-ca.yaml" configmaps.v1./csr-controller-ca -n openshift-config-managed
+Apr 26 09:10:01 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "configmap-kubelet-bootstrap-kubeconfig-ca.yaml" configmaps.v1./kubelet-bootstrap-kubeconfig -n openshift-config-managed
+Apr 26 09:10:01 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "configmap-sa-token-signing-certs.yaml" configmaps.v1./sa-token-signing-certs -n openshift-config-managed
+Apr 26 09:10:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-ca-bundle-configmap.yaml" configmaps.v1./etcd-ca-bundle -n openshift-config
+Apr 26 09:10:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-client-secret.yaml" secrets.v1./etcd-client -n openshift-config
+Apr 26 09:10:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-metric-client-secret.yaml" secrets.v1./etcd-metric-client -n openshift-config
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-metric-serving-ca-configmap.yaml" configmaps.v1./etcd-metric-serving-ca -n openshift-config
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: [#5] failed to create some manifests:
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_master-user-data-secret.yaml": failed to create secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_worker-user-data-secret.yaml": failed to create secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "99_openshift-cluster-api_master-user-data-secret.yaml" secrets.v1./master-user-data -n openshift-machine-api
+Apr 26 09:10:04 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "99_openshift-cluster-api_worker-user-data-secret.yaml" secrets.v1./worker-user-data -n openshift-machine-api
+^C
+[core@bootstrap ~]$ logout
+Connection to bootstrap.prod.dbp.pnb closed.
+[dbpuser@bastion ~]$ ip -br a
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UP             10.192.242.171/24 fe80::215:5dff:fe49:4a06/64 
+virbr0           DOWN           192.168.122.1/24 
+[dbpuser@bastion ~]$ curl -k https://api.pro.dd.dbp.pnb:6443/version
+^C
+[dbpuser@bastion ~]$ curl -k https://api.prod.dbp.pnb:6443/versionv https://api.prod.dbp.pnb:6443/version
+*   Trying 10.192.242.203...
+* TCP_NODELAY set
+^C
+[dbpuser@bastion ~]$ curl -kv https://api.prod.dbp.pnb:6443/version443/version
+*   Trying 10.192.242.203...
+* TCP_NODELAY set
+^C
+[dbpuser@bastion ~]$ curl -kv https://api.prod.dbp.pnb:443/version6443/version
+*   Trying 10.192.242.203...
+* TCP_NODELAY set
+^[[B^C
+[dbpuser@bastion ~]$ curl -kv https://api.prod.dbp.pnb:6443/version443/version6443/version https://api.prod.dbp.pnb:6443/versionip -br assh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnbcat /etc/hosts sudo systemctl restart httpd.servicecat /etc/hostsssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnb
+Red Hat Enterprise Linux CoreOS 412.86.202308081039-0
+  Part of OpenShift 4.12, RHCOS is a Kubernetes native operating system
+  managed by the Machine Config Operator (`clusteroperator/machine-config`).
+
+WARNING: Direct SSH access to machines is not recommended; instead,
+make configuration changes via `machineconfig` objects:
+  https://docs.openshift.com/container-platform/4.12/architecture/architecture-rhcos.html
+
+---
+This is the bootstrap node; it will be destroyed when the master is fully up.
+
+The primary services are release-image.service followed by bootkube.service. To watch their status, run e.g.
+
+  journalctl -b -f -u release-image.service -u bootkube.service
+Last login: Fri Apr 26 09:02:03 2024 from 10.192.242.171
+[core@bootstrap ~]$ ssu s -ytulpn
+Netid                   State                    Recv-Q                   Send-Q                                     Local Address:Port                                        Peer Address:Port                   Process                   
+udp                     UNCONN                   0                        0                                                0.0.0.0:43985                                            0.0.0.0:*                                                
+udp                     UNCONN                   0                        0                                                0.0.0.0:111                                              0.0.0.0:*                                                
+udp                     UNCONN                   0                        0                                              127.0.0.1:323                                              0.0.0.0:*                                                
+udp                     UNCONN                   0                        0                                              127.0.0.1:849                                              0.0.0.0:*                                                
+udp                     UNCONN                   0                        0                                                   [::]:46417                                               [::]:*                                                
+udp                     UNCONN                   0                        0                                                   [::]:111                                                 [::]:*                                                
+udp                     UNCONN                   0                        0                                                  [::1]:323                                                 [::]:*                                                
+tcp                     LISTEN                   0                        128                                            127.0.0.1:10248                                            0.0.0.0:*                                                
+tcp                     LISTEN                   0                        128                                            127.0.0.1:46031                                            0.0.0.0:*                                                
+tcp                     LISTEN                   0                        128                                              0.0.0.0:111                                              0.0.0.0:*                                                
+tcp                     LISTEN                   0                        128                                              0.0.0.0:48371                                            0.0.0.0:*                                                
+tcp                     LISTEN                   0                        128                                              0.0.0.0:22                                               0.0.0.0:*                                                
+tcp                     LISTEN                   0                        128                                                    *:9978                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:22623                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:2112                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:6080                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:22624                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:9537                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                 [::]:33569                                               [::]:*                                                
+tcp                     LISTEN                   0                        128                                                    *:10250                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:6443                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:2379                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:19531                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:2380                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:10255                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                 [::]:111                                                 [::]:*                                                
+tcp                     LISTEN                   0                        128                                                    *:10257                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:10259                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:10357                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                 [::]:22                                                  [::]:*                                                
+[core@bootstrap ~]$ ss -tulpnjournalctl -b -f -u release-image.service -u bootkube.servicesudo crictl ps
+CONTAINER           IMAGE                                                                                                                    CREATED             STATE               NAME                             ATTEMPT             POD ID              POD
+dd09866404bac       ea898392a7f567bd79022fe259a80f44bb4021740c129dbb49a34eae0083770b                                                         3 minutes ago       Running             kube-controller-manager          2                   b2b82f7c799a1       bootstrap-kube-controller-manager-bootstrap.prod.dbp.pnb
+e207426eaf9a2       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e4d1074319414d9ab2235f43823757c7cfb1365a010c5e212dc4db909604d304   3 minutes ago       Running             cluster-policy-controller        0                   b2b82f7c799a1       bootstrap-kube-controller-manager-bootstrap.prod.dbp.pnb
+02fd76b2719b4       afa5bf2cb2e09aae78421e5ed6e8a878edc6cd28a344adac79b391e63b5c8ce9                                                         3 minutes ago       Running             kube-apiserver-insecure-readyz   0                   be67183295a72       bootstrap-kube-apiserver-bootstrap.prod.dbp.pnb
+a416c1d775e1d       ea898392a7f567bd79022fe259a80f44bb4021740c129dbb49a34eae0083770b                                                         3 minutes ago       Running             kube-apiserver                   0                   be67183295a72       bootstrap-kube-apiserver-bootstrap.prod.dbp.pnb
+267bfe943fe34       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d509be9efdbbd4e04eeb5657a056ee3fd76d80d27ebd012e8cc45d654a9b7efd   3 minutes ago       Running             kube-scheduler                   0                   377755e0e3555       bootstrap-kube-scheduler-bootstrap.prod.dbp.pnb
+4d91faa54e21d       quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64        3 minutes ago       Running             cluster-version-operator         0                   1c80142a91864       bootstrap-cluster-version-operator-bootstrap.prod.dbp.pnb
+6e13975987e02       bed872d748056548904c59d685218c41b8225d5f83344eabcb812fa346aa8c32                                                         3 minutes ago       Running             cloud-credential-operator        0                   4562b77a9e3b0       cloud-credential-operator-bootstrap.prod.dbp.pnb
+76cb86fe89566       16f07985b28d8d3c0e711e447b460ee00ec4b701863798fe29d856a75097bd38                                                         8 minutes ago       Running             machine-config-server            0                   cfc4d008f4d41       bootstrap-machine-config-operator-bootstrap.prod.dbp.pnb
+efcaf0d572487       475c1f17c2021c16b75358010906d541f03ff169efcf47ecf6672864f828f890                                                         8 minutes ago       Running             etcd                             0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+4adfc93b79188       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:afe9dcf922b60d87cd33904654f387d2eb4bcafb2681917094c0bb72c1af41da   8 minutes ago       Running             etcdctl                          0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+[core@bootstrap ~]$ sudo crictl pss -tulpn
+Netid                   State                    Recv-Q                   Send-Q                                     Local Address:Port                                        Peer Address:Port                   Process                   
+udp                     UNCONN                   0                        0                                                0.0.0.0:43985                                            0.0.0.0:*                                                
+udp                     UNCONN                   0                        0                                                0.0.0.0:111                                              0.0.0.0:*                                                
+udp                     UNCONN                   0                        0                                              127.0.0.1:323                                              0.0.0.0:*                                                
+udp                     UNCONN                   0                        0                                              127.0.0.1:849                                              0.0.0.0:*                                                
+udp                     UNCONN                   0                        0                                                   [::]:46417                                               [::]:*                                                
+udp                     UNCONN                   0                        0                                                   [::]:111                                                 [::]:*                                                
+udp                     UNCONN                   0                        0                                                  [::1]:323                                                 [::]:*                                                
+tcp                     LISTEN                   0                        128                                            127.0.0.1:10248                                            0.0.0.0:*                                                
+tcp                     LISTEN                   0                        128                                            127.0.0.1:46031                                            0.0.0.0:*                                                
+tcp                     LISTEN                   0                        128                                              0.0.0.0:111                                              0.0.0.0:*                                                
+tcp                     LISTEN                   0                        128                                              0.0.0.0:48371                                            0.0.0.0:*                                                
+tcp                     LISTEN                   0                        128                                              0.0.0.0:22                                               0.0.0.0:*                                                
+tcp                     LISTEN                   0                        128                                                    *:9978                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:22623                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:2112                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:6080                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:22624                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:9537                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                 [::]:33569                                               [::]:*                                                
+tcp                     LISTEN                   0                        128                                                    *:10250                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:6443                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:2379                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:19531                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:2380                                                   *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:10255                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                 [::]:111                                                 [::]:*                                                
+tcp                     LISTEN                   0                        128                                                    *:10257                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:10259                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                    *:10357                                                  *:*                                                
+tcp                     LISTEN                   0                        128                                                 [::]:22                                                  [::]:*                                                
+[core@bootstrap ~]$ ss -tulpnudo crictl pss -tulpncurl -kv hhttps://localhost:6443/vaersion
+*   Trying ::1...
+* TCP_NODELAY set
+* Connected to localhost (::1) port 6443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*   CAfile: /etc/pki/tls/certs/ca-bundle.crt
+  CApath: none
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.3 (IN), TLS handshake, [no content] (0):
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+* TLSv1.3 (IN), TLS handshake, [no content] (0):
+* TLSv1.3 (IN), TLS handshake, Request CERT (13):
+* TLSv1.3 (IN), TLS handshake, [no content] (0):
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+* TLSv1.3 (IN), TLS handshake, [no content] (0):
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+* TLSv1.3 (IN), TLS handshake, [no content] (0):
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+* TLSv1.3 (OUT), TLS handshake, [no content] (0):
+* TLSv1.3 (OUT), TLS handshake, Certificate (11):
+* TLSv1.3 (OUT), TLS handshake, [no content] (0):
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / TLS_AES_128_GCM_SHA256
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: O=kube-master; CN=system:kube-apiserver
+*  start date: Apr 26 06:34:24 2024 GMT
+*  expire date: Apr 27 06:34:27 2024 GMT
+*  issuer: OU=openshift; CN=kube-apiserver-localhost-signer
+*  SSL certificate verify result: self signed certificate in certificate chain (19), continuing anyway.
+* Using HTTP2, server supports multi-use
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+* TLSv1.3 (OUT), TLS app data, [no content] (0):
+* TLSv1.3 (OUT), TLS app data, [no content] (0):
+* TLSv1.3 (OUT), TLS app data, [no content] (0):
+* Using Stream ID: 1 (easy handle 0x55820da9b6d0)
+* TLSv1.3 (OUT), TLS app data, [no content] (0):
+> GET /version HTTP/2
+> Host: localhost:6443
+> User-Agent: curl/7.61.1
+> Accept: */*
+> 
+* TLSv1.3 (IN), TLS handshake, [no content] (0):
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* TLSv1.3 (IN), TLS app data, [no content] (0):
+* Connection state changed (MAX_CONCURRENT_STREAMS == 2000)!
+* TLSv1.3 (OUT), TLS app data, [no content] (0):
+* TLSv1.3 (IN), TLS app data, [no content] (0):
+* TLSv1.3 (IN), TLS app data, [no content] (0):
+* TLSv1.3 (IN), TLS app data, [no content] (0):
+< HTTP/2 200 
+< audit-id: fed70ba6-4266-4dc8-a62f-6d91b40369ac
+< cache-control: no-cache, private
+< content-type: application/json
+< strict-transport-security: max-age=31536000; includeSubDomains; preload
+< x-kubernetes-pf-flowschema-uid: a130bb52-28d5-4ac2-ad89-8be029d10fec
+< x-kubernetes-pf-prioritylevel-uid: 08eed9ff-cfd5-4526-98b3-a8807cdeb049
+< content-length: 293
+< date: Fri, 26 Apr 2024 09:12:49 GMT
+< 
+* TLSv1.3 (IN), TLS app data, [no content] (0):
+{
+  "major": "1",
+  "minor": "25",
+  "gitVersion": "v1.25.11+1485cc9",
+  "gitCommit": "0c8cb213485c84deb0230cbefa34bf7f1c311418",
+  "gitTreeState": "clean",
+  "buildDate": "2023-07-04T08:59:21Z",
+  "goVersion": "go1.19.10 X:strictfipsruntime",
+  "compiler": "gc",
+  "platform": "linux/amd64"
+* Connection #0 to host localhost left intact
+}[core@bootstrap ~]$ curl -kv https://localhost:6443/version https://localhost:6443/version
+{
+  "major": "1",
+  "minor": "25",
+  "gitVersion": "v1.25.11+1485cc9",
+  "gitCommit": "0c8cb213485c84deb0230cbefa34bf7f1c311418",
+  "gitTreeState": "clean",
+  "buildDate": "2023-07-04T08:59:21Z",
+  "goVersion": "go1.19.10 X:strictfipsruntime",
+  "compiler": "gc",
+  "platform": "linux/amd64"
+}[core@bootstrap ~]$ curl -k https://localhost:6443/version
+{
+  "major": "1",
+  "minor": "25",
+  "gitVersion": "v1.25.11+1485cc9",
+  "gitCommit": "0c8cb213485c84deb0230cbefa34bf7f1c311418",
+  "gitTreeState": "clean",
+  "buildDate": "2023-07-04T08:59:21Z",
+  "goVersion": "go1.19.10 X:strictfipsruntime",
+  "compiler": "gc",
+  "platform": "linux/amd64"
+}[core@bootstrap ~]$ logout
+Connection to bootstrap.prod.dbp.pnb closed.
+[dbpuser@bastion ~]$ ssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnbssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnbcurl -kv https://api.prod.dbp.pnb:6443/version443/version6443/version
+*   Trying 10.192.242.203...
+* TCP_NODELAY set
+^C
+[dbpuser@bastion ~]$ curl -kv https://api.prod.dbp.pnb:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/versionl:6443/versiono:6443/versionc:6443/versiona:6443/versionl:6443/versionh:6443/versiono:6443/versions:6443/versiont:6443/versiony:6443/version:6443/version
+*   Trying ::1...
+* TCP_NODELAY set
+* connect to ::1 port 6443 failed: Connection refused
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* connect to 127.0.0.1 port 6443 failed: Connection refused
+* Failed to connect to localhost port 6443: Connection refused
+* Closing connection 0
+curl: (7) Failed to connect to localhost port 6443: Connection refused
+[dbpuser@bastion ~]$ curl -kv https://localhost:6443/versionapi.prod.dbp.pnb:6443/version^C
+[dbpuser@bastion ~]$ nslookup o//api.prod.dbp.pnbapi.prod.dbp.pnbapi.prod.dbp.pnb
+;; Got recursion not available from 10.209.27.103, trying next server
+;; Got recursion not available from 10.209.27.104, trying next server
+Server:10.209.27.105
+Address:10.209.27.105#53
+
+Name:api.prod.dbp.pnb
+Address: 10.192.242.203
+;; Got recursion not available from 10.209.27.103, trying next server
+;; Got recursion not available from 10.209.27.104, trying next server
+
+[dbpuser@bastion ~]$ nslookup api.prod.dbp.pnbcurl -kv https://localhost:6443/version
+*   Trying ::1...
+* TCP_NODELAY set
+* connect to ::1 port 6443 failed: Connection refused
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* connect to 127.0.0.1 port 6443 failed: Connection refused
+* Failed to connect to localhost port 6443: Connection refused
+* Closing connection 0
+curl: (7) Failed to connect to localhost port 6443: Connection refused
+[dbpuser@bastion ~]$ curl -kv https://localhost:6443/versionnslookup api.prod.dbp.pnbcurl -kv https://localhost:6443/versionapi.prod.dbp.pnb:6443/version
+*   Trying 10.192.242.203...
+* TCP_NODELAY set
+^C
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ (reverse-i-search)`':s': curl -kv https://api.prod.dbp.pnb:6443/versions': ssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnb[dbpuser@bastion ~]$
+Red Hat Enterprise Linux CoreOS 412.86.202308081039-0
+  Part of OpenShift 4.12, RHCOS is a Kubernetes native operating system
+  managed by the Machine Config Operator (`clusteroperator/machine-config`).
+
+WARNING: Direct SSH access to machines is not recommended; instead,
+make configuration changes via `machineconfig` objects:
+  https://docs.openshift.com/container-platform/4.12/architecture/architecture-rhcos.html
+
+---
+This is the bootstrap node; it will be destroyed when the master is fully up.
+
+The primary services are release-image.service followed by bootkube.service. To watch their status, run e.g.
+
+  journalctl -b -f -u release-image.service -u bootkube.service
+Last login: Fri Apr 26 09:11:50 2024 from 10.192.242.171
+[core@bootstrap ~]$ curl -k https://localhost:6443/versionv https://localhost:6443/versionss -tulpnudo crictl pss -tulpnjournalctl -b -f -u release-image.service -u bootkube.service
+-- Logs begin at Thu 2024-04-25 23:53:39 UTC. --
+Apr 26 09:10:01 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "configmap-sa-token-signing-certs.yaml" configmaps.v1./sa-token-signing-certs -n openshift-config-managed
+Apr 26 09:10:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-ca-bundle-configmap.yaml" configmaps.v1./etcd-ca-bundle -n openshift-config
+Apr 26 09:10:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-client-secret.yaml" secrets.v1./etcd-client -n openshift-config
+Apr 26 09:10:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-metric-client-secret.yaml" secrets.v1./etcd-metric-client -n openshift-config
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-metric-serving-ca-configmap.yaml" configmaps.v1./etcd-metric-serving-ca -n openshift-config
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: [#5] failed to create some manifests:
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_master-user-data-secret.yaml": failed to create secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_worker-user-data-secret.yaml": failed to create secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "99_openshift-cluster-api_master-user-data-secret.yaml" secrets.v1./master-user-data -n openshift-machine-api
+Apr 26 09:10:04 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "99_openshift-cluster-api_worker-user-data-secret.yaml" secrets.v1./worker-user-data -n openshift-machine-api
+^C
+[core@bootstrap ~]$ logout
+Connection to bootstrap.prod.dbp.pnb closed.
+[dbpuser@bastion ~]$ ssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnbcurl -kv https://api.prod.dbp.pnb:6443/versionlocalhost:6443/versionapi.prod.dbp.pnb:6443/version
+*   Trying 10.192.242.203...
+* TCP_NODELAY set
+^C
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ 
+[dbpuser@bastion ~]$ curl -kv https://api.prod.dbp.pnb:6443/versionssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnbcurl -kv https://api.prod.dbp.pnb:6443/versionssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnb
+
+Red Hat Enterprise Linux CoreOS 412.86.202308081039-0
+  Part of OpenShift 4.12, RHCOS is a Kubernetes native operating system
+  managed by the Machine Config Operator (`clusteroperator/machine-config`).
+
+WARNING: Direct SSH access to machines is not recommended; instead,
+make configuration changes via `machineconfig` objects:
+  https://docs.openshift.com/container-platform/4.12/architecture/architecture-rhcos.html
+
+---
+This is the bootstrap node; it will be destroyed when the master is fully up.
+
+The primary services are release-image.service followed by bootkube.service. To watch their status, run e.g.
+
+  journalctl -b -f -u release-image.service -u bootkube.service
+Last login: Fri Apr 26 09:14:18 2024 from 10.192.242.171
+
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ journalctl -b -f -u release-image.service -u bootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.serviceootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicebootkube.servicesbootkube.serviceubootkube.servicedbootkube.serviceobootkube.service bootkube.servicesbootkube.serviceybootkube.servicesbootkube.servicetbootkube.serviceebootkube.servicembootkube.servicecbootkube.servicetbootkube.servicelbootkube.service bootkube.servicesbootkube.servicetbootkube.serviceabootkube.servicetbootkube.serviceubootkube.servicesbootkube.service bootkube.service
+ bootkube.service - Bootstrap a Kubernetes cluster
+   Loaded: loaded (/etc/systemd/system/bootkube.service; static; vendor preset: disabled)
+   Active: active (running) since Fri 2024-04-26 09:03:24 UTC; 11min ago
+ Main PID: 282268 (bash)
+    Tasks: 16 (limit: 101289)
+   Memory: 928.3M
+   CGroup: /system.slice/bootkube.service
+           282268 bash /usr/local/bin/bootkube.sh
+           285455 podman run --quiet --net=host --rm --name cluster-bootstrap --volume /var/opt/openshift:/assets:z --volume /etc/kubernetes:/etc/kubernetes:z quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:be3eb15dcfd3b2d0dc963>
+           285481 /usr/bin/conmon --api-version 1 -c 0b102b9d96f8a8163bfeed55a0f4c26c6a17597765fa80ab46425708553d3af3 -u 0b102b9d96f8a8163bfeed55a0f4c26c6a17597765fa80ab46425708553d3af3 -r /usr/bin/runc -b /var/lib/containers/storage/>
+
+Apr 26 09:10:01 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "configmap-sa-token-signing-certs.yaml" configmaps.v1./sa-token-signing-certs -n openshift-config-managed
+Apr 26 09:10:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-ca-bundle-configmap.yaml" configmaps.v1./etcd-ca-bundle -n openshift-config
+Apr 26 09:10:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-client-secret.yaml" secrets.v1./etcd-client -n openshift-config
+Apr 26 09:10:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-metric-client-secret.yaml" secrets.v1./etcd-metric-client -n openshift-config
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-metric-serving-ca-configmap.yaml" configmaps.v1./etcd-metric-serving-ca -n openshift-config
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: [#5] failed to create some manifests:
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_master-user-data-secret.yaml": failed to create secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_worker-user-data-secret.yaml": failed to create secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "99_openshift-cluster-api_master-user-data-secret.yaml" secrets.v1./master-user-data -n openshift-machine-api
+Apr 26 09:10:04 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "99_openshift-cluster-api_worker-user-data-secret.yaml" secrets.v1./worker-user-data -n openshift-machine-api
+lines 1-21/21 (END)
+[core@bootstrap ~]$ sudo systemctl status bootkube.servicejournalctl -b -f -u release-image.service -usudo systemctl statusjournalctl -b -f -u release-image.service -ucurl -k https://localhost:6443/versionjournalctl -b -f -u release-image.service -u bootkube.service
+-- Logs begin at Thu 2024-04-25 23:53:39 UTC. --
+Apr 26 09:10:01 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "configmap-sa-token-signing-certs.yaml" configmaps.v1./sa-token-signing-certs -n openshift-config-managed
+Apr 26 09:10:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-ca-bundle-configmap.yaml" configmaps.v1./etcd-ca-bundle -n openshift-config
+Apr 26 09:10:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-client-secret.yaml" secrets.v1./etcd-client -n openshift-config
+Apr 26 09:10:02 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-metric-client-secret.yaml" secrets.v1./etcd-metric-client -n openshift-config
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "etcd-metric-serving-ca-configmap.yaml" configmaps.v1./etcd-metric-serving-ca -n openshift-config
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: [#5] failed to create some manifests:
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_master-user-data-secret.yaml": failed to create secrets.v1./master-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: "99_openshift-cluster-api_worker-user-data-secret.yaml": failed to create secrets.v1./worker-user-data -n openshift-machine-api: namespaces "openshift-machine-api" not found
+Apr 26 09:10:03 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "99_openshift-cluster-api_master-user-data-secret.yaml" secrets.v1./master-user-data -n openshift-machine-api
+Apr 26 09:10:04 bootstrap.prod.dbp.pnb bootkube.sh[285455]: Created "99_openshift-cluster-api_worker-user-data-secret.yaml" secrets.v1./worker-user-data -n openshift-machine-api
+^C
+[core@bootstrap ~]$ journalctl -b -f -u release-image.service -u bootkube.servicesudo systemctl statusjournalctl -b -f -u release-image.service -ucurl -k https://localhost:6443/version
+{
+  "major": "1",
+  "minor": "25",
+  "gitVersion": "v1.25.11+1485cc9",
+  "gitCommit": "0c8cb213485c84deb0230cbefa34bf7f1c311418",
+  "gitTreeState": "clean",
+  "buildDate": "2023-07-04T08:59:21Z",
+  "goVersion": "go1.19.10 X:strictfipsruntime",
+  "compiler": "gc",
+  "platform": "linux/amd64"
+}[core@bootstrap ~]$ ^C
+[core@bootstrap ~]$ cd url -k https://localhost:6443/versiond logout
+Connection to bootstrap.prod.dbp.pnb closed.
+[dbpuser@bastion ~]$ ssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnbcurl -kv https://api.prod.dbp.pnb:6443/versionssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnbcurl -kv https://api.prod.dbp.pnb:6443/version
+*   Trying 10.192.242.203...
+* TCP_NODELAY set
+^C
+[dbpuser@bastion ~]$ curl -kv https://api.prod.dbp.pnb:6443/versionssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnb
+Red Hat Enterprise Linux CoreOS 412.86.202308081039-0
+  Part of OpenShift 4.12, RHCOS is a Kubernetes native operating system
+  managed by the Machine Config Operator (`clusteroperator/machine-config`).
+
+WARNING: Direct SSH access to machines is not recommended; instead,
+make configuration changes via `machineconfig` objects:
+  https://docs.openshift.com/container-platform/4.12/architecture/architecture-rhcos.html
+
+---
+This is the bootstrap node; it will be destroyed when the master is fully up.
+
+The primary services are release-image.service followed by bootkube.service. To watch their status, run e.g.
+
+  journalctl -b -f -u release-image.service -u bootkube.service
+Last login: Fri Apr 26 09:14:54 2024 from 10.192.242.171
+[core@bootstrap ~]$ curl -k https://localhost:6443/versionjournalctl -b -f -u release-image.service -u bootkube.servicesudo systemctl statusjournalctl -b -f -u release-image.service -ucurl -k https://localhost:6443/versionv https://localhost:6443/versionss -tulpnudo crictl pss -tulpnudo crictl ps
+CONTAINER           IMAGE                                                                                                                    CREATED             STATE               NAME                             ATTEMPT             POD ID              POD
+dd09866404bac       ea898392a7f567bd79022fe259a80f44bb4021740c129dbb49a34eae0083770b                                                         7 minutes ago       Running             kube-controller-manager          2                   b2b82f7c799a1       bootstrap-kube-controller-manager-bootstrap.prod.dbp.pnb
+e207426eaf9a2       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e4d1074319414d9ab2235f43823757c7cfb1365a010c5e212dc4db909604d304   8 minutes ago       Running             cluster-policy-controller        0                   b2b82f7c799a1       bootstrap-kube-controller-manager-bootstrap.prod.dbp.pnb
+02fd76b2719b4       afa5bf2cb2e09aae78421e5ed6e8a878edc6cd28a344adac79b391e63b5c8ce9                                                         8 minutes ago       Running             kube-apiserver-insecure-readyz   0                   be67183295a72       bootstrap-kube-apiserver-bootstrap.prod.dbp.pnb
+a416c1d775e1d       ea898392a7f567bd79022fe259a80f44bb4021740c129dbb49a34eae0083770b                                                         8 minutes ago       Running             kube-apiserver                   0                   be67183295a72       bootstrap-kube-apiserver-bootstrap.prod.dbp.pnb
+267bfe943fe34       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d509be9efdbbd4e04eeb5657a056ee3fd76d80d27ebd012e8cc45d654a9b7efd   8 minutes ago       Running             kube-scheduler                   0                   377755e0e3555       bootstrap-kube-scheduler-bootstrap.prod.dbp.pnb
+4d91faa54e21d       quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64        8 minutes ago       Running             cluster-version-operator         0                   1c80142a91864       bootstrap-cluster-version-operator-bootstrap.prod.dbp.pnb
+6e13975987e02       bed872d748056548904c59d685218c41b8225d5f83344eabcb812fa346aa8c32                                                         8 minutes ago       Running             cloud-credential-operator        0                   4562b77a9e3b0       cloud-credential-operator-bootstrap.prod.dbp.pnb
+76cb86fe89566       16f07985b28d8d3c0e711e447b460ee00ec4b701863798fe29d856a75097bd38                                                         12 minutes ago      Running             machine-config-server            0                   cfc4d008f4d41       bootstrap-machine-config-operator-bootstrap.prod.dbp.pnb
+efcaf0d572487       475c1f17c2021c16b75358010906d541f03ff169efcf47ecf6672864f828f890                                                         13 minutes ago      Running             etcd                             0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+4adfc93b79188       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:afe9dcf922b60d87cd33904654f387d2eb4bcafb2681917094c0bb72c1af41da   13 minutes ago      Running             etcdctl                          0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+[core@bootstrap ~]$ cd logout
+Connection to bootstrap.prod.dbp.pnb closed.
+[dbpuser@bastion ~]$ telemet netnet api.prod.dbp.pnb 6443
+Trying 10.192.242.203...
+//api.prod.dbp.pnb                  telnet: connect to address 10.192.242.203: Connection timed out
+[dbpuser@bastion ~]$ telnet api.prod.dbp.pnb 6443
+Trying 10.192.242.203...
+^C
+[dbpuser@bastion ~]$ telnet api.prod.dbp.pnb 6443ssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnb
+Red Hat Enterprise Linux CoreOS 412.86.202308081039-0
+  Part of OpenShift 4.12, RHCOS is a Kubernetes native operating system
+  managed by the Machine Config Operator (`clusteroperator/machine-config`).
+
+WARNING: Direct SSH access to machines is not recommended; instead,
+make configuration changes via `machineconfig` objects:
+  https://docs.openshift.com/container-platform/4.12/architecture/architecture-rhcos.html
+
+---
+This is the bootstrap node; it will be destroyed when the master is fully up.
+
+The primary services are release-image.service followed by bootkube.service. To watch their status, run e.g.
+
+  journalctl -b -f -u release-image.service -u bootkube.service
+Last login: Fri Apr 26 09:16:38 2024 from 10.192.242.171
+[core@bootstrap ~]$ sudo crictl pscurl -k https://localhost:6443/versionsudo crictl ps
+CONTAINER           IMAGE                                                                                                                    CREATED             STATE               NAME                             ATTEMPT             POD ID              POD
+dd09866404bac       ea898392a7f567bd79022fe259a80f44bb4021740c129dbb49a34eae0083770b                                                         11 minutes ago      Running             kube-controller-manager          2                   b2b82f7c799a1       bootstrap-kube-controller-manager-bootstrap.prod.dbp.pnb
+e207426eaf9a2       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:e4d1074319414d9ab2235f43823757c7cfb1365a010c5e212dc4db909604d304   11 minutes ago      Running             cluster-policy-controller        0                   b2b82f7c799a1       bootstrap-kube-controller-manager-bootstrap.prod.dbp.pnb
+02fd76b2719b4       afa5bf2cb2e09aae78421e5ed6e8a878edc6cd28a344adac79b391e63b5c8ce9                                                         12 minutes ago      Running             kube-apiserver-insecure-readyz   0                   be67183295a72       bootstrap-kube-apiserver-bootstrap.prod.dbp.pnb
+a416c1d775e1d       ea898392a7f567bd79022fe259a80f44bb4021740c129dbb49a34eae0083770b                                                         12 minutes ago      Running             kube-apiserver                   0                   be67183295a72       bootstrap-kube-apiserver-bootstrap.prod.dbp.pnb
+267bfe943fe34       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d509be9efdbbd4e04eeb5657a056ee3fd76d80d27ebd012e8cc45d654a9b7efd   12 minutes ago      Running             kube-scheduler                   0                   377755e0e3555       bootstrap-kube-scheduler-bootstrap.prod.dbp.pnb
+4d91faa54e21d       quay.io/openshift-release-dev/ocp-release@sha256:86ee723d4dc2a83f836232d1d03f8b4193940c50a2636ee86924acb5d14b0b64        12 minutes ago      Running             cluster-version-operator         0                   1c80142a91864       bootstrap-cluster-version-operator-bootstrap.prod.dbp.pnb
+6e13975987e02       bed872d748056548904c59d685218c41b8225d5f83344eabcb812fa346aa8c32                                                         12 minutes ago      Running             cloud-credential-operator        0                   4562b77a9e3b0       cloud-credential-operator-bootstrap.prod.dbp.pnb
+76cb86fe89566       16f07985b28d8d3c0e711e447b460ee00ec4b701863798fe29d856a75097bd38                                                         16 minutes ago      Running             machine-config-server            0                   cfc4d008f4d41       bootstrap-machine-config-operator-bootstrap.prod.dbp.pnb
+efcaf0d572487       475c1f17c2021c16b75358010906d541f03ff169efcf47ecf6672864f828f890                                                         16 minutes ago      Running             etcd                             0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+4adfc93b79188       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:afe9dcf922b60d87cd33904654f387d2eb4bcafb2681917094c0bb72c1af41da   16 minutes ago      Running             etcdctl                          0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+[core@bootstrap ~]$ sudo crictl pscurl -k https://localhost:6443/versionsudo crictl pscd ..
+[core@bootstrap home]$ cd ..
+[core@bootstrap var]$ logout
+Connection to bootstrap.prod.dbp.pnb closed.
+[dbpuser@bastion ~]$ ssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnbvim /etc/hosts
+"/etc/hosts" [readonly] 6L, 260C  127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1localhost localhost.localdomain localhost6 localhost6.localdomain6
+10.192.6.120  lnxsup
+10.192.242.171 bastion.prod.dbp.pnb bastion
+10.192.232.33 registry.prod.dbp.pnb
+
+~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            4,1All~@k   5i -- INSERT --5,1AllW10: Warning: Changing a readonly file4,1All^[  4,1All::wq![dbpuser@bastion ~]$ vim /etc/hostsssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnbvim /etc/hostssudo 
+[sudo] password for dbpuser: 
+"/etc/hosts" 6L, 260C  127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1localhost localhost.localdomain localhost6 localhost6.localdomain6
+10.192.6.120  lnxsup
+10.192.242.171 bastion.prod.dbp.pnb bastion
+10.192.232.33 registry.prod.dbp.pnb
+
+~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            5,35Alli -- INSERT --5,35All66,1All12103.4159627.8293109 41021.21310410356a7p8i987654303 api2203 api3456789.20p1r2o3d4.5d6b7b876b7p8.9p30n1b27,1All12103.4159627.82941021.22304356a7p8i9-20i1n2t3.4p5r6o7d8.9d30b1p2.3p4n5b68,1All^[  8,0-1All::wq!"/etc/hosts" 9L, 329C written
+[dbpuser@bastion ~]$ sudo vim /etc/hostsssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnbvim /etc/hostssudo sudo vim /etc/hostsssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnbtelnet api.prod.dbp.pnb 6443ssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnbtelnet api.prod.dbp.pnb 6443
+Trying 10.192.242.203...
+^C
+[dbpuser@bastion ~]$ telnet api.prod.dbp.pnb 6443sudo vim /etc/hoststelnet api.prod.dbp.pnb 6443sudo vim /etc/hosts
+"/etc/hosts" 9L, 329C  127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1localhost localhost.localdomain localhost6 localhost6.localdomain6
+10.192.6.120  lnxsup
+10.192.242.171 bastion.prod.dbp.pnb bastion
+10.192.232.33 registry.prod.dbp.pnb
+10.192.242.203 api.prod.dbp.pnb
+10.192.242.203 api-int.prod.dbp.pnb
+
+
+~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            ~                                                                                                                                                                                                                                            8,0-1All~@k   7,1  ~@k   6~@k   ~@k   7~@k   8,0-1~@k   7,1  ~@k   8,0-1~@k   7,1  ^[  ^[  :: 7,1All~@k   6~@k   7~@k   2i -- INSERT --7,2All34567891012345 api-int.prod.dbp.pnb44 api-int.prod.dbp.pnb5^[  7,14All::wq!"/etc/hosts" 9L, 329C written
+[dbpuser@bastion ~]$ sudo vim /etc/hoststelnet api.prod.dbp.pnb 6443
+Trying 10.192.242.203...
+^C
+[dbpuser@bastion ~]$ telnet api.prod.dbp.pnb 6443
+Trying 10.192.242.203...
+
+^[[A^[[B^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A                                            ^C
+[dbpuser@bastion ~]$ openshift-install --girdir ~/clusterconfig/ waait -for bootstarppprpap-complete -l-log--level=debug
+DEBUG OpenShift Installer 4.12.30                  
+DEBUG Built from commit caf16da287d56f9df8ad61481964a377fe30784b 
+INFO Waiting up to 20m0s (until 3:16PM) for the Kubernetes API at https://api.prod.dbp.pnb:6443... 
+DEBUG Loading Agent Config...                      
+DEBUG Still waiting for the Kubernetes API: Get "https://api.prod.dbp.pnb:6443/version": dial tcp 10.192.242.203:6443: i/o timeout 
+^C
+[dbpuser@bastion ~]$ openshift-install --dir ~/clusterconfig/ wait-for bootstrap-complete --log-level=debugtelnet api.prod.dbp.pnb 6443sudo vim /etc/hoststelnet api.prod.dbp.pnb 6443openshift-install --dir ~/clusterconfig/ wait-for bootstrap-complete --log-level=debugopenshift-install --dir ~/clusterconfig/ wait-for bootstrap-complete --log-level=debug
+DEBUG OpenShift Installer 4.12.30                  
+DEBUG Built from commit caf16da287d56f9df8ad61481964a377fe30784b 
+INFO Waiting up to 20m0s (until 3:17PM) for the Kubernetes API at https://api.prod.dbp.pnb:6443... 
+DEBUG Loading Agent Config...                      
+^C
+[dbpuser@bastion ~]$ openshift-install --dir ~/clusterconfig/ wait-for bootstrap-complete --log-level=debugtelnet api.prod.dbp.pnb 6443
+Trying 10.192.242.203...
+^C
+[dbpuser@bastion ~]$ telnet api.prod.dbp.pnb 6443 6443 6443 6443 6443 6443 6443 6443 6443 6443 6443 6443 6443 6443 6443 6443 6443culrk rl -kv  https://api.prod.dbp.pnb:6443/version
+*   Trying 10.192.242.203...
+* TCP_NODELAY set
+^[[A^X^C
+[dbpuser@bastion ~]$ curl -kv  https://api.prod.dbp.pnb:6443/versiontelnet api.prod.dbp.pnb 6443nslookup 
+;; Got recursion not available from 10.209.27.103, trying next server
+;; Got recursion not available from 10.209.27.104, trying next server
+Server:10.209.27.105
+Address:10.209.27.105#53
+
+Name:api.prod.dbp.pnb
+Address: 10.192.242.203
+;; Got recursion not available from 10.209.27.103, trying next server
+;; Got recursion not available from 10.209.27.104, trying next server
+
+[dbpuser@bastion ~]$ nslookup api.prod.dbp.pnb curl -kv  https://api.prod.dbp.pnb:6443/versiontelnet api.prod.dbp.pnb 6443openshift-install --dir ~/clusterconfig/ wait-for bootstrap-complete --log-level=debug
+DEBUG OpenShift Installer 4.12.30                  
+DEBUG Built from commit caf16da287d56f9df8ad61481964a377fe30784b 
+INFO Waiting up to 20m0s (until 3:19PM) for the Kubernetes API at https://api.prod.dbp.pnb:6443... 
+DEBUG Loading Agent Config...                      
+^C
+[dbpuser@bastion ~]$ (reverse-i-search)`':s': openshift-install --dir ~/clusterconfig/ wait-for bootstrap-complete --log-level=debugs': ssh -i ~/.ssh/ocp4 core@bootstrap.prod.dbp.pnb[dbpuser@bastion ~]$
+Red Hat Enterprise Linux CoreOS 412.86.202308081039-0
+  Part of OpenShift 4.12, RHCOS is a Kubernetes native operating system
+  managed by the Machine Config Operator (`clusteroperator/machine-config`).
+
+WARNING: Direct SSH access to machines is not recommended; instead,
+make configuration changes via `machineconfig` objects:
+  https://docs.openshift.com/container-platform/4.12/architecture/architecture-rhcos.html
+
+---
+This is the bootstrap node; it will be destroyed when the master is fully up.
+
+The primary services are release-image.service followed by bootkube.service. To watch their status, run e.g.
+
+  journalctl -b -f -u release-image.service -u bootkube.service
+Last login: Fri Apr 26 09:20:33 2024 from 10.192.242.171
+[core@bootstrap ~]$ cd ..sudo crictl pscurl -k https://localhost:6443/versionjournalctl -b -f -u release-image.service -u bootkube.servicecurl -k https://localhost:6443/versionsudo crictl ps
+CONTAINER           IMAGE                                                                                                                    CREATED             STATE               NAME                    ATTEMPT             POD ID              POD
+a416c1d775e1d       ea898392a7f567bd79022fe259a80f44bb4021740c129dbb49a34eae0083770b                                                         21 minutes ago      Running             kube-apiserver          0                   be67183295a72       bootstrap-kube-apiserver-bootstrap.prod.dbp.pnb
+76cb86fe89566       16f07985b28d8d3c0e711e447b460ee00ec4b701863798fe29d856a75097bd38                                                         25 minutes ago      Running             machine-config-server   0                   cfc4d008f4d41       bootstrap-machine-config-operator-bootstrap.prod.dbp.pnb
+efcaf0d572487       475c1f17c2021c16b75358010906d541f03ff169efcf47ecf6672864f828f890                                                         26 minutes ago      Running             etcd                    0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+4adfc93b79188       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:afe9dcf922b60d87cd33904654f387d2eb4bcafb2681917094c0bb72c1af41da   26 minutes ago      Running             etcdctl                 0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+[core@bootstrap ~]$ sudo crictl pscd ..sudo crictl psimages
+IMAGE                                            TAG                 IMAGE ID            SIZE
+quay.io/openshift-release-dev/ocp-release        <none>              2d6a8ab0b7304       470MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              b5496e85555b0       402MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              f3dd4c1a776b1       481MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              545c900711062       484MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              17f4c6146d16c       481MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              475c1f17c2021       498MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              bed872d748056       558MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              904c7f02c5b93       449MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              ea898392a7f56       889MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              b59991bbc474d       476MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              76485104325f1       483MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              16f07985b28d8       606MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              afa5bf2cb2e09       488MB
+quay.io/openshift-release-dev/ocp-v4.0-art-dev   <none>              cc12844276873       497MB
+[core@bootstrap ~]$ sudo crictl imagesps
+CONTAINER           IMAGE                                                                                                                    CREATED             STATE               NAME                    ATTEMPT             POD ID              POD
+76cb86fe89566       16f07985b28d8d3c0e711e447b460ee00ec4b701863798fe29d856a75097bd38                                                         26 minutes ago      Running             machine-config-server   0                   cfc4d008f4d41       bootstrap-machine-config-operator-bootstrap.prod.dbp.pnb
+efcaf0d572487       475c1f17c2021c16b75358010906d541f03ff169efcf47ecf6672864f828f890                                                         26 minutes ago      Running             etcd                    0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+4adfc93b79188       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:afe9dcf922b60d87cd33904654f387d2eb4bcafb2681917094c0bb72c1af41da   26 minutes ago      Running             etcdctl                 0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ sudo crictl ps
+CONTAINER           IMAGE                                                                                                                    CREATED             STATE               NAME                    ATTEMPT             POD ID              POD
+76cb86fe89566       16f07985b28d8d3c0e711e447b460ee00ec4b701863798fe29d856a75097bd38                                                         26 minutes ago      Running             machine-config-server   0                   cfc4d008f4d41       bootstrap-machine-config-operator-bootstrap.prod.dbp.pnb
+efcaf0d572487       475c1f17c2021c16b75358010906d541f03ff169efcf47ecf6672864f828f890                                                         26 minutes ago      Running             etcd                    0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+4adfc93b79188       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:afe9dcf922b60d87cd33904654f387d2eb4bcafb2681917094c0bb72c1af41da   26 minutes ago      Running             etcdctl                 0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+[core@bootstrap ~]$ sudo crictl psimagespscd ..sudo crictl pscurl -k https://localhost:6443/versionjournalctl -b -f -u release-image.service -u bootkube.servicecurl -k https://localhost:6443/version
+curl: (7) Failed to connect to localhost port 6443: Connection refused
+[core@bootstrap ~]$ curl -k https://localhost:6443/versionsudo crictl psimagespscd ..sudo crictl pscurl -k https://localhost:6443/versionjournalctl -b -f -u release-image.service -u bootkube.servicesudo systemctl statusjournalctl -b -f -u release-image.service -ucurl -k https://localhost:6443/versionv https://localhost:6443/versionss -tulpnudo crictl pss -tulpnjournalctl -b -f -u release-image.service -u bootkube.servicesudo crictl psjournalctl -b -f -u release-image.service -u bootkube.servicesudo crictl imagessystemctl status crio.service journalctl -b -f -u release-image.service -u bootkube.servicecat /etc/hostssudo vim /etc/hostscatnslookup registry.prod.dbp.pnbcurl -k https://registry.prod.dbp.pnb:8443nslookup registry.prod.dbp.pnbcat /etc/hostsvim /etc/hostssudo catjournalctl -b -f -u release-image.service -u bootkube.servicesudo systemctl status crio.service crictl imagesjournalctl -b -f -u release-image.service -u bootkube.servicesudo crictl psjournalctl -b -f -u release-image.service -u bootkube.servicess -tulpnudo crictl pss -tulpncurl -kv https://localhost:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/version:6443/versiona:6443/versionp:6443/versioni:6443/version.:6443/versionp:6443/versionr:6443/versiono:6443/versiond:6443/version.:6443/versiond:6443/versionb:6443/versionp:6443/version.:6443/versionp:6443/versionn:6443/versionb:6443/version
+*   Trying 10.192.242.203...
+* TCP_NODELAY set
+^C
+[core@bootstrap ~]$ curl -kv https://api.prod.dbp.pnb:6443/version https://localhost:6443/versionsudo crictl psimagesps
+CONTAINER           IMAGE                                                                                                                    CREATED             STATE               NAME                    ATTEMPT             POD ID              POD
+76cb86fe89566       16f07985b28d8d3c0e711e447b460ee00ec4b701863798fe29d856a75097bd38                                                         27 minutes ago      Running             machine-config-server   0                   cfc4d008f4d41       bootstrap-machine-config-operator-bootstrap.prod.dbp.pnb
+efcaf0d572487       475c1f17c2021c16b75358010906d541f03ff169efcf47ecf6672864f828f890                                                         27 minutes ago      Running             etcd                    0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+4adfc93b79188       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:afe9dcf922b60d87cd33904654f387d2eb4bcafb2681917094c0bb72c1af41da   27 minutes ago      Running             etcdctl                 0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+[core@bootstrap ~]$ sudo crictl pscurl -kv https://api.prod.dbp.pnb:6443/versionsudo crictl pscurl -kv https://api.prod.dbp.pnb:6443/version https://localhost:6443/versionsudo crictl psimagespscd ..sudo crictl pscurl -k https://localhost:6443/versionjournalctl -b -f -u release-image.service -u bootkube.servicesudo systemctl statusjournalctl -b -f -u release-image.service -u
+-- Logs begin at Thu 2024-04-25 23:53:39 UTC. --
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288099]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288074]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288108]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288077]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288092]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: Unable to reach API_URL's https endpoint at https://10.192.242.203:6443/version
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: It might be too early for the https://10.192.242.203:6443/version to be available.
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: Checking validity of api-int.prod.dbp.pnb of type API_INT_URL
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: Starting stage check-api-int-url
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: Successfully resolved API_INT_URL api-int.prod.dbp.pnb
+^C
+[core@bootstrap ~]$ journalctl -b -f -u release-image.service -u bootkube.servicesudo crictl ps
+CONTAINER           IMAGE                                                                                                                    CREATED             STATE               NAME                    ATTEMPT             POD ID              POD
+76cb86fe89566       16f07985b28d8d3c0e711e447b460ee00ec4b701863798fe29d856a75097bd38                                                         27 minutes ago      Running             machine-config-server   0                   cfc4d008f4d41       bootstrap-machine-config-operator-bootstrap.prod.dbp.pnb
+efcaf0d572487       475c1f17c2021c16b75358010906d541f03ff169efcf47ecf6672864f828f890                                                         27 minutes ago      Running             etcd                    0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+4adfc93b79188       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:afe9dcf922b60d87cd33904654f387d2eb4bcafb2681917094c0bb72c1af41da   27 minutes ago      Running             etcdctl                 0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+[core@bootstrap ~]$ ^C
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ sudo crictl psjournalctl -b -f -u release-image.service -u bootkube.service
+-- Logs begin at Thu 2024-04-25 23:53:39 UTC. --
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288099]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288074]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288108]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288077]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288092]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: Unable to reach API_URL's https endpoint at https://10.192.242.203:6443/version
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: It might be too early for the https://10.192.242.203:6443/version to be available.
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: Checking validity of api-int.prod.dbp.pnb of type API_INT_URL
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: Starting stage check-api-int-url
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: Successfully resolved API_INT_URL api-int.prod.dbp.pnb
+^C
+[core@bootstrap ~]$ journalctl -b -f -u release-image.service -u bootkube.servicesudo crictl ps
+CONTAINER           IMAGE                                                                                                                    CREATED             STATE               NAME                    ATTEMPT             POD ID              POD
+76cb86fe89566       16f07985b28d8d3c0e711e447b460ee00ec4b701863798fe29d856a75097bd38                                                         28 minutes ago      Running             machine-config-server   0                   cfc4d008f4d41       bootstrap-machine-config-operator-bootstrap.prod.dbp.pnb
+efcaf0d572487       475c1f17c2021c16b75358010906d541f03ff169efcf47ecf6672864f828f890                                                         29 minutes ago      Running             etcd                    0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+4adfc93b79188       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:afe9dcf922b60d87cd33904654f387d2eb4bcafb2681917094c0bb72c1af41da   29 minutes ago      Running             etcdctl                 0                   ebcf590d349c5       etcd-bootstrap-member-bootstrap.prod.dbp.pnb
+[core@bootstrap ~]$ sudo crictl psjournalctl -b -f -u release-image.service -u bootkube.servicesudo crictl psjournalctl -b -f -u release-image.service -u bootkube.service
+-- Logs begin at Thu 2024-04-25 23:53:39 UTC. --
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288099]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288074]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288108]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288077]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:29:03 bootstrap.prod.dbp.pnb bootkube.sh[288092]: Unable to connect to the server: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: Unable to reach API_URL's https endpoint at https://10.192.242.203:6443/version
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: It might be too early for the https://10.192.242.203:6443/version to be available.
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: Checking validity of api-int.prod.dbp.pnb of type API_INT_URL
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: Starting stage check-api-int-url
+Apr 26 09:31:00 bootstrap.prod.dbp.pnb bootkube.sh[288329]: Successfully resolved API_INT_URL api-int.prod.dbp.pnb
+^C
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 
+[core@bootstrap ~]$ 

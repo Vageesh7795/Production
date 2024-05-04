@@ -1,0 +1,411 @@
+First Disable default operatorHub sources for catalog source. (Done)
+
+Post Installation configuration :-
+
+i. NTP/Chrony Configuration (Done)
+ii. internal image registry (Object storage) (Done)
+iii. LDAP Integration (Pending due to Invalid Creds)
+iv. htpasswd configuration (Done)
+v. multi-tenant (Done)
+vi. Alert-manager Configuration (Done)
+vii. ELK (Done)
+viii. AMQ-Streams (Done)
+ix. ETCD Backup & Data Encryption (Done)
+x. default route configuartion for internal registry (Done)
+xi. worker label removal from 2 master nodes
+xii. Adding infra label to one of the master nodes (Done)
+xiii. Catalogue Source creation (Done for Redhat Operators)
+xiv. LVM storage configuration (Using 8.7TB of nodes) (Done for only worker nodes)
+xv. Cluster Registration into [https://cloud.redhat.com/openshift] (Done)
+xvi. Users & Namespaces Creation [Different environmet i.e prod] (Pending)
+
+
+
+
+
+
+
+
+
+
+
+
+
+ldap certificate
+Certificate Information:
+Common Name: DCISDAD001.pnb.net
+Subject Alternative Names: othername:<unsupported>, DCISDAD001.pnb.net
+Organization:
+Organization Unit:
+Locality:
+State:
+Country:
+Valid From: May 19, 2023
+Valid To: May 18, 2024
+Key Size: 2048 bit
+Serial Number: 59000002174278029dc57ee1a4000000000217
+_________________
+ -----BEGIN CERTIFICATE-----
+    MIIGKjCCBRKgAwIBAgITWQAAAhdCeAKdxX7hpAAAAAACFzANBgkqhkiG9w0BAQ0F
+    ADBAMRMwEQYKCZImiZPyLGQBGRYDbmV0MRMwEQYKCZImiZPyLGQBGRYDcG5iMRQw
+    EgYDVQQDEwtQTkIgUm9vdCBDQTAeFw0yMzA1MTkxNjI0NDdaFw0yNDA1MTgxNjI0
+    NDdaMB0xGzAZBgNVBAMTEkRDSVNEQUQwMDEucG5iLm5ldDCCASIwDQYJKoZIhvcN
+    AQEBBQADggEPADCCAQoCggEBAJgjT3jvTrBCvQedhNb5DHhq9vo1B22jYtQghc3U
+    O+j1CF+Ik+SS/vAITr5vyeteJfBL7qDyRP56rRb2as2hlKFeCOT7q9ob+nBPUVjc
+    mgVu4hbYRNx94G/aPIdlE8j5C82nJ4nR7ukx2+327klggTR3h44tRWDkr6LLbTql
+    57buupAysKTULesp+s6oHxrPHAUdtc42JRWJb//Wav/2hmG83lHYqrEl/gkXXZIF
+    XPorX2E41xJ6UXrGvXDaoy9s1t4+cWwsNFneThzqrkjq63d81fbfjy5JyTEA0iXL
+    hlZNP4UJHzq/i17d5LucpdPLJ9kF+yeroLbgYS/eukEEJ/sCAwEAAaOCAz4wggM6
+    MC8GCSsGAQQBgjcUAgQiHiAARABvAG0AYQBpAG4AQwBvAG4AdAByAG8AbABsAGUA
+    cjAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwDgYDVR0PAQH/BAQDAgWg
+    MHgGCSqGSIb3DQEJDwRrMGkwDgYIKoZIhvcNAwICAgCAMA4GCCqGSIb3DQMEAgIA
+    gDALBglghkgBZQMEASowCwYJYIZIAWUDBAEtMAsGCWCGSAFlAwQBAjALBglghkgB
+    ZQMEAQUwBwYFKw4DAgcwCgYIKoZIhvcNAwcwPgYDVR0RBDcwNaAfBgkrBgEEAYI3
+    GQGgEgQQVBPMAiW8JEKkFA7Zhd7hkYISRENJU0RBRDAwMS5wbmIubmV0MB0GA1Ud
+    DgQWBBSvFN7z43BuVeCHt/Gp8Hn/1LzSzzAfBgNVHSMEGDAWgBQFElHC/Az+MkB5
+    rINm465eKs/c1DCBzAYDVR0fBIHEMIHBMIG+oIG7oIG4hoG1bGRhcDovLy9DTj1Q
+    TkIlMjBSb290JTIwQ0EsQ049RFJJU0RBRDAwMixDTj1DRFAsQ049UHVibGljJTIw
+    S2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049Q29uZmlndXJhdGlvbixEQz1w
+    bmIsREM9bmV0P2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3Q/YmFzZT9vYmplY3RD
+    bGFzcz1jUkxEaXN0cmlidXRpb25Qb2ludDCBvQYIKwYBBQUHAQEEgbAwga0wgaoG
+    CCsGAQUFBzAChoGdbGRhcDovLy9DTj1QTkIlMjBSb290JTIwQ0EsQ049QUlBLENO
+    PVB1YmxpYyUyMEtleSUyMFNlcnZpY2VzLENOPVNlcnZpY2VzLENOPUNvbmZpZ3Vy
+    YXRpb24sREM9cG5iLERDPW5ldD9jQUNlcnRpZmljYXRlP2Jhc2U/b2JqZWN0Q2xh
+    c3M9Y2VydGlmaWNhdGlvbkF1dGhvcml0eTBPBgkrBgEEAYI3GQIEQjBAoD4GCisG
+    AQQBgjcZAgGgMAQuUy0xLTUtMjEtNjY1NTk4NzE1LTMwMTQyMzQyODItMzMyMzM0
+    MjA4OC0yMjM1NTANBgkqhkiG9w0BAQ0FAAOCAQEADYGkWeRjeS0yk0bGNIiIoiXX
+    bbcI8TetXWfq+63MaEpXZOFw0IVkdAgbIFXkiRUlbDDxOys2hwvfVmfpJSTbn+IU
+    5Kgbbubxj2bG6l+xn+wRj2TLzXUBWuA9JXS3s5GLRQ4Uii4wwshZ3Fhk7kJV5Yhd
+    2A9PUrJeBY7+dYrdi3AJOPv8BDi7iUT9MQi6rTNt4/Cs7M9Igti21aB/xqeHan25
+    H08NcNFnoHlTpLZZ72KACP7evqdNJug5Cy8bWgbimjMpXFc/Iprc7o3+5t2y6l4h
+    2wWN+pfNZ261l+AmzssxV00m33KtfYvHDkpsKdFlr+KT08w/cjHish1x71tKqQ==
+    -----END CERTIFICATE-----
+
+
+
+
+
+
+
+
+
+
+
+User-ca bundble
+
+registry.nonprod.dbp.pnb:8443
+    -----BEGIN CERTIFICATE-----
+    MIID2zCCAsOgAwIBAgIUeUqbJHdloea1mdrZw1B+KX/qRR0wDQYJKoZIhvcNAQEL
+    BQAwgYMxCzAJBgNVBAYTAklOMQ4wDAYDVQQIDAVEZWxoaTEOMAwGA1UEBwwFRGVs
+    aGkxHTAbBgNVBAoMFFB1bmphYiBOYXRpb25hbCBCYW5rMQ0wCwYDVQQLDAREQlRE
+    MSYwJAYDVQQDDB1yZWdpc3RyeS5ub25wcm9kLmRicC5wbmI6ODQ0MzAeFw0yNDAx
+    MTEwNzMxMjdaFw0yNTAxMDEwNzMxMjdaMIGDMQswCQYDVQQGEwJJTjEOMAwGA1UE
+    CAwFRGVsaGkxDjAMBgNVBAcMBURlbGhpMR0wGwYDVQQKDBRQdW5qYWIgTmF0aW9u
+    YWwgQmFuazENMAsGA1UECwwEREJURDEmMCQGA1UEAwwdcmVnaXN0cnkubm9ucHJv
+    ZC5kYnAucG5iOjg0NDMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDa
+    AZ5E5JeSIIonmt1jFyv7TFKAGGt9e0GejJAD09fK/NkMEMWdzB8TGfSEHEFZL2Am
+    Bqub3pA+Crxy++SooRyg9YJBkZC3bTKS+0LtufJtjoCoqljFDOmVji7uVllsFQ3o
+    8B4dt7HlYNlRNSFVZ2eph6wN9QstWVZeaVE4QtojJlo9y6Cj7+OWixIJlqNj0jOo
+    XQfdm8BNv8Rp5781rJ/ZqcLidJ73dHHamBezA4UFda+rnIXS1ooUQDIILy74Udpq
+    j33BRVpZeSvtO9CVQAYTqWWGOBl0am/OUsAcSumH7z/CaPBgTwrmQvNofSHL87Hv
+    V1uSobb+6GNUsnLUCjvbAgMBAAGjRTBDMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXg
+    MCkGA1UdEQQiMCCCGHJlZ2lzdHJ5Lm5vbnByb2QuZGJwLnBuYocECsAhqzANBgkq
+    hkiG9w0BAQsFAAOCAQEAYW2Y3UzJI6IZuGZBscZSZmDs201bK1X7aWfFq5AqiaVr
+    z5GMpceSzSKuMoG1U3tbMyY7npeg/rAIbXqYpAVNA0H4j5RQB3ys9ysQ0CMlMKq2
+    wL5g59ZhzcBSER4foVs7c64o1hDc5R7b46ehHkxvMlVpek2hTH4fscUfGg8XnjMa
+    1QO/78egM888g8k58IXDsoITGzaJ8U/eAydiJ/buvOqRRXz2z4ekhlJouzXt22vS
+    IfUD/dwyIE/uRsEPm8wh8lRG2P2yy+LuBCbckK7Yr4d+XkC7NgW3/XyrQ2uvdQYj
+    4cBr9hm/u2IWGzKoXoW89U7O8cPp4BJhfIw0PW/rhg==
+    -----END CERTIFICATE-----
+
+Certificate Information:
+Common Name: registry.nonprod.dbp.pnb:8443
+Subject Alternative Names:
+Organization: Punjab National Bank
+Organization Unit: DBTD
+Locality: Delhi
+State: Delhi
+Country: IN
+Valid From: January 10, 2024
+Valid To: October 31, 2026
+Issuer: registry.nonprod.dbp.pnb:8443, Punjab National Bank
+Key Size: 2048 bit
+Serial Number: 3a15e41ed3cbe92650e8845ac16755c09ea2683e
+    -----BEGIN CERTIFICATE-----
+    MIID6TCCAtGgAwIBAgIUOhXkHtPL6SZQ6IRawWdVwJ6iaD4wDQYJKoZIhvcNAQEL
+    BQAwgYMxCzAJBgNVBAYTAklOMQ4wDAYDVQQIDAVEZWxoaTEOMAwGA1UEBwwFRGVs
+    aGkxHTAbBgNVBAoMFFB1bmphYiBOYXRpb25hbCBCYW5rMQ0wCwYDVQQLDAREQlRE
+    MSYwJAYDVQQDDB1yZWdpc3RyeS5ub25wcm9kLmRicC5wbmI6ODQ0MzAeFw0yNDAx
+    MTEwNzI1MzRaFw0yNjEwMzEwNzI1MzRaMIGDMQswCQYDVQQGEwJJTjEOMAwGA1UE
+    CAwFRGVsaGkxDjAMBgNVBAcMBURlbGhpMR0wGwYDVQQKDBRQdW5qYWIgTmF0aW9u
+    YWwgQmFuazENMAsGA1UECwwEREJURDEmMCQGA1UEAwwdcmVnaXN0cnkubm9ucHJv
+    ZC5kYnAucG5iOjg0NDMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCt
+    ODNFcIVbk1PLLks0Xvpivs4/M0sG37KWagDw3U3bToM8jpMmDfHf2YqbaGYTJ2VY
+    mlIH/8xbxBhFWRiaDbg5NVoE+xuA9u+k88K0p9Q+pmDfNlP2qqx0UhZMUny33g2a
+    xp8Sw8mheySFDrUIt2DCIhO/QRjEPjDBVEoW5NDXMO+/PIIb02Suh0o90CTMLPpR
+    +5XDONSyeUWByLK9UMWKZXiPunzPSze7YbRJulxhPmpMF0MmgiAO8dF87o3yI9Zs
+    7iSilXDbDL+PXPB2CTeZlrOhadTyzg9IwxQoAiQ9YWNNBuEQhg3cMaauVQt8aAhF
+    ltdSNuppEP2hLrhUvFAPAgMBAAGjUzBRMB0GA1UdDgQWBBRidSjpgkfxah7hy+ur
+    Ha9TtlNFPDAfBgNVHSMEGDAWgBRidSjpgkfxah7hy+urHa9TtlNFPDAPBgNVHRMB
+    Af8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQBeG7B+mQMHi+6Vf23ooC7918QR
+    un6dDldM/iEggIWgnSEq7DwLlxaqfxJTqt53HhB1vFwW5FYaAtKzSjBU/XunDWi2
+    1WcSBXQTVhstdC8iZ1XRgYc38Afq+EyjOWoVlzvJY1Nh3NOFGlLsqx1nfbMrWNMU
+    RxJS3OC6pidPQcQBL9pdQpVABMQWcr0UYUQzXYtU27H4kH3xusuy5OK91kOQqYL0
+    pTJoh1i1y2OCeV+IvrjTQna4Ux69ok5qGO7zQzgMr+TNIQegYR8qhsuEb93hOFE4
+    M0biyqyycDPZQ+lyk2KMTUbh1PzanzP/yUSzeTC5TFPXjbVDLVqvuzeMwfbD
+    -----END CERTIFICATE-----
+
+
+
+
+
+
+
+Certificate Information:
+Common Name: *.apps.nonprod.dbp.pnb
+Subject Alternative Names: *.apps.nonprod.dbp.pnb
+Organization:
+Organization Unit:
+Locality:
+State:
+Country:
+Valid From: January 4, 2024
+Valid To: January 3, 2026
+Key Size: 2048 bit
+Serial Number: 6335814110813437897 (0x57ed555d7df13fc9)
+    -----BEGIN CERTIFICATE-----
+    MIIDYzCCAkugAwIBAgIIV+1VXX3xP8kwDQYJKoZIhvcNAQELBQAwJjEkMCIGA1UE
+    AwwbaW5ncmVzcy1vcGVyYXRvckAxNzA0MzkzMjE3MB4XDTI0MDEwNDE4MzMzN1oX
+    DTI2MDEwMzE4MzMzOFowITEfMB0GA1UEAwwWKi5hcHBzLm5vbnByb2QuZGJwLnBu
+    YjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL7nr5yMIyZ/oK1C3cuo
+    Xr1sC87U7qnBWHOZeJGa819cjvPbCvC3tRHcZlwLkT8m0L3KaTqRrx3varUadrrs
+    lr0NvTevmfaxphOhwERzWTeCTHmBNWOvND/CxnGcfIV3dNvgQYvKHqiHELC2ryFU
+    e0SUycdUNoXXtK6C51HX4Y67yB+6XWG/YolggNKJraQ+Kct0X9X6BYv14D2IXSdO
+    YCHKsVeCB+k3G3VbLT2hOWztt50eYTxXk0WPunUnfcnrrwkw83bk3QURovp33Zhm
+    TGfGxqPOnAflaqK0Q/WUWmiooDIJ0OstMyqyCDEHovf23S4cv+/DhZ+26qnqTnKG
+    LPsCAwEAAaOBmTCBljAOBgNVHQ8BAf8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUH
+    AwEwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU7mznd5BWATP7odmE/zivlqxiokcw
+    HwYDVR0jBBgwFoAUrazBM4OOnmSHCwg3EDhLHSNcNdMwIQYDVR0RBBowGIIWKi5h
+    cHBzLm5vbnByb2QuZGJwLnBuYjANBgkqhkiG9w0BAQsFAAOCAQEAB/CmmXrGUV3a
+    NnJRXd+kNDC4jpe1s0ML/s1sxH1QadBj3AtaIn8igxHvNPJjylLsafaiMqI+mLsA
+    5KOlXonbBsE00cKrMRp4Zvf4tkPInRR+OGvlF+RckBhsurlVcDRyGIgeFqOp3f4Q
+    mpe7TNQ9dxe45IadjljAJrasBSX1Sg7Hs2pfPiKEaS2yEwKMslS1m705XLjNoUet
+    I7GSDcGb853VaEq1A5oinwokMA55XWnr3hN/6ykHE68/VkkGxFH9ygq4G7cY0Yvv
+    qf5xDL9Oa+yrARtjiaPLSjV35ZTUq9XEXn9hPUGfSwLes+kaRc+FVv674n2r6ndH
+    r9kHWzYMjA==
+    -----END CERTIFICATE-----
+
+
+
+Certificate Information:
+Common Name: ingress-operator@1704393217
+Subject Alternative Names:
+Organization:
+Organization Unit:
+Locality:
+State:
+Country:
+Valid From: January 4, 2024
+Valid To: January 3, 2026
+Key Size: 2048 bit
+Serial Number: 1 (0x1)
+
+    -----BEGIN CERTIFICATE-----
+    MIIDDDCCAfSgAwIBAgIBATANBgkqhkiG9w0BAQsFADAmMSQwIgYDVQQDDBtpbmdy
+    ZXNzLW9wZXJhdG9yQDE3MDQzOTMyMTcwHhcNMjQwMTA0MTgzMzM2WhcNMjYwMTAz
+    MTgzMzM3WjAmMSQwIgYDVQQDDBtpbmdyZXNzLW9wZXJhdG9yQDE3MDQzOTMyMTcw
+    ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDEzbZzd8EQrN/ZnEK+zi/B
+    YOlOyB4eo+0WyI4ai5bNViflN+k4lJVLDHZGQmMqiH8r1lTYdgiudFRJwJU0PEdo
+    dGeYOsglXv3YJykfUBZiEvZMy0wLt2bJxYb684R4ZbuVcQhppVkDIuCLPdXcd/3U
+    yz9/WdqfThEinCWALN5j36SkQU/Yy5dsllIvQd6NIN8g9towWV8a0AGMHVzmirUw
+    H5q9qgen3qSbDBCh9UYmWFGhLSdAuEur9VOhi2tjcqR2IFfykwUD0UaFc6p3aXqS
+    wOdcuitqkeyaK1HFqmYZJWfdxRNOqsholGbxmEcdGuiYaC/tGxD6CF2O/HC1G/h5
+    AgMBAAGjRTBDMA4GA1UdDwEB/wQEAwICpDASBgNVHRMBAf8ECDAGAQH/AgEAMB0G
+    A1UdDgQWBBStrMEzg46eZIcLCDcQOEsdI1w10zANBgkqhkiG9w0BAQsFAAOCAQEA
+    LCyVQEZHu1OH0PceBYnoHttD8XX+RwP6UThTE91Oqzgy2gfnboNXo6YYEYdTx85k
+    gK9UFZmTVf3a76mefHyibMsLgvSFo0gi9j40ZRkDUngVwp2Qi8deAmpzRzJO9mu/
+    CUzH/MpZFFqCO1kkwUTE1pZhwcJfFr9IoWlQKabyWhzaCmGF72F6QufFlJoKmVLf
+    gkYljVRXPC0uqx0ZjFe/45aVrwhdd3kXGPSgGou49NJwru75LehACEf0Bos28AuO
+    4f2Z4HqYweNcs229SJ6MxT/H//jaNn/rJX6bflZeOYBqvYcAyImpIlsZJCbgiZmU
+    FlpqbZTf39wE5IcTCLcHbA==
+    -----END CERTIFICATE-----
+
+
+PNB Provided Certificates (2) :-
+*******************************
+
+
+Certificate Information:
+Common Name: PNB ROOT CA-2
+Subject Alternative Names:
+Organization:
+Organization Unit:
+Locality:
+State:
+Country:
+Valid From: December 5, 2019
+Valid To: December 5, 2039
+Key Size: 2048 bit
+Serial Number: 611ddfe525f546ad4eaa7582a08450f6
+
+    -----BEGIN CERTIFICATE-----
+    MIIDdzCCAl+gAwIBAgIQYR3f5SX1Rq1OqnWCoIRQ9jANBgkqhkiG9w0BAQsFADBC
+    MRMwEQYKCZImiZPyLGQBGRYDbmV0MRMwEQYKCZImiZPyLGQBGRYDcG5iMRYwFAYD   
+    VQQDEw1QTkIgUk9PVCBDQS0yMB4XDTE5MTIwNjA1NTY1MFoXDTM5MTIwNjA2MDY0
+    OVowQjETMBEGCgmSJomT8ixkARkWA25ldDETMBEGCgmSJomT8ixkARkWA3BuYjEW
+    MBQGA1UEAxMNUE5CIFJPT1QgQ0EtMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+    AQoCggEBAMJJ0bpn53KRLIqXCmiNMx5N+gOzHZBsw7lsuE0bYKEdw4TrJkCRp3xi
+    eWrAyL4hGF+c+kkmobcOlkocCZXmsLCAYzNubWWkwzB2HphbZaUQBzARjq3QXIIs
+    HgXLI3oXKK3bEhwvvYJbkBjd6UfkZMmo3HvbYKTjTzfI7wuORVrV2oOB/8TovnXo
+    cshnWFA4AA+fdqXM96i4HUTX233BY92BplXY63g9iND8CMSFgCQwqxI2sKk05nXc
+    9/zDI2NHAK7K3AamlLUHFCrvHqFHTm5xmINobWRwvMqdp9+bvNwKbKVgjOgfMdzS
+    /oJ3PFSL3EnP60GeK+GocaDGsxl+a7MCAwEAAaNpMGcwEwYJKwYBBAGCNxQCBAYe
+    BABDAEEwDgYDVR0PAQH/BAQDAgGGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYE
+    FLu4HSoZt26irPDJxa+vUHeIlYwkMBAGCSsGAQQBgjcVAQQDAgEAMA0GCSqGSIb3
+    DQEBCwUAA4IBAQCpSZVqyUUjM13OBrHn+x9sPrP7bJI66F41I9EGjSb3EmDmIRUc
+    h9u/0GX4qrjO3pWo5KM+dxpEI0hHocQ1zzJHwHt8yqhkN1rDDpoo3TtGkL/iklre
+    QK9gBZReMem9W5N3KbiMG5dUjVnOiv3yH3WD4qk3PKafcJi4NzpkngtOPELuWqtH
+    qyIPQbABjELHTw4kPaO+qoVrpfqfAqnWnc2IgW2p7ioGs7iLIa42HpZZ9UvYcB0M
+    IZdpJFCROR/DFsrNFl86y3JmVWKqxdbhKduuxGl1UsLmnazP+5NgAZfR7PHkt5be
+    rdT6opvvn/Ox8Dv+7ujRTrabPNOBS2XzEnWk
+    -----END CERTIFICATE-----
+
+
+
+
+
+
+Common Name: hcpdr.obc.co.in
+Subject Alternative Names: dc-pnbone-prod-corp.hcpdr.obc.co.in, dc-pnbone-prod-retail.hcpdr.obc.co.in, dc-corp-quay.dc-pnbone-prod-corp.hcpdr.obc.co.in, dc-corp-registry.dc-pnbone-prod-corp.hcpdr.obc.co.in, dc-retail-quay.dc-pnbone-prod-retail.hcpdr.obc.co.in, dc-retail-registry.dc-pnbone-prod-retail.hcpdr.obc.co.in, pnbone-01.hcpdr.obc.co.in, pnb1-nonprod.pnbone-01.hcpdr.obc.co.in, pnbuatquay.pnbone-01.hcpdr.obc.co.in, dbp.hcpdr.obc.co.in, *.dbp.hcpdr.obc.co.in, cbdc.hcpdr.obc.co.in, *.cbdc.hcpdr.obc.co.in, IP Address:10.192.30.191, IP Address:10.192.30.192, IP Address:10.192.30.193, IP Address:10.192.30.194
+Organization: PNB
+Organization Unit: DCINFRA
+Locality: SANSAD MARG
+State: DELHI
+Country: IN
+Valid From: January 19, 2024
+Valid To: January 18, 2026
+Key Size: 2048 bit
+Serial Number: 1f000002ad7addabf6c35f63b80000000002ad
+
+    -----BEGIN CERTIFICATE-----
+    MIIHbTCCBlWgAwIBAgITHwAAAq163av2w19juAAAAAACrTANBgkqhkiG9w0BAQsF
+    ADBCMRMwEQYKCZImiZPyLGQBGRYDbmV0MRMwEQYKCZImiZPyLGQBGRYDcG5iMRYw
+    FAYDVQQDEw1QTkIgUk9PVCBDQS0yMB4XDTI0MDExOTA5NDMxOFoXDTI2MDExODA5
+    NDMxOFowbTELMAkGA1UEBhMCSU4xDjAMBgNVBAgTBURFTEhJMRQwEgYDVQQHEwtT
+    QU5TQUQgTUFSRzEMMAoGA1UEChMDUE5CMRAwDgYDVQQLEwdEQ0lORlJBMRgwFgYD
+    VQQDEw9oY3Bkci5vYmMuY28uaW4wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+    AoIBAQCj8Qbh/zJoOBo/2ACf5XHyhkJvBm51KAE/2ffvuMbnZMPktjs+hq3YUmcv
+    IRSOJ1n6AQlYFFjGwPpCqq/xUVC87OvM/CA6H6QQ+0m2Oy2q/MhDMKfwbcyO/p0R
+    49UL+ETmYZrnQa9zVHl8uz0oJVnJf4P3q4P1wMIjyuDiGFcBmLVsZE8t61b43pG7
+    ilJLUG6UtyR3G3XmhzbBv56U5sO5ZCkDuemedoLJyhCq8S03Zhzxi6Ac7v5aL0J8
+    /mfOJ574zzbwfQdNLf6nBAbdVkJ84h9sp3WiTqW0Lq81FvDuZu2h0TGIGanILpAt
+    eJGUKVJIskshm+Y8qKEI37UKVCRzAgMBAAGjggQvMIIEKzAdBgNVHQ4EFgQU3WOR
+    eVTcRUE//4Cx2kcCcWzM+vQwggIMBgNVHREEggIDMIIB/4IjZGMtcG5ib25lLXBy
+    b2QtY29ycC5oY3Bkci5vYmMuY28uaW6CJWRjLXBuYm9uZS1wcm9kLXJldGFpbC5o
+    Y3Bkci5vYmMuY28uaW6CMGRjLWNvcnAtcXVheS5kYy1wbmJvbmUtcHJvZC1jb3Jw
+    LmhjcGRyLm9iYy5jby5pboI0ZGMtY29ycC1yZWdpc3RyeS5kYy1wbmJvbmUtcHJv
+    ZC1jb3JwLmhjcGRyLm9iYy5jby5pboI0ZGMtcmV0YWlsLXF1YXkuZGMtcG5ib25l
+    LXByb2QtcmV0YWlsLmhjcGRyLm9iYy5jby5pboI4ZGMtcmV0YWlsLXJlZ2lzdHJ5
+    LmRjLXBuYm9uZS1wcm9kLXJldGFpbC5oY3Bkci5vYmMuY28uaW6CGXBuYm9uZS0w
+    MS5oY3Bkci5vYmMuY28uaW6CJnBuYjEtbm9ucHJvZC5wbmJvbmUtMDEuaGNwZHIu
+    b2JjLmNvLmlugiRwbmJ1YXRxdWF5LnBuYm9uZS0wMS5oY3Bkci5vYmMuY28uaW6C
+    E2RicC5oY3Bkci5vYmMuY28uaW6CFSouZGJwLmhjcGRyLm9iYy5jby5pboIUY2Jk
+    Yy5oY3Bkci5vYmMuY28uaW6CFiouY2JkYy5oY3Bkci5vYmMuY28uaW6HBArAHr+H
+    BArAHsCHBArAHsGHBArAHsIwHwYDVR0jBBgwFoAUu7gdKhm3bqKs8MnFr69Qd4iV
+    jCQwgc4GA1UdHwSBxjCBwzCBwKCBvaCBuoaBt2xkYXA6Ly8vQ049UE5CJTIwUk9P
+    VCUyMENBLTIsQ049RFJJU0RBRDAwMSxDTj1DRFAsQ049UHVibGljJTIwS2V5JTIw
+    U2VydmljZXMsQ049U2VydmljZXMsQ049Q29uZmlndXJhdGlvbixEQz1wbmIsREM9
+    bmV0P2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3Q/YmFzZT9vYmplY3RDbGFzcz1j
+    UkxEaXN0cmlidXRpb25Qb2ludDCBvwYIKwYBBQUHAQEEgbIwga8wgawGCCsGAQUF
+    BzAChoGfbGRhcDovLy9DTj1QTkIlMjBST09UJTIwQ0EtMixDTj1BSUEsQ049UHVi
+    bGljJTIwS2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049Q29uZmlndXJhdGlv
+    bixEQz1wbmIsREM9bmV0P2NBQ2VydGlmaWNhdGU/YmFzZT9vYmplY3RDbGFzcz1j
+    ZXJ0aWZpY2F0aW9uQXV0aG9yaXR5MCEGCSsGAQQBgjcUAgQUHhIAVwBlAGIAUwBl
+    AHIAdgBlAHIwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA0G
+    CSqGSIb3DQEBCwUAA4IBAQBLeaKsJz48OMo2gGa6t6t6UWz5HxfUszo2uiUPExVr
+    vI/WYsyol/0yV3vSMA13KHuyhWMZeEANYf18Y3W6GjgvkLbiQwoaj1UbeXCGZXQ1
+    ZL0HE1bmb1YDzhICc52VRXYG0+FI8xMSETDe3Jt4P5dIC0NQOITi/mHKVPhyt6mA
+    R31lsVo9Y0QJzXdR1Ax0bT++3r3yMo+A/zpgwi1T/mluYPdHhkj89pPfdT55wmEM
+    YHTSopV4P8TC7EmmJjN/71zL9mWnrUTDbhhoGSLrwtxgVWKUo617RQP/ghNCsoRD
+    PCwK3c8SIXhjuv8C7bYnbjv6+7X2llAoyMd9+qwtxvlk
+    -----END CERTIFICATE-----
+
+
+
+
+
+
+
+
+
+Production
+
+
+
+[dbpuser@bastion ~]$ oc get cm user-ca-bundle -o yaml
+apiVersion: v1
+data:
+  ca-bundle.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIIDxjCCAq6gAwIBAgIUJ05yh9dHWAvZ3Tf7Btw+DxbGPa0wDQYJKoZIhvcNAQEL
+    BQAwezELMAkGA1UEBhMCSU4xDjAMBgNVBAgMBURlbGhpMQ4wDAYDVQQHDAVEZWxo
+    aTEdMBsGA1UECgwUUHVuamFiIE5hdGlvbmFsIEJhbmsxDTALBgNVBAsMBERCVEQx
+    HjAcBgNVBAMMFXJlZ2lzdHJ5LnByb2QuZGJwLnBuYjAeFw0yNDA0MjMxNDA3NTNa
+    Fw0yNTA0MTQxNDA3NTNaMHsxCzAJBgNVBAYTAklOMQ4wDAYDVQQIDAVEZWxoaTEO
+    MAwGA1UEBwwFRGVsaGkxHTAbBgNVBAoMFFB1bmphYiBOYXRpb25hbCBCYW5rMQ0w
+    CwYDVQQLDAREQlREMR4wHAYDVQQDDBVyZWdpc3RyeS5wcm9kLmRicC5wbmIwggEi
+    MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC5pNY7hMQHZKvnpk/FqGwXeQfD
+    xZOb7GqqVcRTcraEtI8pKadbqrto0g3ERK0W8UstF3ypds+tGZrDTVqKndLehuye
+    fgDOFqaRpB+iOwSZVcdUS/3G4jPWr9DNe0osfvBwzeZfSBpxYs8RsSNjL7mulKss
+    9gTV7pV8o3ObGb7mNdYs9zEnW1AVF0bbWZVD9KuyO/ePGYZkyMMwZihd9GdNYDwJ
+    bX9EMXOfeuja233cgpYITmcKEjeS6u0CNvpAhYQOQWG3orvIS6d0l6s+KKiPsfWo
+    jNnw/FgNxz+j/k3Uq/hYBec2V+XcQ5anmUop+6nDInvtwqH6ozvg0r6RDZ+TAgMB
+    AAGjQjBAMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMCYGA1UdEQQfMB2CFXJlZ2lz
+    dHJ5LnByb2QuZGJwLnBuYocECsDoITANBgkqhkiG9w0BAQsFAAOCAQEAAV2zhEgS
+    +CMiVB9b3tR/acWO1gBduGFIoah0knMidG9aIRdqL2oeu2ZV46ViKRrO536hg5NM
+    8nrwC+Za1paHFGqLyLrQpclLn0FtphNI+jpijqE9vkuTO23SJb7TnQ2lmI/1Z0L2
+    2qo6W8qhaak9YGd6ZBPl9UWPKNWyDe8/cTprDWFeZaIjAvEX6rdeZVCAYiQhFvG3
+    oy+ZqVznEvXR67Q93yLtTFCABzaFWYjhOAVPZQjWr9VI5IfArlbztHiUx1SYNikO
+    iiGskuOGfr39KEh2k0+iBNmBrWZ6B1/xMf4NlQFfLfU95aabEOz+LyDgnBdiaOhU
+    jaH5YJfxKU7TOQ==
+    -----END CERTIFICATE-----
+    -----BEGIN CERTIFICATE-----
+    MIID1zCCAr+gAwIBAgIUJFhO+12zJdXEWUqr+7hjlO42ZvYwDQYJKoZIhvcNAQEL
+    BQAwezELMAkGA1UEBhMCSU4xDjAMBgNVBAgMBURlbGhpMQ4wDAYDVQQHDAVEZWxo
+    aTEdMBsGA1UECgwUUHVuamFiIE5hdGlvbmFsIEJhbmsxDTALBgNVBAsMBERCVEQx
+    HjAcBgNVBAMMFXJlZ2lzdHJ5LnByb2QuZGJwLnBuYjAeFw0yNDA0MjMxNDAzMzBa
+    Fw0yNzAyMTExNDAzMzBaMHsxCzAJBgNVBAYTAklOMQ4wDAYDVQQIDAVEZWxoaTEO
+    MAwGA1UEBwwFRGVsaGkxHTAbBgNVBAoMFFB1bmphYiBOYXRpb25hbCBCYW5rMQ0w
+    CwYDVQQLDAREQlREMR4wHAYDVQQDDBVyZWdpc3RyeS5wcm9kLmRicC5wbmIwggEi
+    MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDmahnva0Q61V7hNn/jDzYZj5pS
+    Nm5f3JyZYq//o84zWKkeAYJDlislFjOrOOJu5m4f4GkcVJWmqE3MY2VVS6JXLIIN
+    n7+HfazcjCrlwMwuZEvLC0P2RQ1e8yG+SQ7GljBMiY4PbDwJUJhTDpRnBfFyrG0+
+    Sli1SLAj3ScBy60eFHyeePkz2BhnryLaK07GX+4NHShFCrsA9OwLjHlqlIMabO9r
+    Tx2p2lsElJwjUtVvtNT1snHFY6w8OCipfsKLMOqIlZ2yE0h5JkD9PfrBKJedFKTR
+    wJ7ksLf3kIaTNmguTaoPAxjvImGYwXZxJWZuJ3xYtjfgAd3nOMmBbJaAJtSHAgMB
+    AAGjUzBRMB0GA1UdDgQWBBTKfQIzCMsi4cLJ0iZcACVD36FU5jAfBgNVHSMEGDAW
+    gBTKfQIzCMsi4cLJ0iZcACVD36FU5jAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3
+    DQEBCwUAA4IBAQAB4YppK4WDl3XdcF37kQlYrFEa51PsRG0G6CBdQIONizMuAJgn
+    hb7qzG4EitXL+3l2AM7Gz4ZwkDCGUQbTcCl8nLoh8kt2mRPXrGqWmziS44YIgfCN
+    AKD2IyQVh96Pv/G7SohT8jxlBkpZTdo6+v5rx0sEDO2rakgySH+GVyJCEVF5sRCw
+    DyTF3dKrr3qBeNi6g3jw6cphLs+unDwhesLFukTIbJVpsx4/tdDaAUQj8Ve83EIV
+    NDHYLuSlBrGwKBzE4zUZBM6I7fOz2hbJl2o6ftXhpvit9XjsUzs2V0xDcLNCDE29
+    APF1Lhaqg3ll10I13u1nGEnNWFyHpzDfXvra
+    -----END CERTIFICATE-----
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2024-04-27T09:20:35Z"
+  name: user-ca-bundle
+  namespace: openshift-config
+  resourceVersion: "1637"
+  uid: 7f1543cd-95e0-4323-9bf8-138c99cd8aa8
+
+
+
+
+
+
+
+
+
+ 
